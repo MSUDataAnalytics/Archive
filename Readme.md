@@ -47,3 +47,67 @@ Although exams are assigned a relatively low weight, you must complete both exam
 Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the `R` language only. You must have access to computing resources and the ability to program basic statistical analyses.
 
 Finally, this course will not teach you how to program or how to write code in a specific language. If you are unprepared to do implement basic statistical coding, please take (or retake) PLS202. I highly encourage seeking coding advice from those who instruct computer science courses – it’s their job and they are better at it than I am. I’ll try to provide a good service, but I'm really not an expert in instruction as it relates to programming.
+
+## Miscellanea
+
+All class notes will be posted on https://github.com/MSU-DataAnalytics/SSC442. GitHub is your friend. Get used to it.
+
+Please use my office hours.  It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.
+
+In addition to drop-in office hours, I always have sign-up office hours for advising and other purposes.  They are online, linked from my web page. As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
+
+Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don’t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don’t want to risk not having time due to others’ questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. “How do I do this lab?” or “What’s up with `Python`?” are short questions with long answers. Come to office hours.
+
+## Tentative Schedule of Material
+
+What follows is a very rough schedule of what we will cover this semester — of course, I reserve the right to deviate from this schedule.  The number in brackets is the predicted number of lectures that we will spend on that topic, which will certainly change throughout the course.
+
+---
+### Theoretical Underpinnings of Statistical Learning
+  1.  Setup and a “Case Study”  	`[ 1 ]`
+  2.  The Learning Problem	`[ 2 ]`
+  3.  Linear Regression	`[ 3 ]`
+  4.  Bias versus Variance 	`[ 2 ]`
+  5.  Training versus Testing	`[ 1 ]`
+  6.  The VC Dimension	`[ 1 ]`
+
+```
+Exam 1: Date TBD
+```
+---
+
+### Parametric Models in Statistical Learning
+
+#### Models of Classification
+1. Linear Discriminant Analysis	`[ 1 ]`
+2. Logistic Regression 	`[ 1 ]`
+
+#### Linear Model Selection
+1. Shrinkage Models 	`[ 1 ]`
+2. Data with High-Dimensionality  	`[ 1 ]`
+3. Beyond Linearity	`[ 1 ]`
+4. Support Vector Machines	`[ 2 ]`
+
+```
+Exam 2: Date TBD
+```
+---
+
+### Applications and Extensions
+
+#### Tree-Based Methods
+1. Basics of Decision Trees	`[ 2 ]`
+2. Forests and Random Forests  	`[ 1 ]`
+
+#### Neural Networks
+1. Basics of Neural Networks and Neural Computation 	`[ 2 ]`
+2. Backpropagation and Cost Functions  	`[ 1 ]`
+3. “Deep Learning”	`[ 1 ]`
+
+#### Unsupervised Learning
+1. Clustering	`[ 1 ]`
+2. Miscellany `[ TBD ]`
+
+---
+
+The **Final Project** is due on the last day of the course (aka on the so-called final exam day). There is no final exam.
