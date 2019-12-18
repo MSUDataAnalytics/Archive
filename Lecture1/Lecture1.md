@@ -1,15 +1,4 @@
----
-title: "Lecture 2: Chapter 3 by Kieran Healy"
-author: "Ben Bushong"
-date: "January 2020"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Team Assignments: Choosing First Group
+# Team Assignments: Choosing First Group
 
 For the first group, I will pick 4 students who will complete a group assignment to share in 2 weeks time (lecture 4). Since it is the first group, I am happy to provide a bit more feedback if needed. So let's do this.
 
@@ -20,6 +9,7 @@ If you want to switch with someone else and someone else is happy to, then pleas
 Try to follow along by typing it yourself, adding comments as you make mistakes or realize things. Write the code out in chunks:
 
 ```{r}
+write some code in here
 ```
 
 ## How Ggplot Works
