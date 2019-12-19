@@ -66,9 +66,9 @@ What follows is a very rough schedule of what we will cover this semester — of
 
 ---
 ### Theoretical Underpinnings of Statistical Learning
-  1.  [Setup and a “Case Study”](https://www.google.com)  	`[ 1 ]`
-  [Assignment 0: Personal Computer Setup](Lecture0/Lecture0.md)
+[Assignment 0: Personal Computer Setup](Labs/Lab0.md)
 
+  1.  [Setup and a “Case Study”](Lecture1/index.html)  	`[ 1 ]`
   2.  The Learning Problem	`[ 2 ]`
   3.  Linear Regression	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`

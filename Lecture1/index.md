@@ -46,113 +46,62 @@ You **must** spend 5 minutes telling me a little bit about your interests before
 
 <!-- slide -->
 
+# Introduction: This Course
 
-	#Introduction: This Course}
-
-	\underline{The syllabus is posted on D2L.}
-
-	\vspace*{.2in}
+The syllabus is posted on the course website
 
 I'll walk through highlights now, but read it later -- it's long.
-	\begin{itemize}
-		\item[] (But eventually, please read it. It is ``required.'')
-	\end{itemize}
-
-	\vspace*{.2in}
+- But eventually, please read it. It is "required."
 
 	Syllabus highlights:
 
-	\begin{itemize}
-		\item Grade is composed of problem sets, exams, and a written assignment.
+- Grade is composed of problem sets, exams, and a written assignment.
+  - Attendance and Participation: 60\%
+  - Exams and Labs: 20\%
+  - Writing Assignment: 20\%
 
-		\begin{itemize}
-			\item Attendance and Participation: 60\%
-			\item Exams and Labs: 20\%
-			\item Writing Assignment: 20\%
-		\end{itemize}
+- Although exams are given a relatively low weight, you must attempt both exams to pass the course.
+- Labs consist of a practical implementation of something we've covered in the course (e.g., code your own Recommender System).
 
-		\vspace*{0.1in}
+<!-- slide -->
 
-		\item Although exams are given a relatively low weight, you must attempt both exams to pass the course.
+# Introduction: This Course
 
-		\item Labs consist of a practical implementation of something we've covered in the course (e.g., code your own Recommender System).
-
-
-
-	\end{itemize}
-
-\end{frame}%
-
-
-
-\<!-- slide -->%
-
-
-#Introduction: This Course}
-
-Grading: \underline{come to class.}
-
-\vspace*{0.2in}
+Grading: **come to class.**
 
 If you are the type of student that doesn't generally enjoy coming to class, this is not the course for you.
 
-\vspace*{0.2in}
+I suspect the exams will be much like my exams in my other course. Students have described those exams as ``painfully difficult". You are only *entitled* to the rubric on the previous slide. However, if you complete all assignments, I will utilize the following rough guidelines for grading:
 
-I suspect the exams will be much like my exams in my other course. Students have described those exams as ``painfully difficult". You are only \textbf{entitled} to the rubric on the previous slide. However, if you complete all assignments, I will utilize the following rough guidelines for grading:
+4.0 Came to class regularly and contributed substantive comments to discussions, did modestly well on exams, turned in all assignments.
 
-\begin{itemize}
-	\item[4.0] Came to class regularly and contributed substantive comments to discussions, did modestly well on exams, turned in all assignments.
-	\item[3.5] Came to class regularly and said some stuff (sometimes interesting), did modestly poorly on exams, turned in all assignments.
-	\item[3.0] Came to class regularly and said some stuff (mostly uninteresting), did very poorly on exams, turned in all assignments.
-	\item[$<$3.0] Didn't come to class regularly or didn't turn in all assignments.
-\end{itemize}
+3.5 Came to class regularly and said some stuff (sometimes interesting), did modestly poorly on exams, turned in all assignments.
 
+3.0 Came to class regularly and said some stuff (mostly uninteresting), did very poorly on exams, turned in all assignments.
 
-\end{frame}%
+< 3.0 Didn't come to class regularly or didn't turn in all assignments.
 
+<!-- slide -->
 
+# Introduction: This Course
 
+There are sort of three texts for this course and sort of zero.
 
-\<!-- slide -->%
-	%EndExpansion
+The main text is free and available online (see syllabus or Google it). The secondary text is substantially more difficult, but also free online. The third text costs about \$25.
 
-	#Introduction: This Course}
+**Please please please please please:** Ask questions during class.
+- Some of the material is quite hard.
+- Sometimes (often?) the material itself will be confusing or interesting---or both!
+- Think of your role as similar to a participant in a focus group.
 
-	There are sort of three texts for this course and sort of zero.
+Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.
 
-	\vspace*{.2in}
+<!-- slide -->
 
-	The main text is free and available online (see syllabus or Google it). The secondary text is substantially more difficult, but also free online. The third text costs about \$25.
-
-	\vspace*{.2in}
-
-	\textbf{Please please please please please:} Ask questions during class.
-
-	\begin{itemize}
-		\item Some of the material is quite hard.
-
-		\item Sometimes (often?) the material itself will be confusing or interesting---or both!
-
-		\item Think of your role as similar to a participant in a focus group.
-
-	\end{itemize}
-
-	\vspace*{0.2in}
-
-	\textbf{Return of the Please:} If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.
-
-	%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
-	%BeginExpansion
-\end{frame}%
-
-\<!-- slide -->%
-%EndExpansion
-
-#Introduction: This Course}
+# Introduction: This Course
 
 Because this is a new course:
 
-\vspace*{.05in}
 
 \begin{itemize}
 	\item Some of the lectures will be way too long or too short.
@@ -163,15 +112,12 @@ Because this is a new course:
 
 \end{itemize}
 
-\vspace*{0.1in}
 
 Comment \underline{throughout} the course, not just at the end.
 
-\vspace*{0.1in}
 
 The material will improve with time and feedback.
 
-\vspace*{0.1in}
 
 I encourage measured feedback and thoughtful responses to questions. If I call on you and you don't know immediately, don't freak out. If you don't know, it's totally okay to say you don't know.
 
@@ -180,79 +126,53 @@ I encourage measured feedback and thoughtful responses to questions. If I call o
 
 \<!-- slide -->
 
-#Introduction: This Course}
+#Introduction: This Course
 
 SUPER BIG IMPORTANT EXPLANATION OF THE COURSE:
 
-\vspace*{0.2in}
 
 I teach using ``math''.
 
-\vspace*{0.2in}
 
 ...Don't be afraid. The math won't hurt you.
 
-\vspace*{0.2in}
 
 I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.
 
-\begin{itemize}
 	\item Good news: no black boxes. \\You'll \underline{actually learn} stuff. (Probably. Hopefully?)
 	\item Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.
 	\item Bad news: notation-heavy slides and reading.
-\end{itemize}
 
-%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
-%BeginExpansion
-\end{frame}%
+<!-- slide -->
 
-\<!-- slide -->
-
-#Introduction: This Course}
+# Introduction: This Course
 
 Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.
 
-\vspace*{0.2in}
-
 Good news: I'm good at knowing what I don't know and have a very small ego, which means that I'm much less likely to blow smoke up your ass than other professors.
-
-\vspace*{0.2in}
 
 Bad news: I can't help with certain types of questions.
 
-\vspace*{0.2in}
-
 This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).
 
-\end{frame}%
+<!-- slide -->
 
+# Last Intro Slide
 
-\<!-- slide -->
+Your "assignment": read syllabus.
 
-	#Last Intro Slide}
+Things to stress from syllabus:
 
-	Your ``assignment'': read syllabus.
-
-	\vspace*{0.2in}
-
-	Things to stress from syllabus:
-
-	\begin{itemize}
 		\item E-mail is the best way to contact me.
 		\item No appointments necessary for regularly scheduled office hours; or by appointment.
 		\item Can only reschedule exams (with good reason) if you tell me \textbf{before} the exam that you have a conflict.
 		\item Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.
-	\end{itemize}
-
-	\vspace*{0.2in}
 
 	Despite my hard-assness in these intro slides: I'm here to help and I am not in the business of giving bad grades for no reason.
 
-\end{frame}
 
 
-\<!-- slide -->%
-%EndExpansion
+<!-- slide -->
 
 #What is \textquotedblleft Data Analytics\textquotedblright ?}
 
