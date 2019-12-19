@@ -52,7 +52,7 @@ Finally, this course will not teach you how to program or how to write code in a
 
 ## Miscellanea
 
-All class notes will be posted on https://github.com/MSU-DataAnalytics/SSC442. GitHub is your friend. Get used to it.
+All class notes will be posted on https://msudataanalytics.github.io/SSC442. GitHub is your friend. Get used to it.
 
 Please use my office hours.  It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.
 
@@ -68,7 +68,7 @@ What follows is a very rough schedule of what we will cover this semester — of
 ### Theoretical Underpinnings of Statistical Learning
 [Assignment 0: Personal Computer Setup](Labs/Lab0.md)
 
-  1.  [Setup and a “Case Study”](Lecture1/index.html)  	`[ 1 ]`
+  1.  [Setup and a “Case Study”](https://msudataanalytics.github.io/SSC442/Lecture1/index.html)  	`[ 1 ]`
   2.  The Learning Problem	`[ 2 ]`
   3.  Linear Regression	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
