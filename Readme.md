@@ -68,7 +68,8 @@ What follows is a very rough schedule of what we will cover this semester — of
 ### Theoretical Underpinnings of Statistical Learning
 [Assignment 0: Personal Computer Setup](Labs/Lab0.md)
 
-  1.  [Setup and a “Case Study”](https://msudataanalytics.github.io/SSC442/Lecture1/index.html)  	`[ 1 ]`
+  1.  [Setup and a “Case Study”](https://msudataanalytics.github.io/SSC442/Lecture1/index.html) 	`[ 1 ]`
+  [plain text version](https://msudataanalytics.github.io/SSC442/Lecture1/index.md)
   2.  The Learning Problem	`[ 2 ]`
   3.  Linear Regression	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
