@@ -1,0 +1,674 @@
+<!DOCTYPE html><html><head>
+      <title>Readme</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/bbushong/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIYqWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIouWqZPBQ.ttf) format('truetype');
+}
+section.has-light-background,
+section.has-light-background h1,
+section.has-light-background h2,
+section.has-light-background h3,
+section.has-light-background h4,
+section.has-light-background h5,
+section.has-light-background h6 {
+  color: #18453B;
+}
+.reveal .controls {
+  right: 50px;
+  bottom: 50px;
+}
+.reveal.has-dark-background .line {
+  display: none;
+}
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  background-color: #fff;
+}
+.reveal {
+  font: 36px 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Fix for webkit rendering */
+  -moz-osx-font-smoothing: grayscale;
+  /* Fix for firefox rendering */
+  font-weight: 400;
+}
+::selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+::-moz-selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 2.5em;
+  font-weight: inherit;
+  text-align: left;
+}
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #18453B;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  line-height: 2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+.reveal h1 {
+  position: top left;
+  font-size: 2.4em;
+  text-align: center;
+}
+.reveal h2 {
+  font-size: 2em;
+  text-align: center;
+}
+.reveal h3 {
+  font-size: 1.6em;
+  text-align: center;
+}
+.reveal h4 {
+  font-size: 1.5em;
+}
+.reveal h1 {
+  text-shadow: none;
+}
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.3;
+}
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+.reveal em {
+  font-style: italic;
+}
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+.reveal ol {
+  list-style-type: decimal;
+}
+.reveal ul {
+  list-style-type: disc;
+}
+.reveal ul ul {
+  list-style-type: square;
+}
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+.reveal dt {
+  font-weight: bold;
+}
+.reveal dd {
+  margin-left: 40px;
+}
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  font-variant: small-caps;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px #18453B;
+}
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+.reveal q {
+  font-style: italic;
+}
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px #18453B;
+}
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+}
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.reveal table th {
+  font-weight: bold;
+}
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center;
+}
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right;
+}
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+.reveal sup {
+  vertical-align: super;
+}
+.reveal sub {
+  vertical-align: sub;
+}
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+.reveal small * {
+  vertical-align: top;
+}
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #FF4081;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+.reveal a:hover {
+  color: #ff8db3;
+  text-shadow: none;
+  border: none;
+}
+.reveal .roll span:after {
+  color: #fff;
+  background: #f30053;
+}
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #363636;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+}
+.reveal a img {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FF4081;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #18453B;
+}
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #18453B;
+}
+.reveal .progress span {
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+.reveal .progress {
+  z-index: 1000;
+  color: #18453B;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="social-science-data-analytics-applications">Social Science Data Analytics Applications</h1>
+
+<p><a href="#tentative-schedule-of-material">Shortcut to Course Outline and Links to Lectures</a></p>
+<h2 class="mume-header" id="what-is-this-course-and-can-should-you-take-it">What is This Course and Can / Should You Take It?</h2>
+
+<p>Innovations in statistical learning have created many engineering breakthroughs. From real time voice recognition to automatic categorization (and in some cases production) of news stories, machine learning is transforming the way we live our lives.  These techniques are, at their heart, novel ways to work with data, and therefore they should have implications for social science. This course explores the intersection of statistical learning (or machine learning) and social science and aims to answer two primary questions about these new techniques:</p>
+<p>(i)	How does statistical learning work and what kinds of statistical guarantees can be made about the performance of statistical-learning algorithms?</p>
+<p>(ii)	How can statistical learning be used to answer questions that interest social science researchers, such as testing theories or improving social policy?</p>
+<p>In order to address these questions, we will cover so-called &#x201C;standard&#x201D; techniques such as supervised and unsupervised learning, statistical learning theory and nonparametric and Bayesian approaches. Although this class will cover these novel methodologies in some detail, it is not a substitute for the appropriate class in Computer Science. Nor is this a class that teaches specific skills for the job market. Rather, this class will teach you to think about data analytics broadly. We will spend a great deal of time learning how to interpret the output of statistical learning algorithms and approaches, and will also spend a great deal of time on better understanding the basic ideas in statistical learning. This, of course, comes at some cost in terms of time spent on learning computational and/or programming skills.</p>
+<p><strong>Enrollment for credit in this course is simply not suitable for those unprepared in or uninterested in elementary statistical theory no matter the intensity of interest in machine learning or &#x201C;Big Data&#x201D;.  Really.</strong></p>
+<p>You will be required to understand elementary mathematics in this course and should have at least some exposure to statistical theory. The class is front-loaded technically: early lectures are more mathematically oriented, while later lectures are more applied.</p>
+<p>The topics covered in this course are listed later in this document. I will assign readings sparingly from <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf">Introduction to Statistical Learning</a>. This text is available for free online. Additional readings are listed on the syllabus, and I encourage interested students to pursue them. I will provide lecture notes online for you to review and prepare for coming lectures. Importantly, the lectures deviate a fair bit from the reading, and thus you will rely on your course notes much more than you might in other classes.</p>
+<p>If&#x2014;-after you have read this document and preferably after attending the first lecture&#x2014;-you have any questions about whether this course is appropriate for you, please come talk to me.  Anybody is permitted to attend the lectures and I am delighted if people can benefit.</p>
+<h2 class="mume-header" id="what-this-course-is-not">What This Course is Not</h2>
+
+<p>The focus of this course is conceptual. The goal is to create a working understanding of when and how tools from computer science and statistics can be profitably applied to problems in social science. Though students will be required to apply some of these techniques themselves, this course is not&#x2026;</p>
+<p><em>&#x2026;a replacement for EC420 or a course in causal inference.</em></p>
+<p>As social scientists, we are most often concerned with causal inference in order to write policy. Statistical learning and the other methods we will discuss in this course are generally not well-suited to these problems and while I&#x2019;ll give a short overview of standard methods, this is only to build intuitions. Ultimately, this course has a different focus and you should still pursue standard methodological insights from your home departments.</p>
+<p><em>&#x2026;a course on the computational aspects of the underlying methods.</em></p>
+<p>There are some important innovations that have made machine learning techniques computationally feasible. We will not discuss these, as there are computer science courses better equipped to cover them. When appropriate, we will discuss whether something is computable, and give rough approximations of the amount of time required (e.g. P vs NP). But we will not discuss how optimizers work or best practices in programming.</p>
+<p><em>&#x2026;a primer on the nitty-gritty of how to use these tools or a way to pad your resume.</em></p>
+<p>The mechanics of implementation, whether it be programming languages or learning to use APIs, will not be covered in any satisfying level of depth. Students will be expected to learn any programming skills on their own. This is not a good course for people simply looking to learn the mechanics of using programming. It is designed to get you to use both traditional analytics and, eventually, machine learning tools. We will do some of this, and you will have the opportunity to explore topics that interest you through a final project, but ultimately this is a course that largely focuses on the theoretical aspects of statistical learning as applied to social science and <strong>not</strong> a class on programming.</p>
+<p>Perhaps most importantly, this course is an attempt to push toward the frontiers in social science. Thus, please allow some messiness. Some topics may be underdeveloped for a given person&#x2019;s passions, but given the wide variety of technical skills and overall interests, this is a required sacrifice. Both the challenge and opportunity of this area comes from the fact that there is no fully developed unifying framework.</p>
+<h2 class="mume-header" id="evaluations-and-grades">Evaluations and Grades</h2>
+
+<p>Your grade in this course will be based on attendance, two exams, &#x201C;labs&#x201D;, and a final project.</p>
+<p>The general breakdown will be 20% for exams, 50% for labs and the final project, and 30% for attendance and participation, disproportionately weighted towards your participation in the group final project. Details on evaluations for the final project will be distributed a couple of weeks into the course &#x2013; evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested.</p>
+<p>Although exams are assigned a relatively low weight, you must complete both exams to pass the course. There will be no exceptions to this rule.</p>
+<p>Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the <code>R</code> language only. You must have access to computing resources and the ability to program basic statistical analyses.</p>
+<p>Finally, this course will not teach you how to program or how to write code in a specific language. If you are unprepared to do implement basic statistical coding, please take (or retake) PLS202. I highly encourage seeking coding advice from those who instruct computer science courses &#x2013; it&#x2019;s their job and they are better at it than I am. I&#x2019;ll try to provide a good service, but I&apos;m really not an expert in instruction as it relates to programming.</p>
+<h2 class="mume-header" id="miscellanea">Miscellanea</h2>
+
+<p>All class notes will be posted on <a href="https://msudataanalytics.github.io/SSC442">https://msudataanalytics.github.io/SSC442</a>. GitHub is your friend. Get used to it.</p>
+<p>Please use my office hours.  It would be remarkable if you didn&#x2019;t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.</p>
+<p>In addition to drop-in office hours, I always have sign-up office hours for advising and other purposes.  They are online, linked from my web page. As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours &#x2013; office hours are not a lecture and if you&#x2019;re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.</p>
+<p>Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don&#x2019;t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don&#x2019;t want to risk not having time due to others&#x2019; questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. &#x201C;How do I do this lab?&#x201D; or &#x201C;What&#x2019;s up with <code>Python</code>?&#x201D; are short questions with long answers. Come to office hours.</p>
+<h2 class="mume-header" id="tentative-schedule-of-material">Tentative Schedule of Material</h2>
+
+<p>What follows is a very rough schedule of what we will cover this semester &#x2014; of course, I reserve the right to deviate from this schedule.  The number in brackets is the predicted number of lectures that we will spend on that topic, which will certainly change throughout the course. As each topic is filled, a link will appear to provide access to the content for that topic.</p>
+<hr>
+<h3 class="mume-header" id="theoretical-underpinnings-of-statistical-learning">Theoretical Underpinnings of Statistical Learning</h3>
+
+<p><a href="Labs/Lab0.md">Assignment 0: Personal Computer Setup</a></p>
+<ol>
+<li><a href="https://msudataanalytics.github.io/SSC442/Lecture1/index.html">Setup and a &#x201C;Case Study&#x201D;</a>  	<code>[ 1 ]</code></li>
+<li>The Learning Problem	<code>[ 2 ]</code></li>
+<li>Linear Regression	<code>[ 3 ]</code></li>
+<li>Bias versus Variance 	<code>[ 2 ]</code></li>
+<li>Training versus Testing	<code>[ 1 ]</code></li>
+<li>The VC Dimension	<code>[ 1 ]</code></li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>Exam 1: Date TBD
+</code></pre><hr>
+<h3 class="mume-header" id="parametric-models-in-statistical-learning">Parametric Models in Statistical Learning</h3>
+
+<h4 class="mume-header" id="models-of-classification">Models of Classification</h4>
+
+<ol>
+<li>Linear Discriminant Analysis	<code>[ 1 ]</code></li>
+<li>Logistic Regression 	<code>[ 1 ]</code></li>
+</ol>
+<h4 class="mume-header" id="linear-model-selection">Linear Model Selection</h4>
+
+<ol>
+<li>Shrinkage Models 	<code>[ 1 ]</code></li>
+<li>Data with High-Dimensionality  	<code>[ 1 ]</code></li>
+<li>Beyond Linearity	<code>[ 1 ]</code></li>
+<li>Support Vector Machines	<code>[ 2 ]</code></li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>Exam 2: Date TBD
+</code></pre><hr>
+<h3 class="mume-header" id="applications-and-extensions">Applications and Extensions</h3>
+
+<h4 class="mume-header" id="tree-based-methods">Tree-Based Methods</h4>
+
+<ol>
+<li>Basics of Decision Trees	<code>[ 2 ]</code></li>
+<li>Forests and Random Forests  	<code>[ 1 ]</code></li>
+</ol>
+<h4 class="mume-header" id="neural-networks">Neural Networks</h4>
+
+<ol>
+<li>Basics of Neural Networks and Neural Computation 	<code>[ 2 ]</code></li>
+<li>Backpropagation and Cost Functions  	<code>[ 1 ]</code></li>
+<li>&#x201C;Deep Learning&#x201D;	<code>[ 1 ]</code></li>
+</ol>
+<h4 class="mume-header" id="unsupervised-learning">Unsupervised Learning</h4>
+
+<ol>
+<li>Clustering	<code>[ 1 ]</code></li>
+<li>Miscellany <code>[ TBD ]</code></li>
+</ol>
+<hr>
+<p>The <strong>Final Project</strong> is due on the last day of the course (aka on the so-called final exam day). There is no final exam.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
