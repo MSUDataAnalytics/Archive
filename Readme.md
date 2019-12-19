@@ -16,7 +16,7 @@ In order to address these questions, we will cover so-called “standard” tech
 
 You will be required to understand elementary mathematics in this course and should have at least some exposure to statistical theory. The class is front-loaded technically: early lectures are more mathematically oriented, while later lectures are more applied.
 
-The topics covered in this course are listed later in this document. I will assign readings sparingly from Introduction to Statistical Learning. This text is available for free online. Additional readings are listed on the syllabus, and I encourage interested students to pursue them. I will provide lecture notes online for you to review and prepare for coming lectures. Importantly, the lectures deviate a fair bit from the reading, and thus you will rely on your course notes much more than you might in other classes.
+The topics covered in this course are listed later in this document. I will assign readings sparingly from [Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf). This text is available for free online. Additional readings are listed on the syllabus, and I encourage interested students to pursue them. I will provide lecture notes online for you to review and prepare for coming lectures. Importantly, the lectures deviate a fair bit from the reading, and thus you will rely on your course notes much more than you might in other classes.
 
 If—-after you have read this document and preferably after attending the first lecture—-you have any questions about whether this course is appropriate for you, please come talk to me.  Anybody is permitted to attend the lectures and I am delighted if people can benefit.
 
@@ -42,7 +42,7 @@ Perhaps most importantly, this course is an attempt to push toward the frontiers
 
 Your grade in this course will be based on attendance, two exams, “labs”, and a final project.
 
-The general breakdown will be 20% for exams, 60% for labs and the final project, and 20% for attendance and participation, disproportionately weighted towards your participation in the group final project. Details on evaluations for the final project will be distributed a couple of weeks into the course – evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested.
+The general breakdown will be 20% for exams, 50% for labs and the final project, and 30% for attendance and participation, disproportionately weighted towards your participation in the group final project. Details on evaluations for the final project will be distributed a couple of weeks into the course – evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested.
 
 Although exams are assigned a relatively low weight, you must complete both exams to pass the course. There will be no exceptions to this rule.
 
