@@ -343,12 +343,12 @@ The following are the basic requirements for statistical learning:
 <!-- slide -->
 # Social Science Example
 
-# ![GDP](/SSC442/assets/gdp.jpg)
+# ![GDP](/assets/gdp.jpg)
 
 <!-- slide -->
 #Social Science Example
 
-# ![USGDP](/SSC442/assets/us_gdp.png)
+# ![USGDP](/assets/us_gdp.png)
 
 <!-- slide -->
 # Formalization
