@@ -1,6 +1,6 @@
 # Social Science Data Analytics Applications
 
-[Shortcut to Course Outline and Links to Lectures](##tentative-schedule-of-material)
+[Shortcut to Course Outline and Links to Lectures](#tentative-schedule-of-material)
 
 ## What is This Course and Can / Should You Take It?
 
@@ -62,11 +62,13 @@ Some gentle requests regarding office hours and on contacting me. First, my offi
 
 ## Tentative Schedule of Material
 
-What follows is a very rough schedule of what we will cover this semester — of course, I reserve the right to deviate from this schedule.  The number in brackets is the predicted number of lectures that we will spend on that topic, which will certainly change throughout the course.
+What follows is a very rough schedule of what we will cover this semester — of course, I reserve the right to deviate from this schedule.  The number in brackets is the predicted number of lectures that we will spend on that topic, which will certainly change throughout the course. As each topic is filled, a link will appear to provide access to the content for that topic.
 
 ---
 ### Theoretical Underpinnings of Statistical Learning
   1.  [Setup and a “Case Study”](https://www.google.com)  	`[ 1 ]`
+  [Assignment 0: Personal Computer Setup](Lecture0/Lecture0.md)
+
   2.  The Learning Problem	`[ 2 ]`
   3.  Linear Regression	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
