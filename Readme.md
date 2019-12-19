@@ -1,5 +1,7 @@
 # Social Science Data Analytics Applications
 
+[Shortcut to Course Outline and Links to Lectures](##tentative-schedule-of-material)
+
 ## What is This Course and Can / Should You Take It?
 
 Innovations in statistical learning have created many engineering breakthroughs. From real time voice recognition to automatic categorization (and in some cases production) of news stories, machine learning is transforming the way we live our lives.  These techniques are, at their heart, novel ways to work with data, and therefore they should have implications for social science. This course explores the intersection of statistical learning (or machine learning) and social science and aims to answer two primary questions about these new techniques:
@@ -64,7 +66,7 @@ What follows is a very rough schedule of what we will cover this semester — of
 
 ---
 ### Theoretical Underpinnings of Statistical Learning
-  1.  Setup and a “Case Study”  	`[ 1 ]`
+  1.  [Setup and a “Case Study”](https://www.google.com)  	`[ 1 ]`
   2.  The Learning Problem	`[ 2 ]`
   3.  Linear Regression	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
