@@ -160,7 +160,7 @@ Things to stress from syllabus and Lab 0:
 
 - E-mail isn't the ideal solution for technical problems
 - No appointments necessary for regularly scheduled office hours; or by appointment.
-- Can only reschedule exams (with good reason) if you tell me \textbf{before} the exam that you have a conflict.
+- Can only reschedule exams (with good reason) if you tell me **before** the exam that you have a conflict.
   - Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.
 
 Despite my hard-assness in these intro slides: I'm here to help and I am not in the business of giving bad grades for no reason.

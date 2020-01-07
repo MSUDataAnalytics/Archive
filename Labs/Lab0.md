@@ -24,7 +24,7 @@ ggplot(diamonds, aes(cut)) + geom_bar()
 
 The remaining steps will allow you to install `git` and use it with RStudio.[^1]
 
-[^1]: These steps will be remarkably different if you are utilizing Atom (for the better). This is one reason to use Atom as your editing and analysis environment.
+[^1]: These steps will be remarkably different if you are utilizing Atom (for the better). This is one reason to use Atom as your editing and analysis environment. If you use Atom, you will need to become familiar with its various "packages". I strongly recommend that you try out `Hydrogen` and `atom-language-r` packages to allow you to execute `R` code in-line. A quick google search will provide the steps you need to get this set up. 
 
 5. Bookmark, watch or star this repository so that you can easily find it later
 
@@ -78,4 +78,4 @@ $ sudo ufw allow https
 ```
 ...yet it had wasted many hours of my time. Along the way, I learned some new things, and I generally felt more comfortable than when I began.
 
-Thus, I discourage emailing us for technical issues. Of course for non-technical questions or concerns, you are welcome to use email.
+Thus, I discourage emailing for technical issues. Of course for non-technical questions or concerns, you are welcome to use email. And ultimately I don't want you to waste your time, so if you are totally stuck, please email me rather than repeatedly trying in vain to solve your problem.

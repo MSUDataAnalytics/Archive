@@ -10,7 +10,7 @@ Innovations in statistical learning have created many engineering breakthroughs.
 
 (ii)	How can statistical learning be used to answer questions that interest social science researchers, such as testing theories or improving social policy?
 
-In order to address these questions, we will cover so-called “standard” techniques such as supervised and unsupervised learning, statistical learning theory and nonparametric and Bayesian approaches. Although this class will cover these novel methodologies in some detail, it is not a substitute for the appropriate class in Computer Science. Nor is this a class that teaches specific skills for the job market. Rather, this class will teach you to think about data analytics broadly. We will spend a great deal of time learning how to interpret the output of statistical learning algorithms and approaches, and will also spend a great deal of time on better understanding the basic ideas in statistical learning. This, of course, comes at some cost in terms of time spent on learning computational and/or programming skills.
+In order to address these questions, we will cover so-called "standard" techniques such as supervised and unsupervised learning, statistical learning theory and nonparametric and Bayesian approaches. If it were up to me, this course would be titled "Statistical Learning for Social Scientists"—I believe this provides a more appropriate guide to the content of this course. And while this class will cover these novel statistical methodologies in some detail, it is not a substitute for the appropriate class in Computer Science or Statistics. Nor is this a class that teaches specific skills for the job market. Rather, this class will teach you to think about data analytics broadly. We will spend a great deal of time learning how to interpret the output of statistical learning algorithms and approaches, and will also spend a great deal of time on better understanding the basic ideas in statistical learning. This, of course, comes at some cost in terms of time spent on learning computational and/or programming skills.
 
 **Enrollment for credit in this course is simply not suitable for those unprepared in or uninterested in elementary statistical theory no matter the intensity of interest in machine learning or “Big Data”.  Really.**
 
@@ -66,12 +66,12 @@ What follows is a very rough schedule of what we will cover this semester — of
 
 ---
 ### Theoretical Underpinnings of Statistical Learning
+
 [Assignment 0: Personal Computer Setup](Labs/Lab0.md)
 
   1.  [Setup and a “Case Study”](https://msudataanalytics.github.io/SSC442/Lecture1/index.html) 	`[ 1 ]`
-  [plain text version](https://msudataanalytics.github.io/SSC442/Lecture1/index.md)
   2.  The Learning Problem	`[ 2 ]`
-  3.  Linear Regression	`[ 3 ]`
+  3.  Linear Regression and Prediction	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
   5.  Training versus Testing	`[ 1 ]`
   6.  The VC Dimension	`[ 1 ]`
