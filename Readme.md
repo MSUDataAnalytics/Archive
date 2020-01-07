@@ -42,11 +42,11 @@ Perhaps most importantly, this course is an attempt to push toward the frontiers
 
 Your grade in this course will be based on attendance, two exams, “labs”, and a final project.
 
-The general breakdown will be 20% for exams, 50% for labs and the final project, and 30% for attendance and participation, disproportionately weighted towards your participation in the group final project. Details on evaluations for the final project will be distributed a couple of weeks into the course – evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested.
+The general breakdown will be 20% for exams, 50% for labs and the final project, and 30% for attendance and participation, disproportionately weighted towards your participation in the group final project. Assignment of numeric grades will follow the standard, where ties (e.g., 92%) favor the student. Details on evaluations for the final project will be distributed a couple of weeks into the course – evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested.
 
 Although exams are assigned a relatively low weight, you must complete both exams to pass the course. There will be no exceptions to this rule.
 
-Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the `R` language only. You must have access to computing resources and the ability to program basic statistical analyses.
+Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the `R` language only, although I may present some examples in `Python`. You must have access to computing resources and the ability to program basic statistical analyses.
 
 Finally, this course will not teach you how to program or how to write code in a specific language. If you are unprepared to do implement basic statistical coding, please take (or retake) PLS202. I highly encourage seeking coding advice from those who instruct computer science courses – it’s their job and they are better at it than I am. I’ll try to provide a good service, but I'm really not an expert in instruction as it relates to programming.
 
