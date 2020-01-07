@@ -1,9 +1,3 @@
----
-presentation:
-  width: 1920
-  height: 1080
----
-
 <!-- slide -->
 # Introduction
 
@@ -339,58 +333,3 @@ The following are the basic requirements for statistical learning:
 1. A pattern exists.
 2. This pattern is not easily expressed in a closed mathematical form.
 3. You have data.
-
-<!-- slide -->
-# Social Science Example
-
-# ![GDP](/assets/gdp.jpg)
-
-<!-- slide -->
-#Social Science Example
-
-# ![USGDP](/assets/us_gdp.png)
-
-<!-- slide -->
-# Formalization
-
-Here `emissions` is a **response** or **target** that we wish to predict.
-
-We generically refer to the response as $Y$.
-
-`GDP` is a **feature**, or **input**, or **predictor**, or **regressor**; call it $X_1$.
-
-Likewise let's test our postulate and call `westernhem` our $X_2$, and so on.
-
-We can refer to the input vector collectively as
-
-$$X = \begin{bmatrix} x_{11} & x_{12}\\
-x_{21} & x{22} \\
-x_{31} & x_{32} \\
-\vdots & \vdots
-\end{bmatrix}$$
-
-We are seeking some unknow function that maps $X$ to $Y$.
-
-Put another way, we are seeking to explain $Y$ as follows:
-\[
-Y = f (X) + \epsilon
-\]
-
-<!-- slide -->
-# Formalization
-
-We call the function $f : \mathcal{X} \to \mathcal{Y}$ the **target function**.
-
-The target function is **always unknown**. It is the object of learning.
-
-### Methodology:
-- Observe data $(x_1, y_1) \dots (x_N, y_N)$.
-- Use some algorithm to approximate $f$.
-- Produce final hypothesis function $g \approx f$.
-- Evaluate how well $g$ approximates $f$; iterate as needed.
-
-
-<!-- slide -->
-#The Learning Problem
-
-The coming lectures will express when the learning problem is feasible, and describe the most common solution to the learning problem (the linear regression).
