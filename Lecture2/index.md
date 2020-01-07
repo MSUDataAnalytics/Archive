@@ -128,208 +128,150 @@ Suppose we want to minimize the squared difference between our predictions and t
 
 
 That is, we wish to minimize:
-\begin{align*}
-\E \left( Y - \hat{Y} \right )^2 =&~ \E \left( f(X) + \epsilon - g(X)  \right) ^2 \\
-=&~ \E \left( f(X) - g(X)  \right) ^2 + \E (\epsilon)^2
-\end{align*}
+\[
+ E \left( Y - \hat{Y} \right )^2 = E \left( f(X) + \epsilon - g(X)  \right) ^2 \\
+ = E \left( f(X) - g(X)  \right) ^2 + E (\epsilon)^2
+\]
 
-Note $\E (\epsilon)^2 = \text{var}(\epsilon)$. This is the \textit{irreducible error} in the learning problem.
+Note $E (\epsilon)^2 = \text{var}(\epsilon)$. This is the **irreducible error** in the learning problem.
 
-The term $ \E \left( f(X) - g(X)  \right) ^2$ represents the \textit{reducible error} in the problem.
+The term $ E \left( f(X) - g(X)  \right) ^2$ represents the **reducible error** in the problem.
 
 <!-- slide -->
-\frametitle{Perceptron Learning}
+# Binary Classification
 
-Examining binary outcomes: \alert{\texttt{signedKyotoProtocol}} is our response, coded as $\pm 1$.
+Examining binary outcomes: `signedKyotoProtocol` is our response, coded as $\pm 1$.
 
- pace*{0.1in}
+Given some input vector $X = (X_1,\dots,X_m )$, we categorize
 
-Input vector $X = (X_1,\dots,X_m ) $.
-
- pace*{0.1in}
-
-Categorize
 \[
 \sum_{j=1}^n \sum_{i=1}^m w_i^j x_i^j > ~ \text{some threshold},
 \]
 
- as ``likely'' members of Kyoto Protocol.
+ as "likely" members of Kyoto Protocol.
 
-  pace*{0.1in}
+- How to choose the importance weights} $w_i$
+  - Give importance weights to the different inputs and compute a ``score".
+  - Determine likely signatory if ``score'' is acceptable.
+    - input $x_i$ is important (e.g., `G8country`) $\rightarrow$ large weight $|w_i|$
+    - input $x_i$ beneficial (e.g., `inEurope`) $\rightarrow$ $w_i>0$.
 
-\textbf{How to choose the importance weights} $w_i$
-\begin{enumerate}
-	\item Give importance weights to the different inputs and compute a ``score".
-	\item Determine likely signatory if ``score'' is acceptable.
-	\begin{itemize}
-		\item input $x_i$ is important (e.g., \alert{\texttt{G8country}}) $\rightarrow$ large weight $|w_i|$
-		\item input $x_i$ beneficial (e.g., \alert{\texttt{inEurope}}) $\rightarrow$ $w_i>0$.
-	\end{itemize}
-\end{enumerate}
 
 
 
 
 
 <!-- slide -->
-\frametitle{Perceptron Learning}
+# Linear Learning
+A simple form of binary learning takes the following mathematical form:
+
 \[
 \text{Categorize as signer if} \quad \sum_{j=1}^n  \sum_{i=1}^m w_i^j x_i^j > ~ \text{some threshold}, \]
 
- pace*{0.3in}
-\[\text{Categorize as non-signer if} \quad \sum_{j=1}^n  \sum_{i=1}^m w_i^j x_i^j < ~ \text{some threshold}
-\]
- pace*{0.1in}
 
-can be formally written as
+\[\text{Categorize as non-signer if} \quad \sum_{j=1}^n  \sum_{i=1}^m w_i^j x_i^j < ~ \text{some threshold.}
+\]
+
+
+This can be formally written as
 
 \[
 h(X) = \text{sign}\left ( \left (\sum_{j=1}^n  \sum_{i=1}^m  w_i^j x_i^j + w_0  \right ) \right )
 \]
 
 
-where the ``bias weight'' $w_0$ corresponds to the threshold.
+where the "bias weight" $w_0$ corresponds to the threshold.
 
 
 
 
 <!-- slide -->
-\frametitle{Perceptron Learning}
-Note that we have defined a hypothesis set $\mathcal{H} = \left \{ h(X) = \text{sign}\left (W^T X \right ) \right \}$.
+# Linear Learning
+This is equivalent to a hypothesis set $\mathcal{H} = \left \{ h(X) = \text{sign}\left (W^T X \right ) \right \}$.
 
- pace*{0.05in}
 
-\begin{align*}
-X &= \begin{pmatrix}
+\[
+X = \begin{pmatrix}
 	1 \\
 	X_{1} \\
 	\vdots \\
 	X_{m}
 \end{pmatrix}
-\end{align*}
-
-\begin{align*}
-W &= \begin{pmatrix}
+\]
+\[
+W = \begin{pmatrix}
 w_0 \\
 w_{1} \\
 \vdots \\
 w_{m}
 \end{pmatrix}
-\end{align*}
+\]
 
-
- pace*{0.1in}
-
-This hypothesis set is called the \textit{perceptron} or linear separator.
+This hypothesis set is called the **linear separator**.
 
 
 
 <!-- slide -->
-\frametitle{Perceptron Learning: Geometry}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{graphics/percep1}
-\end{figure}
+# Geometric / Visual Interpretation
+# ![Percep1](/assets/percep1.png)
 
+<!-- slide -->
+# Geometric / Visual Interpretation
+# ![Percep1](/assets/percep2.png)
 
 
 
 <!-- slide -->
-\frametitle{Perceptron Learning: Geometry}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{graphics/percep2}
-\end{figure}
+# Perceptron Learning Algorithm
 
+A **perceptron** predicts the data by using a line or a plane to separate the `red` from `blue` data.
 
-
-<!-- slide -->
-\frametitle{Perceptron Learning: Algorithm}
-
-A perceptron fits the data by using a line or a plane to separate the ``red'' from ``blue'' data.
-
- pace*{0.1in}
-
-Fitting the data: How to find a hyperplane that separates the data?
-\begin{itemize}
-	\item ``It's obvious - just look at the data and draw the line,'' is not a valid solution.
-\end{itemize}
+#### Fitting the data
+How to find a hyperplane that separates the data?
+- "It's obvious - just look at the data and draw the line," is not a valid solution.
 
 We want to select $g \in \mathcal{H}$ such that $g \approx f$.
 
- pace*{0.1in}
-
-We \textbf{certainly} want $g \approx f$ on the data set $\mathcal{D}$.
-\begin{itemize}
-	\item Ideally, $g(x) = y$ for all $n$ data-points.
-\end{itemize}
-
- pace*{0.1in}
+We **certainly** want $g \approx f$ on the data set $\mathcal{D}$.
+- Ideally, $g(x) = y$ for all $n$ data-points.
 
 How do we find such a $g$ in the infinite hypothesis set $\mathcal{H}$, if it exists?
-
- pace*{0.1in}
 
 $\Rightarrow$ Start with some weight vector and try to improve it.
 
 
 
 <!-- slide -->
-\frametitle{Perceptron Learning: Algorithm}
-A simple iterative method in \alert{\texttt{psuedocode}}:
- pace*{0.1in}
-\begin{enumerate}
-	\item[0.] Red = -1, Blue = +1
-			 pace*{0.1in}
-	\item \alert{\texttt{initialize}} $w(1)=0$
-			 pace*{0.1in}
-	\item \alert{\texttt{for}} each iteration $t = 1,2,3,\dots$ where the weight vector is w(t)
-			 pace*{0.1in}
-	\item \alert{\texttt{choose}} one misclassified example $(x_1, y_1), \dots , (x_n , y_n )$
-	\begin{itemize}
-		\item Let's call the misclassified example $(x_*, y_*)$.
-		 pace*{0.1in}
-		\item[] That is, \qquad \qquad \qquad sign$\left (w(t) \cdot x_* \right ) \neq y_*$.
-	\end{itemize}
- pace*{0.1in}
-\item \alert{\texttt{update}} the weight \\
-\[
-w(t + 1) = w(t) + y_* x_*
-\]
-\end{enumerate}
+# Perceptron Learning Algorithm
+A simple iterative method in `psuedocode`:
 
-
+0. `set` the values `red` = -1, `blue` = +1
+1. `initialize` $w(1)=0$
+2. `for` each iteration $t = 1,2,3,\dots$ where the weight vector is $w(t)$
+  - `choose` one misclassified example $(x_1, y_1), \dots , (x_n , y_n )$
+  - Let's call the misclassified example $(x_*, y_*)$.
+  - That is, `sign`$\left (w(t) \cdot x_* \right ) \neq y_*$.
+  - `update` the weight such that:
+\[ w(t + 1) = w(t) + y_* x_* \]
 
 
 
 <!-- slide -->
-\frametitle{Perceptron Learning: Success (?)}
+# Perceptron Learning: Success?
 
 PLA implements our idea: start at some weights and try to improve.
- pace*{0.1in}
-\begin{itemize}
-	\item This form of ``incremental learning'' will pop up a lot.
-\end{itemize}
+- This form of ``incremental learning'' will pop up a lot.
 
- pace*{0.2in}
+> **Theorem:** If the data can be fit by a linear separator, then after some finite number of steps, the perceptron learning algorithm will find one.
 
-\textbf{Theorem.} If the data can be fit by a linear separator, then after some finite number of steps, the perceptron learning algorithm will find one.
-
- pace*{0.3in}
-
-{\tiny ...but after how many steps and what if it can't be separated and is there a faster way and also we want to predict stuff...}
+...but after how many steps and what if it can't be separated and is there a faster way?
 
 
 
 
 <!-- slide -->
-\frametitle{Human Learning: a ``Test''}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{graphics/outside}
-\end{figure}
-
+# Human Learning: a "Test"
+# ![Percep1](/assets/outside.png)
 
 
 
