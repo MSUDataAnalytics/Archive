@@ -15,14 +15,16 @@ To aid your planning, here are the required elements of that project:
 <!-- slide -->
 # Teams
 
-You must let me know your team by this coming Tuesday.
+You must let me know your team by this Sunday. This will allow us to assign teams by next Tuesday.
 
-If you fail to report your team, then you will
+If you fail to report your team, then you will be added to the "willing to be randomly assigned" pool.
+
+**The course website** has a survey to help aid us in putting together teams.
 
 <!-- slide -->
 # More on Teams
 
-- Your team must come up with a name and a Github site for your project.
+- Your team must come up with a name and a Github site for your project and labs.
 - Your team will earn the same scores on all projects and labs.
   - Labs can receive either 4,8, or 10 points (out of 10).
 - Teams will only submit one write-up.
@@ -65,7 +67,7 @@ Likewise let's test our postulate and call `westernhem` our $X_2$, and so on.
 We can refer to the input vector collectively as
 
 $$X = \begin{bmatrix} x_{11} & x_{12}\\
-x_{21} & x{22} \\
+x_{21} & x_{22} \\
 x_{31} & x_{32} \\
 \vdots & \vdots
 \end{bmatrix}$$
@@ -291,3 +293,55 @@ You cannot know anything for sure about $f$ outside the data without making assu
 Is there any hope to know anything about $f$ outside the data set without making assumptions about $f$?
 
 **Yes**, if we are willing to give up the "for sure."
+
+<!-- slide -->
+
+# The Parable of the Marbles
+# ![marbles](/assets/marbles.jpg)
+
+Within this bag of marbles are $\clubsuit$ and $\diamondsuit$ marbles
+
+We are going to pick a sample of $n$ marbles (with replacement).
+
+<!-- slide -->
+# The Parable of the Marbles
+Consider a sample composed of  $~\clubsuit~\clubsuit~\clubsuit~\diamondsuit~\clubsuit~\diamondsuit~\clubsuit$
+
+- Let $\mu$ be the **objective** probability to pick a $\clubsuit$.
+- Let $\nu$ be fraction of $\clubsuit$ marbles in the sample.
+
+**Question:** Can we say anything about $\mu$ (outside the data) after observing $\nu$ (the data)?
+
+- No. It is possible for the sample to be all $\clubsuit$ marbles and the bag to be $\diamondsuit$.
+
+**Question:** Then why do we do polling (e.g. to predict the outcome of the presidential election)?
+- The bad case is *possible*, but not **probable**.
+
+<!-- slide -->
+# Hoeffding's Inequality
+
+**Hoeffding's Inequality** states, loosely, that $\nu$ cannot be too far from $\mu$.
+
+### Theorem (Hoeffding's Inequality)
+$$
+\mathbb{P} \left [ | \nu - \mu |  > \epsilon \right ] \leq  2 e^{-2\epsilon^2 n}
+$$
+
+$\nu \approx \mu$ is called **probably approximately correct** (PAC-learning)
+
+<!-- slide -->
+# Hoeffding's Inequality: Example
+**Example:** $n = 1, 000$; draw a sample and observe $\nu$.
+
+
+- 99\% of the time $\mu - 0.05 \leq \nu \leq \mu + 0.05$
+- (This is implied from setting $\epsilon = 0.05$ and using given $n$)
+- 99.9999996\% of the time $\mu - 0.10 \leq \nu \leq \mu + 0.10$ %
+
+
+**What does this mean?**
+
+If I repeatedly pick a sample of size 1,000, observe $\nu$ and claim that
+$\mu \in  [\nu - 0.05, \nu + 0.05]$ (or that the error bar is $\pm 0.05$) I will be right 99\% of the time.
+
+On any particular sample you may be wrong, but not often.
