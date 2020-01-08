@@ -49,7 +49,7 @@ The following are the basic requirements for statistical learning:
 # ![GDP](/assets/gdp.jpg)
 
 <!-- slide -->
-#Social Science Example
+# Social Science Example
 
 # ![USGDP](/assets/us_gdp.png)
 
