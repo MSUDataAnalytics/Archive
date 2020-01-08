@@ -46,12 +46,11 @@ The following are the basic requirements for statistical learning:
 <!-- slide -->
 # Social Science Example
 
-# ![GDP](/assets/gdp.jpg)
-
+@import "/assets/gdp.jpg" {width="700px"}
 <!-- slide -->
 # Social Science Example
 
-# ![USGDP](/assets/us_gdp.png)
+@import "/assets/us_gdp.png" {width="700px"}
 
 <!-- slide -->
 # Formalization
