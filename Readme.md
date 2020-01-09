@@ -56,6 +56,8 @@ Finally, this course will not teach you how to program or how to write code in a
 
 All class notes will be posted on https://msudataanalytics.github.io/SSC442. GitHub is your friend. Get used to it.
 
+#### Office Hours are Tues & Thur, 4:30 - 5:45 PM in 25A Marshall Adams Hall
+
 Please use my office hours.  It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.
 
 In addition to drop-in office hours, I always have sign-up office hours for advising and other purposes.  They are online, linked from my web page. As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
