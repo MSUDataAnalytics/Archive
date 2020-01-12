@@ -261,9 +261,9 @@ A simple iterative method in `psuedocode`:
 # Perceptron Learning: Success?
 
 PLA implements our idea: start at some weights and try to improve.
-- This form of ``incremental learning'' will pop up a lot.
+- This form of "incremental learning" will pop up a lot.
 
-> **Theorem:** If the data can be fit by a linear separator, then after some finite number of steps, the perceptron learning algorithm will find one.
+'" "'> **Theorem:** If the data can be fit by a linear separator, then after some finite number of steps, the perceptron learning algorithm will find one.
 
 ...but after how many steps and what if it can't be separated and is there a faster way?
 
@@ -311,7 +311,7 @@ Consider a sample composed of  $~\clubsuit~\clubsuit~\clubsuit~\diamondsuit~\clu
 
 **Question:** Can we say anything about $\mu$ (outside the data) after observing $\nu$ (the data)?
 
-- No. It is possible for the sample to be all $\clubsuit$ marbles and the bag to be $\diamondsuit$.
+- No. It is possible for the sample to be all $\clubsuit$ marbles and the bag to be $\approx \diamondsuit$.
 
 **Question:** Then why do we do polling (e.g. to predict the outcome of the presidential election)?
 - The bad case is *possible*, but not **probable**.
