@@ -1,6 +1,6 @@
 # Social Science Data Analytics Applications
 
-[Course Survey](https://msu.co1.qualtrics.com/jfe/form/SV_bNkoWT1RlUjll1b)
+[List of Teams](assets/teamlist.md)
 
 [Shortcut to Course Outline and Links to Lectures](#tentative-schedule-of-material)
 
@@ -71,10 +71,13 @@ What follows is a very rough schedule of what we will cover this semester — of
 ---
 ### Theoretical Underpinnings of Statistical Learning
 
-[Assignment 0: Personal Computer Setup](Labs/Lab0.md)
+[Lab 0: Personal Computer Setup](Labs/Lab0.md)
 
   1.  [Setup and a “Case Study”](https://msudataanalytics.github.io/SSC442/Lecture1/index.html) 	`[ 1 ]`
   2.  [The Learning Problem](https://msudataanalytics.github.io/SSC442/Lecture2/index.html) 	`[ 2 ]`
+
+[Lab 1: Intro to Visualization in R](Labs/Lab1.md)
+
   3.  Linear Regression and Prediction	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
   5.  Training versus Testing	`[ 1 ]`

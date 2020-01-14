@@ -54,7 +54,7 @@ Even with independence, $\nu$ can take on arbitrary values.
 - The bag can be infinite.
 - It’s great that it does not depend on $\mu$ because $\mu$ is **unknown**.
 
-The key player in the bound $2 e^{-2\epsilon^2 n}$ is $n$.  
+The key player in the bound $2 e^{-2\epsilon^2 n}$ is $n$.
 - If $n \to \infty, \nu \approx \mu$ with very very high probabilty, but not for sure.
 
 <!-- slide -->
@@ -124,5 +124,3 @@ In this (artificial example) world: we have no control over $\mathbb{E}_\text{in
 
 In learning, you actually try to *fit* the data!
 - e.g., perceptron model $g$ results from searching an entire hypothesis set $\mathcal{H}$ for a hypothesis with small $\mathbb{E}_\text{in}$.
-
-<!-- slide -->
