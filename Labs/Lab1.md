@@ -162,7 +162,7 @@ p + geom_point() + scale_x_log10()
 
 This is interesting (or annoying): the points are not yellow. How can we tell ggplot to draw yellow points?
 
-```{r, yellow_points, eval=FALSE}
+```{r, yellow_points}
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp, ...))
 p + geom_point(...) + scale_x_log10()
