@@ -27,7 +27,7 @@ How to use ``ggplot2`` -- the fast and wholly unclear recipe:
   - these are called 'geoms' in ggplot's grammar, such as `geom_point()` giving scatter plots
 
 
-```{r, geoms, eval=FALSE}
+```{r, geoms}
 library(ggplot2)
 ... + geom_point() # Produces scatterplots
 ... + geom_bar() # Bar plots
@@ -102,7 +102,7 @@ p + geom_smooth()
 
 We get a message that tells us that `geom_smooth()` is using the method = 'gam', so presumably we can use other methods. Let's see if we can figure out which other methods there are.
 
-```{r, smoothing_methods, eval=FALSE}
+```{r, smoothing_methods}
 ?geom_smooth
 p + geom_point() + geom_smooth() + geom_smooth(method = ...) + geom_smooth(method = ...)
 p + geom_point() + geom_smooth() + geom_smooth(method = ...) + geom_smooth(method = ..., color = "red")
@@ -119,7 +119,7 @@ p + geom_point() + geom_smooth(method = "lm") + scale_x_log10()
 
 Nice. We're starting to get somewhere. But, you might notice that the x-axis now has scientific notation. Let's change that.
 
-```{r, scales, eval=FALSE}
+```{r, scales}
 library(scales)
 p + geom_point() +
   geom_smooth(method = "lm") +
