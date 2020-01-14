@@ -4,11 +4,13 @@ Our primary tool for data visualization in the course will be ``ggplot2``. ``ggp
 ## Using ggplot2
 In order to get our hands dirty, we will first have to load ``ggplot2``. To do this, and to access the datasets, help pages, and functions that we will use in this chapter, we will load the so-called tidyverse by running this code:
 
-```{r, load, warning=FALSE}
+```{r}
 library(tidyverse)
 ```
+
 If you run this code and get an error message “there is no package called ‘tidyverse’”, you’ll need to first install it, then run library() once again. To install packages in ``R``, we utilize the simple function install.packages(). In this case, we would write:
-```{r, load, warning=FALSE}
+
+```{r}
 install.packages("tidyverse")
 library(tidyverse)
 ```
