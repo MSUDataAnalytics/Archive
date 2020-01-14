@@ -4,13 +4,13 @@ Our primary tool for data visualization in the course will be ``ggplot2``. ``ggp
 ## Using ggplot2
 In order to get our hands dirty, we will first have to load ``ggplot2``. To do this, and to access the datasets, help pages, and functions that we will use in this chapter, we will load the so-called tidyverse by running this code:
 
-```{r}
+```
 library(tidyverse)
 ```
 
 If you run this code and get an error message “there is no package called ‘tidyverse’”, you’ll need to first install it, then run library() once again. To install packages in ``R``, we utilize the simple function install.packages(). In this case, we would write:
 
-```{r}
+```
 install.packages("tidyverse")
 library(tidyverse)
 ```
@@ -29,7 +29,7 @@ How to use ``ggplot2`` -- the fast and wholly unclear recipe:
   - these are called 'geoms' in ggplot's grammar, such as `geom_point()` giving scatter plots
 
 
-```{r, geoms}
+```
 library(ggplot2)
 ... + geom_point() # Produces scatterplots
 ... + geom_bar() # Bar plots
@@ -95,7 +95,7 @@ You can convey information about your data by mapping the aesthetics in your plo
 
 Let's explore our previously saved `p` in greater detail. As with Exercise 1, we'll add a *layer*. This says how some data gets turned into concrete visual aspects.
 
-```{r, scatter_plot}
+```
 p + geom_point()
 p + geom_smooth()
 ```
@@ -104,7 +104,7 @@ p + geom_smooth()
 
 We get a message that tells us that `geom_smooth()` is using the method = 'gam', so presumably we can use other methods. Let's see if we can figure out which other methods there are.
 
-```{r, smoothing_methods}
+```
 ?geom_smooth
 p + geom_point() + geom_smooth() + geom_smooth(method = ...) + geom_smooth(method = ...)
 p + geom_point() + geom_smooth() + geom_smooth(method = ...) + geom_smooth(method = ..., color = "red")
@@ -114,14 +114,14 @@ You may start to see why `ggplot2`'s way of breaking up tasks is quite powerful:
 
 Consider the output we've explored thus far. One potential issue lurking in the data is that most of it is bunched to the left. If we instead used a logarithmic scale, we should be able to spread the data out better.
 
-```{r, scale_coordinates}
+```
 p + geom_point() + geom_smooth(method = "lm") + scale_x_log10()
 ```
 **Try it:** Describe what the `scale_x_log10()` does. Why is it a more evenly distributed cloud of points now? (2-3 sentences.)
 
 Nice. We're starting to get somewhere. But, you might notice that the x-axis now has scientific notation. Let's change that.
 
-```{r, scales}
+```
 library(scales)
 p + geom_point() +
   geom_smooth(method = "lm") +
@@ -133,7 +133,7 @@ p + geom_point() +
 
 **Try it:** What does the `dollar()` call do? How can you find other ways of relabeling the scales when using `scale_x_log10()`?
 
-```{r, dollar_answer}
+```
 ?dollar()
 ```
 
@@ -156,7 +156,7 @@ One common problem when creating ggplot2 graphics is to put the + in the wrong p
 
 ### Mapping Aesthetics vs Setting them
 
-```{r, mapping_vs_setting}
+```
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp, color = 'yellow'))
 p + geom_point() + scale_x_log10()
@@ -164,7 +164,7 @@ p + geom_point() + scale_x_log10()
 
 This is interesting (or annoying): the points are not yellow. How can we tell ggplot to draw yellow points?
 
-```{r, yellow_points}
+```
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp, ...))
 p + geom_point(...) + scale_x_log10()
@@ -179,7 +179,7 @@ Aesthetics convey information about a variable in the dataset, whereas setting t
 
 Remember: `color = 'yellow'` and `aes(color = 'yellow')` are very different, and the second makes usually no sense, as `'yellow'` is treated as *data*.
 
-```{r, exercise_args_for_smooth}
+```
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp))
 p + geom_point() + geom_smooth(color = "orange", se = FALSE, size = 8, method = "lm") + scale_x_log10()
@@ -187,7 +187,7 @@ p + geom_point() + geom_smooth(color = "orange", se = FALSE, size = 8, method = 
 
 **Try it:**  Write down what all those arguments in `geom_smooth(...)` do.
 
-```{r, gapminder_with_labels}
+```
 p + geom_point(alpha = 0.3) +
   geom_smooth(method = "gam") +
   scale_x_log10(labels = scales::dollar) +
@@ -199,7 +199,7 @@ p + geom_point(alpha = 0.3) +
 
 Coloring by continent:
 
-```{r, gapminder_color_by_continent}
+```
 library(scales)
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp, color = continent, fill = continent))
@@ -210,7 +210,7 @@ p + geom_point() + scale_x_log10(labels = dollar) + geom_smooth()
 
 **Try it:**  What does `fill = continent` do? What do you think about the match of colors between lines and error bands?
 
-```{r, gapminder_color_by_continent_single_line}
+```
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp))
 p + geom_point(mapping = aes(color = continent)) + geom_smooth() + scale_x_log10()
@@ -220,7 +220,7 @@ p + geom_point(mapping = aes(color = continent)) + geom_smooth() + scale_x_log10
 
 **Try it:**  What is bad about the following example, assuming the graph is the one we want? Think about why you should set aesthetics at the top level rather than at the individual geometry level if that's your intent.
 
-```{r, many_continents}
+```
 p <- ggplot(data = gapminder,
             mapping = aes(x = gdpPercap, y = lifeExp))
 p + geom_point(mapping = aes(color = continent)) +
