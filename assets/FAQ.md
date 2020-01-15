@@ -3,15 +3,18 @@
 Below is a (non-exhaustive) list of frequently asked questions in this course. Throughout the term (and over the coming years) we will add to this document to better guide the class and to--hopefully--avoid confusion. If your question is not addressed below and you believe it would be appropriate for this part of the website, please [email me](mailto:bbushong@msu.edu).
 
 [Teams](#teams)
+
 [Labs](#labs)
+
 [Software](#software)
+
 [Misc](#misc)
 
 ---
 
 **Office Hours are Tuesday & Thurday, 4:30 - 5:45 PM in 25A Marshall Adams Hall.**[^0]
 
-[^0]: There. Saved you from hunting for it.
+[^0]: Some caveats and additional explanations are in order. First: office hours are first-come, first-served. Moreover, they will end at the designated time. Finally, an additional note: office hours for EC404 are from 3:15 - 4:30 PM; accordingly, I will be in my office speaking to students between 3:15 and 5:45. If you absolutely cannot make the assigned time but can come earlier, I will do my best to accommodate you. However, students in EC404 have first priority during that time period.
 
 ---
 
