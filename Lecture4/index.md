@@ -3,7 +3,7 @@
 # Simple Linear Regression
 
 > "All models are wrong, but some are useful."
->
+> ___
 > **George E. P. Box**
 
 These two lectures (in one slide deck) describe the following:
@@ -16,7 +16,18 @@ These two lectures (in one slide deck) describe the following:
 
 # Practical Lectures
 
-Practical lectures---denoted with a `[ P ]` on the course website)---introduce techniques and ideas with interactivity. That is: you will need to have your computer open and ready to attempt to replicate things as we go along. Otherwise, the notes will be far less satisfying (and probably make a lot less sense).
+Practical lectures---denoted with a `[ P ]` on the course website)---introduce techniques and ideas by utilizing interactivity. That is: you will need to have your computer open and ready to attempt to replicate things as we go along.
+
+Copy and paste is your friend.
+
+Otherwise, the notes will be far less satisfying (and probably make a lot less sense).
+
+<!-- slide -->
+
+>I like cool people, but why should I care?
+> Because I’m busy tryna fit a line with the least squares
+> ___
+> **J-Wong**
 
 <!-- slide -->
 
@@ -659,7 +670,7 @@ We're getting bored of the `cars` data, though, so let's generate some of our ow
 
 <!-- slide -->
 
-![Figs](https://daviddalpiaz.github.io/appliedstats/slr_files/figure-html/unnamed-chunk-27-1.png){width=10%}
+![Figs](https://daviddalpiaz.github.io/appliedstats/slr_files/figure-html/unnamed-chunk-27-1.png)
 
 <!-- slide -->
 

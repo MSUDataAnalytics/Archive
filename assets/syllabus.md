@@ -1,8 +1,6 @@
-# Social Science Data Analytics Applications
+# Syllabus
 
-[Shortcut to Course Outline and Links to Lectures](#tentative-schedule-of-material)
-
-[FAQ](assets/FAQ.md)
+(Note: this is an archived version of the syllabus as it appeared at the beginning of the course.)
 
 ## What is This Course and Can / Should You Take It?
 
@@ -71,14 +69,9 @@ What follows is a very rough schedule of what we will cover this semester — of
 ---
 ### Theoretical Underpinnings of Statistical Learning
 
-[Lab 0: Personal Computer Setup](Labs/Lab0.md)
-
-  1.  Setup and a “Case Study” [`[ 1 ]`](https://msudataanalytics.github.io/SSC442/Lecture1/index.html)
-  2.  The Learning Problem [`[ 1 ]`](https://msudataanalytics.github.io/SSC442/Lecture2/index.html)[`[ 2 ]`](https://msudataanalytics.github.io/SSC442/Lecture3/index.html)
-
-[Lab 1: Intro to Visualization in R](Labs/Lab1.md)
-
-  3.  Linear Regression and Prediction	[`[ P ]`](https://msudataanalytics.github.io/SSC442/Lecture4/index.html)
+  1.  Setup and a “Case Study” `[ 1 ]`
+  2.  The Learning Problem `[ 2 ]`
+  3.  Linear Regression and Prediction	`[ 3 ]`
   4.  Bias versus Variance 	`[ 2 ]`
   5.  Training versus Testing	`[ 1 ]`
   6.  The VC Dimension	`[ 1 ]`
@@ -123,5 +116,3 @@ Exam 2: Date TBD
 ---
 
 The **Final Project** is due on the last day of the course (aka on the so-called final exam day). There is no final exam.
-
-[Archived version of Syllabus](assets/syllabus.md)
