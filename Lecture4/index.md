@@ -6,7 +6,7 @@
 >
 > **George E. P. Box**
 
-This set of lectures will quickly lead to the following:
+These two lectures (in one slide deck) describe the following:
 - Describe two ways in which regression coefficients are derived.
 - Estimate and visualize a regression model using `R`.
 - Interpret regression coefficients and statistics in the context of real-world problems.
