@@ -54,6 +54,28 @@ This is for two reasons. First, computer scientists spent a huge amount of time 
 
 Your instructors are able to count and are aware the teams are imbalanced. Evaluations of final projects will take this into account. Your work on labs will be assessed solely according to your responses and (where applicable) the correctness of your answers. That said, labs are designed to be reasonably straightforward. While your final product should reflect the best ability of your team, we do not anticipate that the uneven teams will lead to substantively different outputs.
 
+> What does the group project entail?
+
+1. You must find existing data to analyze.[^*] Aggregating data from multiple sources is encouraged, but is not required.
+
+2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^*]
+
+3. You must come up with some analysis---using tools from the course---which relates your data to either a prediction or a policy conclusion. For example, if you collected data from Major League Baseball games, you could try to "predict" whether a left-hander was pitching based solely on the outcomes of the batsmen.[^*]
+
+4. You must present your analysis as if presenting to a **C-suite executive**. If you are not familiar with this terminology, the C-suite includes, e.g., the CEO, CFO, and COO of a given company. Generally speaking, such executives are not particularly analytically oriented, and therefore your explanations need to be clear, consise (their time is valuable) and contain actionable (or valuable) information.[^*]
+    - Concretely, this requires one of the two following options:
+      1. At least one member of the group **presents from a slide deck** (preferably as a PDF; alternatively as either a `Powerpoint` or `Presentation` file). If your group chooses this option, presentations will be 10 minutes in duration (preferrably, within about 30 seconds on either side of that time). This is hard: you will need to be able to quickly and clearly present a few results.
+      - Whether or not a given person presents (or does not present) will not affect their grade if this alternative is chosen. Accordingly, groups should divide their work to capitalize on the skills of the members.
+      2. The group **writes a memo**---less than 5 pages---which describes their data, analyses, and results. This must be clear and easy to understand for a non-expert in your field.
+
+[^*]: Note that **existing** is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place---this sort of exercise is encouraged.
+
+[^*]: Pie charts of any kind will result in a 25\% grade deduction.
+
+[^*]: This is an extremely dumb idea for a number of reasons. Moreover, it's worth mentioning that sports data, while rich, can be overwhelming due to its sheer magnitude and the variety of approaches that can be applied. Use with caution.
+
+[^*]: This exercise provides you with an opportunity to identify your marketable skills and to practice them. I encourage those who will be looking for jobs soon to take this exercise seriously.
+
 ---
 
 ## Labs
@@ -64,9 +86,11 @@ Your **team** turns in labs together. You will all recieve the same score (inclu
 
 > How do we format our labs when we turn them in?
 
-We (very much) prefer that your team turn in the written answers to your homework as a PDF. These should include any figures. Why PDFs? Well, as is a theme in this course, we like file formats that are free, that render on lots of machines (e.g., mobile) and that can compress easily for space saving. PDFs meet this requirement nicely.
+We (very much) prefer that your team turns in the written answers to your homework as a PDF. These should include any figures. Why PDFs? Well, as is a theme in this course, we like file formats that are free, that render on lots of machines (e.g., mobile) and that can compress easily for space saving. PDFs meet this requirement nicely.
 
 To create a PDF, you have a few options. You could use `Word` or a similar program, and then export as a PDF. This is gross and if you do it you're officially not getting a job at Facebook. A better approach would be to use a simple and streamlined word processor like [`Atom`](https://atom.io) or [`Sublime Text`](https://www.sublimetext.com) and then figure out how to export a PDF from there.[^3]
+
+The associated code should be saved within your GitHub page and identified clearly. For example, if you are using `R`, then your final code for Lab 1 should be saved as `Lab1.r`. Please don't make us hunt for your code.
 
 [^3]: Both text editors (and many others) have easy solutions to that question, and it's a good way to learn a little more about a very important part of the production process. As the human in the production system, you should recognize that your value is in the generation of text characters by pressing mechanical keys with fingers. Computers can't (yet) do this. Accordingly, the screen you stare at while you complete this process is important, and you should get to know an editor like it is your best friend. But, you know, also make sure to go outside from time to time.
 
@@ -84,7 +108,7 @@ As long as they need to be. Typically, the question will cue you as to what is r
 
 > My setup for `R` isn't working. How can I fix it?
 
-This is the absolute \#1 question in the course and we have no satisfying answer. Computers have tons of specific details that inform how they execute a given piece of code. We cannot say what random program you installed years ago---and sadly this will, to a great extent, determine how your computer performs. Here's a general strategy to dealing with your problem.
+This is the most common question in the course and we have no satisfying answer. Computers have tons of specific details that inform how they execute a given piece of code. We cannot say what random program you installed years ago---and sadly this will, to a great extent, determine how your computer performs. Here's a general strategy to dealing with your problem.
 
 1. Google the error message you get. Scroll around until you find a reasonable solution to your problem (often on pages like StackExchange or GitHub's discussion boards).
 2. Annoyingly, the second-best way to fix `R` is often to reinstall `R`. This will fix all but the biggest of issues.
