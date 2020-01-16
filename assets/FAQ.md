@@ -33,7 +33,7 @@ On this front, we will be more supportive. While you have to put up with your te
     - `Subject line:` [SSC442] Strike against [Last name of Recipient]
     - `Body:` You do **not** need to provide detailed reasoning. However, you must discuss the actions (plural) you took to remedy the situation before sending the strike email.
 
-A strike is a serious matter, and will reduce that team member's grade on joint work by 10\%. If any team-member gets strikes from all other members of his or her team, their grade will be reduced by 50\%.
+A strike is a serious matter, and will reduce that team member's grade on joint work by 10%. If any team-member gets strikes from all other members of his or her team, their grade will be reduced by 50%.
 
 Strikes are *anonymous* so that you do not need to fear social retaliation. However, they are not anonymous to allow you to issue them without thoughtful consideration. Perhaps the other person has a serious issue that is preventing them from completing work (e.g., a relative passing away). Please be thoughtful in using this remedy and consider it a last resort.
 
@@ -56,25 +56,25 @@ Your instructors are able to count and are aware the teams are imbalanced. Evalu
 
 > What does the group project entail?
 
-1. You must find existing data to analyze.[^*] Aggregating data from multiple sources is encouraged, but is not required.
+1. You must find existing data to analyze.[^3] Aggregating data from multiple sources is encouraged, but is not required.
 
-2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^*]
+[^3]: Note that **existing** is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place---this sort of exercise is encouraged.
 
-3. You must come up with some analysis---using tools from the course---which relates your data to either a prediction or a policy conclusion. For example, if you collected data from Major League Baseball games, you could try to "predict" whether a left-hander was pitching based solely on the outcomes of the batsmen.[^*]
+2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^4]
 
-4. You must present your analysis as if presenting to a **C-suite executive**. If you are not familiar with this terminology, the C-suite includes, e.g., the CEO, CFO, and COO of a given company. Generally speaking, such executives are not particularly analytically oriented, and therefore your explanations need to be clear, consise (their time is valuable) and contain actionable (or valuable) information.[^*]
+[^4]: Pie charts of any kind will result in a 25\% grade deduction.
+
+3. You must come up with some analysis---using tools from the course---which relates your data to either a prediction or a policy conclusion. For example, if you collected data from Major League Baseball games, you could try to "predict" whether a left-hander was pitching based solely on the outcomes of the batsmen.[^5]
+
+[^5]: This is an extremely dumb idea for a number of reasons. Moreover, it's worth mentioning that sports data, while rich, can be overwhelming due to its sheer magnitude and the variety of approaches that can be applied. Use with caution.
+
+4. You must present your analysis as if presenting to a **C-suite executive**. If you are not familiar with this terminology, the C-suite includes, e.g., the CEO, CFO, and COO of a given company. Generally speaking, such executives are not particularly analytically oriented, and therefore your explanations need to be clear, consise (their time is valuable) and contain actionable (or valuable) information.[^6]
     - Concretely, this requires one of the two following options:
       1. At least one member of the group **presents from a slide deck** (preferably as a PDF; alternatively as either a `Powerpoint` or `Presentation` file). If your group chooses this option, presentations will be 10 minutes in duration (preferrably, within about 30 seconds on either side of that time). This is hard: you will need to be able to quickly and clearly present a few results.
       - Whether or not a given person presents (or does not present) will not affect their grade if this alternative is chosen. Accordingly, groups should divide their work to capitalize on the skills of the members.
       2. The group **writes a memo**---less than 5 pages---which describes their data, analyses, and results. This must be clear and easy to understand for a non-expert in your field.
 
-[^*]: Note that **existing** is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place---this sort of exercise is encouraged.
-
-[^*]: Pie charts of any kind will result in a 25\% grade deduction.
-
-[^*]: This is an extremely dumb idea for a number of reasons. Moreover, it's worth mentioning that sports data, while rich, can be overwhelming due to its sheer magnitude and the variety of approaches that can be applied. Use with caution.
-
-[^*]: This exercise provides you with an opportunity to identify your marketable skills and to practice them. I encourage those who will be looking for jobs soon to take this exercise seriously.
+[^6]: This exercise provides you with an opportunity to identify your marketable skills and to practice them. I encourage those who will be looking for jobs soon to take this exercise seriously.
 
 ---
 
@@ -88,11 +88,11 @@ Your **team** turns in labs together. You will all recieve the same score (inclu
 
 We (very much) prefer that your team turns in the written answers to your homework as a PDF. These should include any figures. Why PDFs? Well, as is a theme in this course, we like file formats that are free, that render on lots of machines (e.g., mobile) and that can compress easily for space saving. PDFs meet this requirement nicely.
 
-To create a PDF, you have a few options. You could use `Word` or a similar program, and then export as a PDF. This is gross and if you do it you're officially not getting a job at Facebook. A better approach would be to use a simple and streamlined word processor like [`Atom`](https://atom.io) or [`Sublime Text`](https://www.sublimetext.com) and then figure out how to export a PDF from there.[^3]
+To create a PDF, you have a few options. You could use `Word` or a similar program, and then export as a PDF. This is gross and if you do it you're officially not getting a job at Facebook. A better approach would be to use a simple and streamlined word processor like [`Atom`](https://atom.io) or [`Sublime Text`](https://www.sublimetext.com) and then figure out how to export a PDF from there.[^7]
 
 The associated code should be saved within your GitHub page and identified clearly. For example, if you are using `R`, then your final code for Lab 1 should be saved as `Lab1.r`. Please don't make us hunt for your code.
 
-[^3]: Both text editors (and many others) have easy solutions to that question, and it's a good way to learn a little more about a very important part of the production process. As the human in the production system, you should recognize that your value is in the generation of text characters by pressing mechanical keys with fingers. Computers can't (yet) do this. Accordingly, the screen you stare at while you complete this process is important, and you should get to know an editor like it is your best friend. But, you know, also make sure to go outside from time to time.
+[^7]: Both text editors (and many others) have easy solutions to that question, and it's a good way to learn a little more about a very important part of the production process. As the human in the production system, you should recognize that your value is in the generation of text characters by pressing mechanical keys with fingers. Computers can't (yet) do this. Accordingly, the screen you stare at while you complete this process is important, and you should get to know an editor like it is your best friend. But, you know, also make sure to go outside from time to time.
 
 > How many labs are there?
 
@@ -112,10 +112,14 @@ This is the most common question in the course and we have no satisfying answer.
 
 1. Google the error message you get. Scroll around until you find a reasonable solution to your problem (often on pages like StackExchange or GitHub's discussion boards).
 2. Annoyingly, the second-best way to fix `R` is often to reinstall `R`. This will fix all but the biggest of issues.
-3. Still not working? *Not good, Bob!* You're going to have a longer session ahead of you where you deep-dive some opaque error code or have to wipe more than just your `R` installation.[^4]
+3. Still not working? *Not good, Bob!* You're going to have a longer session ahead of you where you deep-dive some opaque error code or have to wipe more than just your `R` installation.[^8]
 4. Come to Office Hours.
 
-[^4]: This brings us to another recurrent point: your computer is your most important tool. You absolutely must ensure that you keep it from getting f\&\$\@ed up and cluttered. If you're working with an older machine (more than 5 years old), consider this the moment that you realize you need to upgrade.
+[^8]: This brings us to another recurrent point: your computer is your most important tool. You absolutely must ensure that you keep it from getting f\&$@ed up and cluttered. If you're working with an older machine (more than 5 years old), consider this the moment that you realize you need to upgrade.
+
+> Can I complete this class in `[insert some programming language here]`?
+
+Sure. Sadly, we cannot provide instruction in multiple programming languages; it's simply not realistic. However,
 
 ---
 
@@ -123,9 +127,9 @@ This is the most common question in the course and we have no satisfying answer.
 
 > How are grades assigned?
 
-As in the syllabus---which outlines evaluations--- grades are assigned using the "standard" cutoffs. For example, 93\% and up ensures that you earn a 4.0 in the class. Between 87\% and 92\% yields a 3.0; and so on down the scale. We will round grades incredibly in your favor---e.g., a 92.47\% will be rounded to 92.5\% and then rounded to 93\%, yielding a 4.0.[^5]
+As in the syllabus---which outlines evaluations--- grades are assigned using the "standard" cutoffs. For example, 93% and up ensures that you earn a 4.0 in the class. Between 87% and 92% yields a 3.0; and so on down the scale. We will round grades incredibly in your favor---e.g., a 92.47% will be rounded to 92.5% and then rounded to 93%, yielding a 4.0.[^9]
 
-[^5]: Don't do this in a math class. Seriously, don't.
+[^9]: Don't do this in a math class. Seriously, don't.
 
 > What material will be covered on exams?
 
