@@ -33,7 +33,7 @@ Otherwise, the notes will be far less satisfying (and probably make a lot less s
 
 ## Modeling
 
-Let's consider a simple example of how the speed of a car affects its stopping distance, that is, how far it travels before it comes to a stop. To examine this relationship, we will use the `cars` dataset which, is a default `R` dataset. Thus, we don't need to load a package first; it is immediately available.
+Let's consider a simple example of how the speed of a car affects its stopping distance---that is, how far it travels before it comes to a stop. To examine this relationship, we will use the `cars` dataset which is a default `R` dataset. Thus, we don't need to load a package first; it is immediately available.
 
 To get a first look at the data you can use the `View()` function inside RStudio.
 
