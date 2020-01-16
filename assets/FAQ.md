@@ -119,7 +119,7 @@ This is the most common question in the course and we have no satisfying answer.
 
 > Can I complete this class in `[insert some programming language here]`?
 
-Sure. Sadly, we cannot provide instruction in multiple programming languages; it's simply not realistic. However,
+Sure. Sadly, we cannot provide instruction in multiple programming languages; it's simply not realistic. However, we encourage you to become familiar with multiple languages. You'll find that it becomes easier to learn programming after understanding the fundamentals. For example, nearly all languages have `functions`, `Booleans`, and `arithmetic`. Most of the languages you will encounter will be [object oriented](https://en.wikipedia.org/wiki/Object-oriented_programming). And you'll discover things that are easier or more difficult to do in certain languages. 
 
 ---
 
