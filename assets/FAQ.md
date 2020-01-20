@@ -84,13 +84,15 @@ Your instructors are able to count and are aware the teams are imbalanced. Evalu
 
 Your **team** turns in labs together. You will all recieve the same score (including "0" if you did not turn in the assignment). Your team must have a GitHub repository. This must be open. We will evaluate your project **during the assigned class time** by going to your GitHub and running the relevant code (or, when applicable, opening a document).
 
+In order to make your GitHub repository open, you have two different options. 1) You can just make a public repository. This is the preferred solution as it's the easiest. 2) You can create an organization for your team, then within that organization you can create a public repository. This option is good if you have existing repositories and do not want to clutter your homepage. More information on this process can be found [here](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch). 
+
 > How do we format our labs when we turn them in?
 
 We (very much) prefer that your team turns in the written answers to your homework as a PDF. These should include any figures. Why PDFs? Well, as is a theme in this course, we like file formats that are free, that render on lots of machines (e.g., mobile) and that can compress easily for space saving. PDFs meet this requirement nicely.
 
 To create a PDF, you have a few options. You could use `Word` or a similar program, and then export as a PDF. This is gross and if you do it you're officially not getting a job at Facebook. A better approach would be to use a simple and streamlined word processor like [`Atom`](https://atom.io) or [`Sublime Text`](https://www.sublimetext.com) and then figure out how to export a PDF from there.[^7]
 
-The associated code should be saved within your GitHub page and identified clearly. For example, if you are using `R`, then your final code for Lab 1 should be saved as `Lab1.r`. Please don't make us hunt for your code.
+The associated code **must be saved within your GitHub page** and identified clearly. For example, if you are using `R`, then your final code for Lab 1 should be saved as `Lab1.r`. Please don't make us hunt for your code.
 
 [^7]: Both text editors (and many others) have easy solutions to that question, and it's a good way to learn a little more about a very important part of the production process. As the human in the production system, you should recognize that your value is in the generation of text characters by pressing mechanical keys with fingers. Computers can't (yet) do this. Accordingly, the screen you stare at while you complete this process is important, and you should get to know an editor like it is your best friend. But, you know, also make sure to go outside from time to time.
 
@@ -119,7 +121,7 @@ This is the most common question in the course and we have no satisfying answer.
 
 > Can I complete this class in `[insert some programming language here]`?
 
-Sure. Sadly, we cannot provide instruction in multiple programming languages; it's simply not realistic. However, we encourage you to become familiar with multiple languages. You'll find that it becomes easier to learn programming after understanding the fundamentals. For example, nearly all languages have `functions`, `Booleans`, and `arithmetic`. Most of the languages you will encounter will be [object oriented](https://en.wikipedia.org/wiki/Object-oriented_programming). And you'll discover things that are easier or more difficult to do in certain languages. 
+Sure. Sadly, we cannot provide instruction in multiple programming languages; it's simply not realistic. However, we encourage you to become familiar with multiple languages. You'll find that it becomes easier to learn programming after understanding the fundamentals. For example, nearly all languages have `functions`, `Booleans`, and `arithmetic`. Most of the languages you will encounter will be [object oriented](https://en.wikipedia.org/wiki/Object-oriented_programming). And you'll discover things that are easier or more difficult to do in certain languages.
 
 ---
 
