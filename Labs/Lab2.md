@@ -175,3 +175,5 @@ lm.fit = lm(SalePrice ~ GrLivArea + LotArea)
 5. Try a few (e.g., three) different transformations of the variables, such as $ln(x)$, $x^2$, $\sqrt x$. Do any of these make sense to include in a model of `SalePrice`? Comment on your findings.
 
 **(Bonus; very very challenging)** How might we build a model to estimate the elasticity of demand from this dataset?
+
+---
