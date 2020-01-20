@@ -143,7 +143,8 @@ If we type `lm.fit`, some basic information about the model is output. For more 
 [^3]: When we use the simple regression model with a single input, the $F$-stat includes the intercept term. Otherwise, it does not. See Lecture 5 for more detail.
 
 Utilizing these functions hels us see some interesting results. Note that we built (nearly) the simplest possible model:
-# ![\text{SalePrice} = \beta_0 + \beta_1*(\text{GrLivArea}) + \epsilon.](https://render.githubusercontent.com/render/math?math=%5Ctext%7BSalePrice%7D%20%3D%20%5Cbeta_0%20%2B%20%5Cbeta_1*(%5Ctext%7BGrLivArea%7D)%20%2B%20%5Cepsilon.)
+
+$$\text{SalePrice} = \beta_0 + \beta_1*(\text{GrLivArea}) + \epsilon.$$
 
 But even on its own, this model is instructive. It suggest that an increase in overall living area of 1 ft $^2$ is correlated with an expected increase in sales price of $107. (Note that we **cannot** make causal claims!)
 
