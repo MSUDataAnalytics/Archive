@@ -20,9 +20,9 @@ In order to address these questions, we will cover so-called "standard" techniqu
 
 You will be required to understand elementary mathematics in this course and should have at least some exposure to statistical theory. The class is front-loaded technically: early lectures are more mathematically oriented, while later lectures are more applied.
 
-The topics covered in this course are listed later in this document. I will assign readings sparingly from [Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf). This text is available for free online. Additional readings are listed on the syllabus, and I encourage interested students to pursue them. I will provide lecture notes online for you to review and prepare for coming lectures. Importantly, the lectures deviate a fair bit from the reading, and thus you will rely on your course notes much more than you might in other classes.
+The topics covered in this course are listed later in this document. I will assign readings sparingly from [Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf), henceforth referred to as ISL. This text is available for free online and, for those who like physical books, can be purchased for about $25. Importantly, the lectures deviate a fair bit from the reading, and thus you will rely on your course notes much more than you might in other classes.
 
-If—-after you have read this document and preferably after attending the first lecture—-you have any questions about whether this course is appropriate for you, please come talk to me.  Anybody is permitted to attend the lectures and I am delighted if people can benefit.
+If---after you have read this document and preferably after attending the first lecture---you have any questions about whether this course is appropriate for you, please come talk to me.  Anybody is permitted to attend the lectures and I am delighted if people can benefit.
 
 ## What This Course is Not
 
@@ -30,33 +30,33 @@ The focus of this course is conceptual. The goal is to create a working understa
 
 *…a replacement for EC420 or a course in causal inference.*
 
-As social scientists, we are most often concerned with causal inference in order to write policy. Statistical learning and the other methods we will discuss in this course are generally not well-suited to these problems and while I’ll give a short overview of standard methods, this is only to build intuitions. Ultimately, this course has a different focus and you should still pursue standard methodological insights from your home departments.
+As social scientists, we are most often concerned with causal inference in order to analyze and write policies. Statistical learning and the other methods we will discuss in this course are generally not well-suited to these problems, and while I’ll give a short overview of standard methods, this is only to build intuitions. Ultimately, this course has a different focus and you should still pursue standard methodological insights from your home departments.
 
 *…a course on the computational aspects of the underlying methods.*
 
-There are some important innovations that have made machine learning techniques computationally feasible. We will not discuss these, as there are computer science courses better equipped to cover them. When appropriate, we will discuss whether something is computable, and give rough approximations of the amount of time required (e.g. P vs NP). But we will not discuss how optimizers work or best practices in programming.
+There are many important innovations that have made machine learning techniques computationally feasible. We will not discuss these, as there are computer science courses better equipped to cover them. When appropriate, we will discuss whether something **is** computable, and we will even give rough approximations of the amount of time required (e.g. **P** vs **NP**). But we will not discuss how optimizers work or best practices in programming.
 
 *…a primer on the nitty-gritty of how to use these tools or a way to pad your resume.*
 
-The mechanics of implementation, whether it be programming languages or learning to use APIs, will not be covered in any satisfying level of depth. Students will be expected to learn any programming skills on their own. This is not a good course for people simply looking to learn the mechanics of using programming. It is designed to get you to use both traditional analytics and, eventually, machine learning tools. We will do some of this, and you will have the opportunity to explore topics that interest you through a final project, but ultimately this is a course that largely focuses on the theoretical aspects of statistical learning as applied to social science and **not** a class on programming.
+The mechanics of implementation, whether it be programming languages or learning to use APIs, will not be covered in any satisfying level of depth. Students will be expected to learn most of the programming skills on their own. Specifically, while there will be some material to remind you of basic `R` commands, this is not a good course for people who are simply looking to learn the mechanics of programming. This course is designed to get you to use both traditional analytics and, eventually, machine learning tools. We will do some review of basic programming, and you will have the opportunity to explore topics that interest you through a final project, but ultimately this is a course that largely focuses on the theoretical aspects of statistical learning as applied to social science and **not** a class on programming.
 
-Perhaps most importantly, this course is an attempt to push toward the frontiers in social science. Thus, please allow some messiness. Some topics may be underdeveloped for a given person’s passions, but given the wide variety of technical skills and overall interests, this is a required sacrifice. Both the challenge and opportunity of this area comes from the fact that there is no fully developed unifying framework.
+Perhaps most importantly, this course is an attempt to push toward the frontiers in social science. Thus, please allow some messiness. Some topics may be underdeveloped for a given person’s passions, but given the wide variety of technical skills and overall interests, this is a required sacrifice. Both the challenge and opportunity of this area comes from the fact that there is no fully developed, wholly unifying framework.
 
 ## Evaluations and Grades
 
-Your grade in this course will be based on attendance, two exams, “labs”, and a final project.
+Your grade in this course will be based on "attendance", two exams, labs, and a final project.
 
 The general breakdown will be 20% for exams, 50% for labs and the final project, and 30% for attendance and participation, disproportionately weighted towards your participation in the group final project. Assignment of numeric grades will follow the standard, where ties (e.g., 92%) favor the student. Details on evaluations for the final project will be distributed a couple of weeks into the course – evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested.
 
 Although exams are assigned a relatively low weight, you must complete both exams to pass the course. There will be no exceptions to this rule.
 
-Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the `R` language only, although I may present some examples in `Python`. You must have access to computing resources and the ability to program basic statistical analyses.
+Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the `R` language only, although I may present some examples in `Python` from time to time. You must have access to computing resources and the ability to program basic statistical analyses.
 
-Finally, this course will not teach you how to program or how to write code in a specific language. If you are unprepared to do implement basic statistical coding, please take (or retake) PLS202. I highly encourage seeking coding advice from those who instruct computer science courses – it’s their job and they are better at it than I am. I’ll try to provide a good service, but I'm really not an expert in instruction as it relates to programming.
+As mentioned above, this course will not teach you how to program or how to write code in a specific language. If you are unprepared to do implement basic statistical coding, please take (or retake) PLS202. I highly encourage seeking coding advice from those who instruct computer science courses – it’s their job and they are better at it than I am. I’ll try to provide a good service, but I'm really not an expert in instruction as it relates to programming.
 
 ## Miscellanea
 
-All class notes will be posted on https://msudataanalytics.github.io/SSC442. GitHub is your friend. Get used to it.
+All class notes will be posted on https://msudataanalytics.github.io/SSC442.
 
 #### Office Hours are Tues & Thur, 4:30 - 5:45 PM in 25A Marshall Adams Hall
 
@@ -73,16 +73,18 @@ What follows is a very rough schedule of what we will cover this semester — of
 ---
 ### Theoretical Underpinnings of Statistical Learning
 
-[Lab 0: Personal Computer Setup](Labs/Lab0.md)
+[**Lab 0:** Personal Computer Setup](Labs/Lab0.md)
 
   1.  Setup and a “Case Study” [`[ 1 ]`](https://msudataanalytics.github.io/SSC442/Lecture1/index.html)
   2.  The Learning Problem [`[ 1 ]`](https://msudataanalytics.github.io/SSC442/Lecture2/index.html)[`[ 2 ]`](https://msudataanalytics.github.io/SSC442/Lecture3/index.html)
 
-[Lab 1: Intro to Visualization in R](Labs/Lab1.md)
+[**Lab 1:** Intro to Visualization in R](Labs/Lab1.md)
 
   3.  Linear Regression and Prediction	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture4/index.html)[`[ P2 ]`](https://msudataanalytics.github.io/SSC442/Lecture5/index.html)
 
-[Lab 2: Linear Regression and Simple Analyses](Labs/Lab2.md)
+**Reading:** ISL Chapter 3
+
+[**Lab 2:** Linear Regression and Simple Analyses](Labs/Lab2.md)
 
   4.  Bias versus Variance 	`[ 2 ]`
   5.  Training versus Testing	`[ 1 ]`
