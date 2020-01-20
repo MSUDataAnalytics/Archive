@@ -14,6 +14,14 @@ This lecture describes the following:
 - Comparing nested models using an ANOVA F-Test.
 
 <!-- slide -->
+
+> "Numbers is hardly real and they never have feelings // But you push too hard, even numbers got limits"
+>
+> --– **Mos Def**
+
+**Put another way**: More math ahead. Sorry.
+<!-- slide -->
+
 ## Introduction by Example
 
 The last lecture we saw how to fit a model that assumed a linear relationship between a response variable and a single predictor variable. Specifically, we defined the simple linear regression model,
