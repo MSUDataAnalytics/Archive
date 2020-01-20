@@ -24,7 +24,7 @@ Below is a (non-exhaustive) list of frequently asked questions in this course. T
 
 Life is full of small disappointments. While we would love to spend 12 weeks carefully optimizing groups, that would require a collosal amount of effort that would ultimately not yield anything fruitful. You're stuck.
 
-> My team sucks; how can I punish them for their lack of effort.
+> My team sucks; how can I punish them for their lack of effort?
 
 On this front, we will be more supportive. While you have to put up with your team regardless of their quality, you can indicate that your team members are not carrying their fair share by issuing a **strike**. This processs works as follows:
 1. A team member systematically fails to exert effort on collaborative projects (for example, by not showing up for meetings or not communicating, or by simply leeching off others without contributing.)
@@ -72,7 +72,7 @@ Your instructors are able to count and are aware the teams are imbalanced. Evalu
     - Concretely, this requires one of the two following options:
       1. At least one member of the group **presents from a slide deck** (preferably as a PDF; alternatively as either a `Powerpoint` or `Presentation` file). If your group chooses this option, presentations will be 10 minutes in duration (preferrably, within about 30 seconds on either side of that time). This is hard: you will need to be able to quickly and clearly present a few results.
       - Whether or not a given person presents (or does not present) will not affect their grade if this alternative is chosen. Accordingly, groups should divide their work to capitalize on the skills of the members.
-      2. The group **writes a memo**---less than 5 pages---which describes their data, analyses, and results. This must be clear and easy to understand for a non-expert in your field.
+      2. The group **writes a memo**---approximately 5 pages---which describes their data, analyses, and results. This must be clear and easy to understand for a non-expert in your field. Figures and tables do not apply to the page limit.
 
 [^6]: This exercise provides you with an opportunity to identify your marketable skills and to practice them. I encourage those who will be looking for jobs soon to take this exercise seriously.
 
@@ -94,13 +94,13 @@ To create a PDF, you have a few options. You could use `Word` or a similar progr
 
 The associated code **must be saved within your GitHub page** and identified clearly. For example, if you are using `R`, then your final code for Lab 1 should be saved as `Lab1.r`. Please don't make us hunt for your code.
 
-If you are using a solution that produces something like a Jupyter noteboook (e.g., `R Markdown`) then we ask that you save the `R` code separately from the notebook file. This aids the TA in evaluation (and does not require that we put Anaconda on lots of different machines to run your code). 
+If you are using a software package that contains analysis and text interspersed  (e.g., a `Jupyter` noteboook or `R Markdown`) then we ask that you save the `R` code separately from the notebook file. This aids the TA in evaluation (and does not require that we put specific software on lots of different machines in order to run your code).
 
 [^7]: Both text editors (and many others) have easy solutions to that question, and it's a good way to learn a little more about a very important part of the production process. As the human in the production system, you should recognize that your value is in the generation of text characters by pressing mechanical keys with fingers. Computers can't (yet) do this. Accordingly, the screen you stare at while you complete this process is important, and you should get to know an editor like it is your best friend. But, you know, also make sure to go outside from time to time.
 
 > How many labs are there?
 
-Five? Six? Certainly more than four and less than seven.
+Five? Six? Certainly more than four and less than seven. Labs are front-loaded in the course. Later weeks will be dedicated for your group to work on your project.
 
 > How long should our answers be?
 
@@ -137,4 +137,6 @@ As in the syllabus---which outlines evaluations--- grades are assigned using the
 
 > What material will be covered on exams?
 
-Exams are conceptual. They will require you to understand the mathematics of the course, but will **not** require you to replicate that mathematics. Instead, you should expect to think carefully about a problem in social science and use your judgement to come up with a reasoned solution.
+Exams are mostly conceptual. They will require you to understand the mathematics of the course, but will **not** require you to replicate that mathematics. Instead, you should expect to think carefully about a problem in social science and use your judgement to come up with a reasoned solution. The elements of the exam that are not conceptual focus on practical implementation of something that you've learned. For example, you may be required to learn how to code a particular model and apply it to some dataset. The material in the Labs will prepare you for these aspects of the exam. 
+
+---
