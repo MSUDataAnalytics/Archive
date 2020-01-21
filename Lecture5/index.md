@@ -81,7 +81,7 @@ where $\epsilon_i \sim N(0, \sigma^2)$. In this notation we will define:
 <!-- slide -->
 ## Visualization
 
-The picture below will visualize what we would like to accomplish. The data points $(x_{i1}, x_{i2}, y_i)$ now exist in 3-dimensional space, so instead of fitting a line to the data, we will fit a plane. (We'll soon move to higher dimensions, so this will be the last example that is easy to visualize and think about this way.)
+The code below will generate a picture to help us visualize what we would like to accomplish. The data points $(x_{i1}, x_{i2}, y_i)$ now exist in 3-dimensional space, so instead of fitting a line to the data, we will fit a plane. (We'll soon move to higher dimensions, so this will be the last example that is easy to visualize and think about this way.)
 
 The next slide provides code to visualize this process. It's... possibly helpful?
 
@@ -89,7 +89,7 @@ Sadly, as we'll see shortly, visualizations for high dimensions don't make a ton
 
 <!-- slide -->
 
-> Code below
+### Code below
 
 ```{r}
 library("plot3D")
