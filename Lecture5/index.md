@@ -1082,3 +1082,17 @@ curve(dnorm(x, mean = beta_2, sd = sqrt(sigma ^ 2 * C[2 + 1, 2 + 1])),
 This looks good! The simulation-based histogram appears to be Normal with mean 6 and spread of about 0.15 as you measure from center to inflection point.
 
 <!-- slide -->
+
+# In-Class Exercise
+
+**One Per Group**
+
+1. Using the "bank.csv" file [(found here)](/SSC442/Labs/data/bank.csv), run a regression with all variables to predict `balance`.
+- You'll need to code the factor variables (or else use `R` with some ingenuity.)
+
+2. Use the $F$ test to remove any variables that do not improve your model fit.
+3. Discus the resulting final model.
+4. Put the (functioning) code in your group repo. 
+
+
+<!-- slide -->

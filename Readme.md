@@ -1,7 +1,5 @@
 # Social Science Data Analytics Applications
 
-[Group GitHub Survey - **Submit One Per Group**](https://msu.co1.qualtrics.com/jfe/form/SV_6zJgMUPNf6iX6ct)
-
 [Shortcut to Course Outline and Links to Lectures](#tentative-schedule-of-material)
 
 [FAQ](assets/FAQ.md)
