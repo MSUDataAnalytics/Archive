@@ -78,7 +78,7 @@ What follows is a very rough schedule of what we will cover this semester — of
 
 [**Lab 1:** Intro to Visualization in R](Labs/Lab1.md)
 
-  3.  Linear Regression and Prediction	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture4/index.html)[`[ P2 ]`](https://msudataanalytics.github.io/SSC442/Lecture5/index.html)
+  3.  Linear Regression and Prediction	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture4/index.html)[`[ P2 ]`](https://msudataanalytics.github.io/SSC442/Lecture5/index.html) [`[ P3 ]`](https://msudataanalytics.github.io/SSC442/Lecture6/index.html)
 
 **Reading:** ISL Chapter 3
 
