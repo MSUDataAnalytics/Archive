@@ -1,6 +1,6 @@
 # Lab 2: Linear Regression and Simple Analyses
 
-This question will require you to analyze a new dataset. Specifically, this lab utilizes the “ames.csv” data [(found here)](/SSC442/Labs/data/ames.csv). This is a famous dataset about home sales from Ames, Iowa.
+This lab will require you to load, clean, and analyze a new dataset. Specifically, this lab utilizes the “ames.csv” data [(found here)](/SSC442/Labs/data/ames.csv). This is a famous dataset about home sales from Ames, Iowa.
 
 ## Backstory and Set Up
 You have been recently hired to Zillow’s Zestimate product team as a junior analyst. As a part of their regular hazing, they have given you access to a small subset of their historic sales data. Your job is to present some basic predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.
