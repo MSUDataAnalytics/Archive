@@ -1,0 +1,768 @@
+<!DOCTYPE html><html><head>
+      <title>Lab2</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIYqWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIouWqZPBQ.ttf) format('truetype');
+}
+section.has-light-background,
+section.has-light-background h1,
+section.has-light-background h2,
+section.has-light-background h3,
+section.has-light-background h4,
+section.has-light-background h5,
+section.has-light-background h6 {
+  color: #18453B;
+}
+.reveal .controls {
+  right: 50px;
+  bottom: 50px;
+}
+.reveal.has-dark-background .line {
+  display: none;
+}
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  background-color: #fff;
+}
+.reveal {
+  font: 18px 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Fix for webkit rendering */
+  -moz-osx-font-smoothing: grayscale;
+  /* Fix for firefox rendering */
+  font-weight: 400;
+}
+::selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+::-moz-selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 2.5em;
+  font-weight: inherit;
+  text-align: left;
+}
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #18453B;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  line-height: 2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+.reveal h1 {
+  position: top left;
+  font-size: 2.4em;
+  text-align: center;
+}
+.reveal h2 {
+  font-size: 2em;
+  text-align: center;
+}
+.reveal h3 {
+  font-size: 1.6em;
+  text-align: center;
+}
+.reveal h4 {
+  font-size: 1.5em;
+}
+.reveal h1 {
+  text-shadow: none;
+}
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.3;
+}
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+.reveal em {
+  font-style: italic;
+}
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+.reveal ol {
+  list-style-type: decimal;
+}
+.reveal ul {
+  list-style-type: disc;
+}
+.reveal ul ul {
+  list-style-type: square;
+}
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+.reveal dt {
+  font-weight: bold;
+}
+.reveal dd {
+  margin-left: 40px;
+}
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  font-variant: small-caps;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px #18453B;
+}
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+.reveal q {
+  font-style: italic;
+}
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px #18453B;
+}
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+}
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.reveal table th {
+  font-weight: bold;
+}
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center;
+}
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right;
+}
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+.reveal sup {
+  vertical-align: super;
+}
+.reveal sub {
+  vertical-align: sub;
+}
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+.reveal small * {
+  vertical-align: top;
+}
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #FF4081;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+.reveal a:hover {
+  color: #ff8db3;
+  text-shadow: none;
+  border: none;
+}
+.reveal .roll span:after {
+  color: #fff;
+  background: #f30053;
+}
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #363636;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+}
+.reveal a img {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FF4081;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #18453B;
+}
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #18453B;
+}
+.reveal .progress span {
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+.reveal .progress {
+  z-index: 1000;
+  color: #18453B;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="lab-2-linear-regression-and-simple-analyses">Lab 2: Linear Regression and Simple Analyses</h1>
+
+<p>This lab will require you to load, clean, and analyze a new dataset. Specifically, this lab utilizes the &#x201C;ames.csv&#x201D; data <a href="../SSC442/Labs/data/ames.csv">(found here)</a>. This is a famous dataset about home sales from Ames, Iowa.</p>
+<h2 class="mume-header" id="backstory-and-set-up">Backstory and Set Up</h2>
+
+<p>You have been recently hired to Zillow&#x2019;s Zestimate product team as a junior analyst. As a part of their regular hazing, they have given you access to a small subset of their historic sales data. Your job is to present some basic predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.</p>
+<p>First, let&apos;s load the data.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>ameslist &lt;- read.table(&quot;https://msudataanalytics.github.io/SSC442/Labs/data/ames.csv&quot;,
+                 header = TRUE,
+                 sep = &quot;,&quot;)
+</code></pre><p>Before we proceed, let&apos;s note a few things about the (simple) code above. First, we have specified <code>header = TRUE</code> because---you guessed it---the original dataset has headers. Although simple, this is an incredibly important step because it allows <code>R</code> to do some smart <code>R</code> things. Specifically, once the headers are in, the variables are formatted as <code>int</code> and <code>factor</code> where appropriate. It is absolutely vital that we format the data correctly; otherwise, many <code>R</code> commands will whine at us.</p>
+<p><strong>Try it:</strong> Run the above, but instead specifying <code>header = FALSE</code>. What data type are the various columns? Now try ommitting the line altogether. What is the default behavior of the <code>read.table</code> function?<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h3 class="mume-header" id="data-exploration-and-processing">Data Exploration and Processing</h3>
+
+<p>We are not going to tell you anything about this data. This is intended to replicate a real-world experience that you will all encounter in the (possibly near) future: someone hands you data and you&apos;re expected to make sense of it. Fortunately for us, this data is (somewhat) self-contained. We&apos;ll first check the variable names to try to divine some information. Recall, we have a handy little function for that:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>names(ameslist)
+</code></pre><p>Note that, when doing data exploration, we will sometimes choose to not save our output. This is a judgement call; here we&apos;ve chosen to merely inspect the variables rather than diving in.</p>
+<p>Inspection yields some obvious truths. For example:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th style="text-align:center">Explanation</th>
+<th style="text-align:right">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ID</code></td>
+<td style="text-align:center">Unique identifier for each row</td>
+<td style="text-align:right"><code>int</code></td>
+</tr>
+<tr>
+<td><code>LotArea</code></td>
+<td style="text-align:center">Size of lot (<strong>units unknown</strong>)</td>
+<td style="text-align:right"><code>int</code></td>
+</tr>
+<tr>
+<td><code>SalePrice</code></td>
+<td style="text-align:center">Sale price of house ($)</td>
+<td style="text-align:right"><code>int</code></td>
+</tr>
+</tbody>
+</table>
+<p>...but we face some not-so-obvious things as well. For example:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th style="text-align:center">Explanation</th>
+<th style="text-align:right">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LotShape</code></td>
+<td style="text-align:center">? Something about the lot</td>
+<td style="text-align:right"><code>factor</code></td>
+</tr>
+<tr>
+<td><code>MSSubClass</code></td>
+<td style="text-align:center">? No clue at all</td>
+<td style="text-align:right"><code>int</code></td>
+</tr>
+<tr>
+<td><code>Condition1</code></td>
+<td style="text-align:center">? Seems like street info</td>
+<td style="text-align:right"><code>factor</code></td>
+</tr>
+</tbody>
+</table>
+<p>It will be difficult to learn anything about the data that is of type <code>int</code> without outside documentation. However, we can learn something more about the <code>factor</code>-type variables. In order to understand these a little better, we need to review some of the values that each take on.</p>
+<p><strong>Try it:</strong> Go through the variables in the dataset and make a note about your interpretation for each. Many will be obvious, but some require additional thought.</p>
+<p>We now turn to another central issue---and one that explains our nomenclature choice thus far: the data object is of type <code>list</code>. To verify this for yourself, check:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>typeof(ameslist)
+</code></pre><p>This isn&apos;t ideal---for some visualization packages, for instance, we need data frames and not lists. We&apos;ll make a mental note of this as something to potentially clean up if we desire.</p>
+<p>Although there are some variables that would be difficult to clean, there are a few that we can address with relative ease. Consider, for instance, the variable <code>GarageType</code>. This might not be that important, but, remember, the weather in Ames, IA is pretty crummy---a detached garage might be a dealbreaker for some would-be homebuyers. Let&apos;s inspect the values:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>&gt; unique(ameslist$GarageType)
+[1] Attchd  Detchd  BuiltIn CarPort &lt;NA&gt; Basment 2Types
+</code></pre><p>With this, we could make an informed decision and create a new variable. Let&apos;s create <code>OutdoorGarage</code> to indicate, say, homes that have any type of garage that requires the homeowner to walk outdoors after parking their car. (For those who aren&apos;t familiar with different garage types, a car port is not insulated and is therefore considered outdoors. A detached garage presumably requires that the person walks outside after parking. The three other types are inside the main structure, and <code>2Types</code> we can assume includes at least one attached garage of some sort). This is going to require a bit more coding and we will have to think through each step carefully.</p>
+<p>First, let&apos;s create a new object that has indicator variables (that is, a variable whose values are either zero or one) for each of the <code>GarageType</code> values. As with everything in <code>R</code>, there&apos;s a handy function to do this for us:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>GarageTemp = model.matrix( ~ GarageType - 1, data=ameslist$GarageType )
+</code></pre><p>We now have two separate objects living in our computer&apos;s memory: <code>ameslist</code> and <code>GarageTemp</code>---so named to indicate that it is a temporary object.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> We now need to stitch it back onto our original data; we&apos;ll use a simple concatenation and write over our old list with the new one:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>ameslist &lt;- cbind(ameslist, GarageTemp)
+&gt; Error in data.frame(..., check.names = FALSE) :
+  arguments imply differing number of rows: 1460, 1379
+</code></pre><p>Huh. What&apos;s going on?</p>
+<p><strong>Try it:</strong> Figure out what&apos;s going on above. Fix this code so that you have a working version.</p>
+<p>Now that we&apos;ve got that working (ha!) we can generate a new variable for our outdoor garage. We&apos;ll use a somewhat gross version below because it is <em>verbose</em>; that said, this can be easily accomplished using logical indexing for those who like that approach.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>ameslist$GarageOutside &lt;- ifelse(ameslist$GarageTypeDetchd == 1 | ameslist$GarageTypeCarPort == 1, 1, 0)
+unique(ameslist$GarageOutside)
+[1]  0  1 NA
+</code></pre><p>This seems to have worked. The command above <code>ifelse()</code> does what it says: <code>if</code> some condition is met (here, either of two variables equals one) then it returns a one; <code>else</code> it returns a zero. Such functions are very handy, though as mentioned above, there are other ways of doing this. Also note, that while fixed the issue with <code>NA</code> above, we&apos;ve got new issues: we definitely don&apos;t want <code>NA</code> outputted from this operation. Accordingly, we&apos;re going to need to deal with it somehow.</p>
+<p><strong>Try it:</strong> Utilizing a similar approach to what you did above, fix this so that the only outputs are zero and one.</p>
+<p>Generally speaking, this is a persistent issue, and you will spend an extraordinary amount of time dealing with missing data or data that does not encode a variable exactly as you want it. This is expecially true if you deal with real-world data: you will need to learn how to handle <code>NA</code>s. There are a number of fixes (as always, Google is your friend) and anything that works is good. But you should spend some time thinking about this and learning at least one approach.</p>
+<hr>
+<p><strong>Exercise 1:</strong></p>
+<ol>
+<li>
+<p>Prune the data to all of the variables that are <code>type = int</code> about which you have some reasonable intuition for what they mean. This <strong>must</strong> include the variable <code>SalePrice</code>. Save this new dataset as <code>Ames</code>. Produce documentation for this object in the form of a .txt file. This must describe each of the preserved variables, the values it can take (e.g., can it be negative?) and your interpretation of the variable.</p>
+</li>
+<li>
+<p>Produce a <em>scatterplot matrix</em> which includes 12 of the variables that are <code>type = int</code> in the data set. Choose those that you believe are likely to be correlated with <code>SalePrice</code>.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+</li>
+<li>
+<p>Compute a matrix of correlations between these variables using the function <code>cor()</code>. Does this match your prior beliefs? Briefly discuss the correlation between the miscellaneous variables and <code>SalePrice</code>.</p>
+</li>
+<li>
+<p>Produce a scatterplot between <code>SalePrice</code> and <code>GrLivArea</code>. Use the <code>abline()</code> function to plot the relationship that you&apos;ve found in the simple linear regression.</p>
+<ul>
+<li>What is the largest outlier that is above the regression line? Produce the other information about this house?</li>
+</ul>
+</li>
+</ol>
+<p><strong>(Bonus; more challenging)</strong> Create a visualization that shows the proliferation of air conditioning in homes in Ames.</p>
+<hr>
+<h2 class="mume-header" id="building-a-model">Building a Model</h2>
+
+<p>We&apos;re now ready to start playing with a model. We will start by using the <code>lm()</code> function to fit a simple linear regression<br>
+model, with <code>SalePrice</code> as the response and lstat as the predictor.</p>
+<p>Recall that the basic <code>lm()</code> syntax is <code>lm(y&#x223C;x,data)</code>, where <code>y</code> is the <strong>response</strong>, <code>x</code> is the <strong>predictor</strong>, and <code>data</code> is the data set in which these two variables are kept. Let&apos;s quickly run this with two variables:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>lm.fit = lm(SalePrice ~ GrLivArea)
+</code></pre><p>This yields:<br>
+<code>Error in eval(expr, envir, enclos) : Object &quot;SalePrice&quot; not found</code></p>
+<p>This command causes an error because <code>R</code> does not know where to find the variables. We can fix this by attaching the data:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>attach(Ames)
+lm.fit = lm(SalePrice ~ GrLivArea)
+</code></pre><p><strong>Try it:</strong> What is <code>GrLivArea</code>? If you did not include this variable above, check its relationship to other variables in the dataset to get a better idea what it is.</p>
+<p>The next line tells <code>R</code> that the variables are in the object known as <code>Ames</code>. If you haven&apos;t created this object yet (as in Exercise 1) you&apos;ll get an error at this stage. But once we attach <code>Ames</code>, the first line works fine because <code>R</code> now recognizes the variables. Alternatively, we could specify this within the <code>lm()</code> call using <code>data = Ames</code>. We&apos;ve presented this way because it may be new to you; choose whichever you find most reasonable.</p>
+<p>If we type <code>lm.fit</code>, some basic information about the model is output. For more detailed information, we use <code>summary(lm.fit)</code>. This gives us p-values and standard errors for the coefficients, as well as the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> statistic and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>-statistic for the entire model.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>Utilizing these functions hels us see some interesting results. Note that we built (nearly) the simplest possible model:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>SalePrice</mtext><mo>=</mo><msub><mi>&#x3B2;</mi><mn>0</mn></msub><mo>+</mo><msub><mi>&#x3B2;</mi><mn>1</mn></msub><mo>&#x2217;</mo><mo stretchy="false">(</mo><mtext>GrLivArea</mtext><mo stretchy="false">)</mo><mo>+</mo><mi>&#x3F5;</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\text{SalePrice} = \beta_0 + \beta_1*(\text{GrLivArea}) + \epsilon.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">SalePrice</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">&#x3B2;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">&#x3B2;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2217;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">GrLivArea</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">&#x3F5;</span><span class="mord">.</span></span></span></span></span></p>
+<p>But even on its own, this model is instructive. It suggest that an increase in overall living area of 1 ft <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> is correlated with an expected increase in sales price of $107. (Note that we <strong>cannot</strong> make causal claims!)</p>
+<p>Saving the model as we did above is useful because we can explore other pieces of information it stores. Specifically, we can use the <code>names()</code> function in order to find out what else is stored in <code>lm.fit</code>. Although we can extract these quan- tities by name---e.g. <code>lm.fit$coefficients</code>---it is safer to use the extractor functions like <code>coef()</code> to access them. We can also use a handy tool like <code>plot()</code> applied directly to <code>lm.fit</code> to see some interesting data that is automatically stored by the model.</p>
+<p><strong>Try it:</strong> Use <code>plot()</code> to explore the model above. Do you suspect that some outliers have a large influence on the data? We will explore this point specifically in the future.</p>
+<p>We can now go crazy adding variables to our model. It&apos;s as simple as appending them to the previous code---though you should be careful executing this, as it will overwrite your previous output:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>lm.fit = lm(SalePrice ~ GrLivArea + LotArea)
+</code></pre><p><strong>Try it:</strong> Does controlling for <code>LotArea</code> change the <em>qualitative</em> conclusions from the previous regression? What about the <em>quantitative</em> results? Does the direction of the change in the quantitative results make sense to you?</p>
+<hr>
+<p><strong>Exercise 2:</strong></p>
+<ol>
+<li>
+<p>Use the <code>lm()</code> function in a <strong>simple</strong> linear regression (e.g., with only one predictor) with <code>SalePrice</code> as the response to determine the value of an indoor garage.</p>
+</li>
+<li>
+<p>Use the <code>lm()</code> function to perform a multiple linear regression with <code>SalePrice</code> as the response and all other variables from your <code>Ames</code> data as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output. For instance:</p>
+<ul>
+<li>Is there a relationship between the predictors and the response?</li>
+<li>Which predictors appear to have a statistically significant relationship to the response?</li>
+<li>What does the coefficient for the year variable suggest?</li>
+</ul>
+</li>
+<li>
+<p>Use the <code>plot()</code> function applied to your model to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit. Do the residual plots suggest any unusually large outliers? Does the leverage plot identify any observations with unusually high leverage?</p>
+</li>
+<li>
+<p>Use the <code>*</code> and <code>:</code> symbols to fit linear regression models with some well-chosen interaction effects. Do any interactions appear to be statistically significant?</p>
+</li>
+<li>
+<p>Try a few (e.g., three) different transformations of the variables, such as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">ln(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>x</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">x</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span>. Do any of these make sense to include in a model of <code>SalePrice</code>? Comment on your findings.</p>
+</li>
+</ol>
+<p><strong>(Bonus; very very challenging)</strong> How might we build a model to estimate the elasticity of demand from this dataset?</p>
+<hr>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Of course, you could find out the defaults of the function by simply using the handy <code>?</code> command. Don&apos;t forget about this tool! <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>It&apos;s not exactly true that these objects are in memory. They are... sort of. But how <code>R</code> handles memory is complicated and silly and blah blah who cares. It&apos;s basically in memory. <a href="#fnref2" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>If you are not familiar with this type of visualization, consult the course textbook (<em>ISL</em>), Chapters 2 and 3. <a href="#fnref3" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>When we use the simple regression model with a single input, the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>-stat includes the intercept term. Otherwise, it does not. See Lecture 5 for more detail. <a href="#fnref4" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

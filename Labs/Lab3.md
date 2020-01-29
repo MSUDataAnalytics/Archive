@@ -78,8 +78,9 @@ test_data = Advertising[-train_index, ]
 
 We will look at two measures that assess how well a model is predicting: **train RMSE** and **test RMSE**.
 
-![\text{RMSE}_\text{Train} = \text{RMSE}(\hat{f}, \text{Train Data}) = \sqrt{\frac{1}{n_{\text{Tr}}}\sum_{i \in \text{Train}}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}](https://render.githubusercontent.com/render/math?math=%5Ctext%7BRMSE%7D_%5Ctext%7BTrain%7D%20%3D%20%5Ctext%7BRMSE%7D(%5Chat%7Bf%7D%2C%20%5Ctext%7BTrain%20Data%7D)%20%3D%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn_%7B%5Ctext%7BTr%7D%7D%7D%5Csum_%7Bi%20%5Cin%20%5Ctext%7BTrain%7D%7D%5Cleft(y_i%20-%20%5Chat%7Bf%7D(%5Cbf%7Bx%7D_i)%5Cright)%5E2%7D)
-
+$$
+\text{RMSE}_\text{Train} = \text{RMSE}(\hat{f}, \text{Train Data}) = \sqrt{\frac{1}{n_{\text{Tr}}}\sum_{i \in \text{Train}}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}
+$$
 
 Here $n_{Tr}$ is the number of observations in the train set. Train RMSE will still always go down (or stay the same) as the complexity of a linear model increases. That means train RMSE will not be useful for comparing models, but checking that it decreases is a useful sanity check.
 

@@ -1,0 +1,743 @@
+<!DOCTYPE html><html><head>
+      <title>Lab1</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIYqWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIouWqZPBQ.ttf) format('truetype');
+}
+section.has-light-background,
+section.has-light-background h1,
+section.has-light-background h2,
+section.has-light-background h3,
+section.has-light-background h4,
+section.has-light-background h5,
+section.has-light-background h6 {
+  color: #18453B;
+}
+.reveal .controls {
+  right: 50px;
+  bottom: 50px;
+}
+.reveal.has-dark-background .line {
+  display: none;
+}
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  background-color: #fff;
+}
+.reveal {
+  font: 18px 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Fix for webkit rendering */
+  -moz-osx-font-smoothing: grayscale;
+  /* Fix for firefox rendering */
+  font-weight: 400;
+}
+::selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+::-moz-selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 2.5em;
+  font-weight: inherit;
+  text-align: left;
+}
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #18453B;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  line-height: 2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+.reveal h1 {
+  position: top left;
+  font-size: 2.4em;
+  text-align: center;
+}
+.reveal h2 {
+  font-size: 2em;
+  text-align: center;
+}
+.reveal h3 {
+  font-size: 1.6em;
+  text-align: center;
+}
+.reveal h4 {
+  font-size: 1.5em;
+}
+.reveal h1 {
+  text-shadow: none;
+}
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.3;
+}
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+.reveal em {
+  font-style: italic;
+}
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+.reveal ol {
+  list-style-type: decimal;
+}
+.reveal ul {
+  list-style-type: disc;
+}
+.reveal ul ul {
+  list-style-type: square;
+}
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+.reveal dt {
+  font-weight: bold;
+}
+.reveal dd {
+  margin-left: 40px;
+}
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  font-variant: small-caps;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px #18453B;
+}
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+.reveal q {
+  font-style: italic;
+}
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px #18453B;
+}
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+}
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.reveal table th {
+  font-weight: bold;
+}
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center;
+}
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right;
+}
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+.reveal sup {
+  vertical-align: super;
+}
+.reveal sub {
+  vertical-align: sub;
+}
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+.reveal small * {
+  vertical-align: top;
+}
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #FF4081;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+.reveal a:hover {
+  color: #ff8db3;
+  text-shadow: none;
+  border: none;
+}
+.reveal .roll span:after {
+  color: #fff;
+  background: #f30053;
+}
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #363636;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+}
+.reveal a img {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FF4081;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #18453B;
+}
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #18453B;
+}
+.reveal .progress span {
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+.reveal .progress {
+  z-index: 1000;
+  color: #18453B;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="lab-1-basic-data-visualizations">Lab 1: Basic Data Visualizations</h1>
+
+<p>Our primary tool for data visualization in the course will be <code>ggplot2</code>. <code>ggplot2</code> implements the grammar of graphics, a coherent and relatively straightforward system for describing and building graphs. With <code>ggplot2</code>, you can do more faster by learning one system and applying it in many places. Other languages provide more specific tools, but require you to learn a different tool for each application.</p>
+<h2 class="mume-header" id="using-ggplot2">Using ggplot2</h2>
+
+<p>In order to get our hands dirty, we will first have to load <code>ggplot2</code>. To do this, and to access the datasets, help pages, and functions that we will use in this chapter, we will load the so-called tidyverse by running this code:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>library(tidyverse)
+</code></pre><p>If you run this code and get an error message &#x201C;there is no package called &#x2018;tidyverse&#x2019;&#x201D;, you&#x2019;ll need to first install it, then run library() once again. To install packages in <code>R</code>, we utilize the simple function install.packages(). In this case, we would write:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>install.packages(&quot;tidyverse&quot;)
+library(tidyverse)
+</code></pre><p>Once we&apos;re up and running, we&apos;re ready to dive into some basic exercises. <code>ggplot2</code> works by specifying the connections between the variables in the data and the colors, points, and shapes you see on the screen. These logical connections are called <em>aesthetic mappings</em> or simply <em>aesthetics</em>.</p>
+<p>How to use <code>ggplot2</code> -- the fast and wholly unclear recipe:</p>
+<ul>
+<li>
+<p><code>data = mpg</code>: Define what your data is. Here, we&apos;ll use the mpg data frame found in ggplot2 (by using <code>ggplot2::mpg</code>). As a reminder, a data frame is a rectangular collection of variables (in the columns) and observations (in the rows). This structure of data is often called a &quot;table&quot; but we&apos;ll try to use terms slightly more precisely. The <code>mpg</code> data frame contains observations collected by the US Environmental Protection Agency on 38 different models of car.</p>
+</li>
+<li>
+<p><code>mapping = aes(...)</code>: How to map the variables in the data to aesthetics</p>
+<ul>
+<li>Axes, size of points, intensities of colors, which colors, shape of points, lines/points</li>
+</ul>
+</li>
+<li>
+<p>Then say what type of plot you want:</p>
+<ul>
+<li>boxplot, scatterplot, histogram, ...</li>
+<li>these are called &apos;geoms&apos; in ggplot&apos;s grammar, such as <code>geom_point()</code> giving scatter plots</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>library(ggplot2)
+... + geom_point() # Produces scatterplots
+... + geom_bar() # Bar plots
+.... + geom_boxplot() # boxplots
+... #
+</code></pre><p>You link these steps by <em>literally</em> adding them together with <code>+</code> as we&apos;ll see.</p>
+<p><strong>Try it:</strong> What other types of plots are there? Try to find several more <code>geom_</code> functions.</p>
+<h2 class="mume-header" id="mappings-link-data-to-things-you-see">Mappings Link Data to Things You See</h2>
+
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>library(gapminder)
+library(ggplot2)
+gapminder
+p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp))
+p + geom_point()
+</code></pre><p>Above we&apos;ve loaded a different dataset and have started to explore a particular relationship. Before putting in this code yourself, try to intuit what <em>might</em> be going on.</p>
+<p>Any ideas?</p>
+<p>Here&apos;s a breakdown of everything that happens after the <code>p&lt;- ggplot()</code> call:</p>
+<ul>
+<li><code>data = gapminder</code> tells ggplot to use gapminder dataset, so if variable names are mentioned, they should be looked up in gapminder</li>
+<li><code>mapping = aes(...)</code> shows that the mapping is a function call. There is a deeper logic to this that I will disucss below, but it&apos;s easiest to simply accept that this is how you write it. Put another way, the <code>mapping = aes(...)</code> argument <em>links variables</em> to <em>things you will see</em> on the plot.</li>
+<li><code>aes(x = gdpPercap, y = lifeExp)</code> maps the GDP data onto <code>x</code>, which is a known aesthetic (the x-coordinate) and life expectancy data onto <code>x</code>
+<ul>
+<li><code>x</code> and <code>y</code> are  predefined names that are used by <code>ggplot</code> and friends</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Exercise 1:</strong> Let&apos;s briefly return to the <code>mpg</code> data. Among the variables in mpg are:</p>
+<ul>
+<li>
+<p><code>displ</code>, a car&#x2019;s engine size, in litres.</p>
+</li>
+<li>
+<p><code>hwy</code>, a car&#x2019;s fuel efficiency on the highway, in miles per gallon (mpg). A car with a low fuel efficiency consumes more fuel than a car with a high fuel efficiency when they travel the same distance.</p>
+</li>
+</ul>
+<p>Generate a scatterplot between these two variables. Does it capture the intuitive relationship you expected? What happens if you make a scatterplot of <code>class</code> vs <code>drv</code>? Why is the plot not useful?</p>
+<hr>
+<blockquote>
+<p>&quot;The greatest value of a picture is when it forces us to notice what we never expected to see.&quot;&quot; &#x2014; John Tukey</p>
+</blockquote>
+<p>In the plot you made above, one group of points seems to fall outside of the linear trend. These cars have a higher mileage than you might expect. How can you explain these cars?</p>
+<p>Let&#x2019;s hypothesize that the cars are hybrids. One way to test this hypothesis is to look at the class value for each car. The <code>class</code> variable of the <code>mpg</code> dataset classifies cars into groups such as compact, midsize, and SUV. If the outlying points are hybrids, they should be classified as compact cars or, perhaps, subcompact cars (keep in mind that this data was collected before hybrid trucks and SUVs became popular).</p>
+<p>You can add a third variable, like <code>class</code>, to a two dimensional scatterplot by mapping it to an aesthetic. An aesthetic is a visual property of the objects in your plot. Aesthetics include things like the size, the shape, or the color of your points. You can display a point (like the one below) in different ways by changing the values of its aesthetic properties. Since we already use the word &quot;<strong>value</strong>&quot; to describe data, let&#x2019;s use the word &quot;<strong>level</strong>&quot; to describe aesthetic properties. Thus, we are interested in exploring <code>class</code> as a level.</p>
+<p>You can convey information about your data by mapping the aesthetics in your plot to the variables in your dataset. For example, you can map the colors of your points to the class variable to reveal the class of each car. To map an aesthetic to a variable, associate the name of the aesthetic to the name of the variable inside <code>aes()</code>. <code>ggplot2</code> will automatically assign a unique level of the aesthetic (here a unique color) to each unique value of the variable, a process known as scaling. <code>ggplot2</code> will also add a legend that explains which levels correspond to which values.</p>
+<hr>
+<p><strong>Exercise 1b:</strong> Using your previous scatterplot of <code>displ</code> and <code>hwy</code>, map the colors of your points to the class variable to reveal the class of each car. What conclusions can we make?</p>
+<hr>
+<p>Let&apos;s explore our previously saved <code>p</code> in greater detail. As with Exercise 1, we&apos;ll add a <em>layer</em>. This says how some data gets turned into concrete visual aspects.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p + geom_point()
+p + geom_smooth()
+</code></pre><p><strong>Note:</strong> Both of the above geom&apos;s use the same mapping, where the x-axis represents <code>gdpPercap</code> and the y-axis represents <code>lifeExp</code>. You can find this yourself with some ease. But the first one maps the data to individual points, the other one maps it to a smooth line with error ranges.</p>
+<p>We get a message that tells us that <code>geom_smooth()</code> is using the method = &apos;gam&apos;, so presumably we can use other methods. Let&apos;s see if we can figure out which other methods there are.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>?geom_smooth
+p + geom_point() + geom_smooth() + geom_smooth(method = ...) + geom_smooth(method = ...)
+p + geom_point() + geom_smooth() + geom_smooth(method = ...) + geom_smooth(method = ..., color = &quot;red&quot;)
+</code></pre><p>You may start to see why <code>ggplot2</code>&apos;s way of breaking up tasks is quite powerful: the geometric objects can all reuse the <em>same</em> mapping of data to aesthetics, yet the results are quite different. And if we want later geoms to use different mappings, then we can override them -- but it isn&apos;t necessary.</p>
+<p>Consider the output we&apos;ve explored thus far. One potential issue lurking in the data is that most of it is bunched to the left. If we instead used a logarithmic scale, we should be able to spread the data out better.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p + geom_point() + geom_smooth(method = &quot;lm&quot;) + scale_x_log10()
+</code></pre><p><strong>Try it:</strong> Describe what the <code>scale_x_log10()</code> does. Why is it a more evenly distributed cloud of points now? (2-3 sentences.)</p>
+<p>Nice. We&apos;re starting to get somewhere. But, you might notice that the x-axis now has scientific notation. Let&apos;s change that.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>library(scales)
+p + geom_point() +
+  geom_smooth(method = &quot;lm&quot;) +
+  scale_x_log10(labels = scales::dollar)
+p + geom_point() +
+  geom_smooth(method = &quot;lm&quot;) +
+  scale_x_log10(labels = scales::...)
+</code></pre><p><strong>Try it:</strong> What does the <code>dollar()</code> call do? How can you find other ways of relabeling the scales when using <code>scale_x_log10()</code>?</p>
+<pre data-role="codeBlock" data-info class="language-"><code>?dollar()
+</code></pre><h2 class="mume-header" id="the-recipe">The Recipe</h2>
+
+<ol>
+<li>Tell the <code>ggplot()</code> function what our data is.</li>
+<li>Tell <code>ggplot()</code> <em>what</em> relationships we want to see. For convenience we will put the results of the first two steps in an object called <code>p</code>.</li>
+<li>Tell <code>ggplot</code> <em>how</em> we want to see the relationships in our data.</li>
+<li>Layer on geoms as needed, by adding them on the <code>p</code> object one at a time.</li>
+<li>Use some additional functions to adjust scales, labels, tickmarks, titles.</li>
+</ol>
+<ul>
+<li>e.g. <code>scale_</code>, <code>labs()</code>, and <code>guides()</code> functions</li>
+</ul>
+<p>As you start to run more <code>R</code> code, you&#x2019;re likely to run into problems. Don&#x2019;t worry &#x2014; it happens to everyone. I have been writing code in numerous languages for years, and every day I still write code that doesn&#x2019;t work. Sadly, <code>R</code> is particularly persnickity, and its error messages are often opaque.</p>
+<p>Start by carefully comparing the code that you&#x2019;re running to the code in these notes. <code>R</code> is extremely picky, and a misplaced character can make all the difference. Make sure that every ( is matched with a ) and every &quot; is paired with another &quot;. Sometimes you&#x2019;ll run the code and nothing happens. Check the left-hand of your console: if it&#x2019;s a +, it means that R doesn&#x2019;t think you&#x2019;ve typed a complete expression and it&#x2019;s waiting for you to finish it. In this case, it&#x2019;s usually easy to start from scratch again by pressing ESCAPE to abort processing the current command.</p>
+<p>One common problem when creating ggplot2 graphics is to put the + in the wrong place: it has to come at the end of the line, not the start.</p>
+<h3 class="mume-header" id="mapping-aesthetics-vs-setting-them">Mapping Aesthetics vs Setting them</h3>
+
+<pre data-role="codeBlock" data-info class="language-"><code>p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp, color = &apos;yellow&apos;))
+p + geom_point() + scale_x_log10()
+</code></pre><p>This is interesting (or annoying): the points are not yellow. How can we tell ggplot to draw yellow points?</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp, ...))
+p + geom_point(...) + scale_x_log10()
+</code></pre><p><strong>Try it:</strong> describe in your words what is going on.<br>
+One way to avoid such mistakes is to read arguments inside <code>aes(&lt;property&gt; = &lt;variable&gt;)</code>as <em>the property <property> in the graph is determined by the data in <variable></variable></property></em>.</p>
+<p><strong>Try it:</strong>  Write the above sentence for the original call <code>aes(x = gdpPercap, y = lifeExp, color = &apos;yellow&apos;)</code>.</p>
+<p>Aesthetics convey information about a variable in the dataset, whereas setting the color of all points to yellow conveys no information about the dataset - it changes the appearance of the plot in a way that is independent of the underlying data.</p>
+<p>Remember: <code>color = &apos;yellow&apos;</code> and <code>aes(color = &apos;yellow&apos;)</code> are very different, and the second makes usually no sense, as <code>&apos;yellow&apos;</code> is treated as <em>data</em>.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp))
+p + geom_point() + geom_smooth(color = &quot;orange&quot;, se = FALSE, size = 8, method = &quot;lm&quot;) + scale_x_log10()
+</code></pre><p><strong>Try it:</strong>  Write down what all those arguments in <code>geom_smooth(...)</code> do.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p + geom_point(alpha = 0.3) +
+  geom_smooth(method = &quot;gam&quot;) +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = &quot;GDP Per Capita&quot;, y = &quot;Life Expectancy in Years&quot;,
+       title = &quot;Economic Growth and Life Expectancy&quot;,
+       subtitle = &quot;Data Points are country-years&quot;,
+       caption = &quot;Source: Gapminder&quot;)
+</code></pre><p>Coloring by continent:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>library(scales)
+p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp, color = continent, fill = continent))
+p + geom_point()
+p + geom_point() + scale_x_log10(labels = dollar)
+p + geom_point() + scale_x_log10(labels = dollar) + geom_smooth()
+</code></pre><p><strong>Try it:</strong>  What does <code>fill = continent</code> do? What do you think about the match of colors between lines and error bands?</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp))
+p + geom_point(mapping = aes(color = continent)) + geom_smooth() + scale_x_log10()
+</code></pre><p><strong>Try it:</strong>  Notice how the above code leads to a single smooth line, not one per continent. Why?</p>
+<p><strong>Try it:</strong>  What is bad about the following example, assuming the graph is the one we want? Think about why you should set aesthetics at the top level rather than at the individual geometry level if that&apos;s your intent.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>p &lt;- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap, y = lifeExp))
+p + geom_point(mapping = aes(color = continent)) +
+  geom_smooth(mapping = aes(color = continent, fill = continent)) +
+  scale_x_log10() +
+  geom_smooth(mapping = aes(color = continent), method = &quot;gam&quot;)
+</code></pre><hr>
+<p><strong>Exercise 2:</strong> Imagine that you have been hired as a consultant for a Portuguese bank. This bank recently undertook a series of marketing campaigns designed to increase deposits in their long-term savings accounts. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to assess if the consumer subscribed to the product (bank term deposit; coded as <code>yes</code> and <code>no</code> in the column <code>y</code>). As a result of this out-reach, we have the dataset <code>bank.csv</code>, which you can find <a href="../data/bank.csv">here</a>. I have given you a subset of a larger dataset. Most of the data is self-explanatory. However, a few inputs require that I give you more information: <code>default</code> describes if the customer has credit in default. <code>housing</code> and <code>loan</code> describe if the customer has either a mortgage or another type of loan already with the bank.</p>
+<p>You must read this data into <code>R</code> and provide two data visualizations that are pertinent to making business decisions on this dataset. Describe, in a one-page memo, what information you hope to convey to executives about the outreach or about the dataset more generally.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
