@@ -1,0 +1,991 @@
+<!DOCTYPE html><html><head>
+      <title>Lab3</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIYqWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIouWqZPBQ.ttf) format('truetype');
+}
+section.has-light-background,
+section.has-light-background h1,
+section.has-light-background h2,
+section.has-light-background h3,
+section.has-light-background h4,
+section.has-light-background h5,
+section.has-light-background h6 {
+  color: #18453B;
+}
+.reveal .controls {
+  right: 50px;
+  bottom: 50px;
+}
+.reveal.has-dark-background .line {
+  display: none;
+}
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  background-color: #fff;
+}
+.reveal {
+  font: 18px 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Fix for webkit rendering */
+  -moz-osx-font-smoothing: grayscale;
+  /* Fix for firefox rendering */
+  font-weight: 400;
+}
+::selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+::-moz-selection {
+  color: #fff;
+  background: #ffc0d5;
+  text-shadow: none;
+}
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 2.5em;
+  font-weight: inherit;
+  text-align: left;
+}
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #18453B;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  line-height: 2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+.reveal h1 {
+  position: top left;
+  font-size: 2.4em;
+  text-align: center;
+}
+.reveal h2 {
+  font-size: 2em;
+  text-align: center;
+}
+.reveal h3 {
+  font-size: 1.6em;
+  text-align: center;
+}
+.reveal h4 {
+  font-size: 1.5em;
+}
+.reveal h1 {
+  text-shadow: none;
+}
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.3;
+}
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+.reveal em {
+  font-style: italic;
+}
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+.reveal ol {
+  list-style-type: decimal;
+}
+.reveal ul {
+  list-style-type: disc;
+}
+.reveal ul ul {
+  list-style-type: square;
+}
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+.reveal dt {
+  font-weight: bold;
+}
+.reveal dd {
+  margin-left: 40px;
+}
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  font-variant: small-caps;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px #18453B;
+}
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+.reveal q {
+  font-style: italic;
+}
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px #18453B;
+}
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+}
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.reveal table th {
+  font-weight: bold;
+}
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center;
+}
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right;
+}
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+.reveal sup {
+  vertical-align: super;
+}
+.reveal sub {
+  vertical-align: sub;
+}
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+.reveal small * {
+  vertical-align: top;
+}
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #FF4081;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+.reveal a:hover {
+  color: #ff8db3;
+  text-shadow: none;
+  border: none;
+}
+.reveal .roll span:after {
+  color: #fff;
+  background: #f30053;
+}
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #363636;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+}
+.reveal a img {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FF4081;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #18453B;
+}
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #18453B;
+}
+.reveal .progress span {
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+.reveal .progress {
+  z-index: 1000;
+  color: #18453B;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="training-and-testing-linear-predictions">Training and Testing: (Linear) Predictions</h1>
+
+<p>This lab utilizes the &#x201C;ames.csv&#x201D; data <a href="../SSC442/Labs/data/ames.csv">(found here)</a>. As a reminder, this is a dataset concerning home sales from Ames, Iowa. The end of this lab features a (lengthy) discussion about indexing in <code>R</code>; this is optional reading but highly encouraged to improve your coding.</p>
+<h2 class="mume-header" id="linear-models">Linear Models</h2>
+
+<p>When using linear models in other classes, we often emphasize asymptotic results under distributional assumptions. That is, we make assumptions about the model in order to derive properties of large samples. This general approach is useful for creating and performing hypothesis tests. Frequently, when developing a linear regression model, part of our goal was to <strong>explain</strong> a relationship. However, this isn&apos;t</p>
+<p>Now, we will ignore much of what we have learned (sorry) and instead simply use regression as a tool to <strong>predict</strong>. Instead of a model which supposedly explains relationships, we seek a model which minimizes <strong>errors</strong>.</p>
+<p><img src="../assets/regression.png" alt></p>
+<p>To discuss linear models in the context of prediction, we return to the <code>Ames</code> data. Accordingly, you should utilize some of the early code from Lab 2 to hasten your progress in this lab.</p>
+<h3 class="mume-header" id="assesing-model-accuracy">Assesing Model Accuracy</h3>
+
+<p>There are many metrics to assess the accuracy of a regression model. Most of these measure in some way the average error that the model makes. The metric that we will be most interested in is the root-mean-square error.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>RMSE</mtext><mo stretchy="false">(</mo><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo separator="true">,</mo><mtext>Data</mtext><mo stretchy="false">)</mo><mo>=</mo><msqrt><mrow><mfrac><mn>1</mn><mi>n</mi></mfrac><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msup><mrow><mo fence="true">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>&#x2212;</mo><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mrow><msub><mi mathvariant="bold">x</mi><mi mathvariant="bold">i</mi></msub><mo stretchy="false">)</mo></mrow><mo fence="true">)</mo></mrow><mn>2</mn></msup></mstyle></mrow></msqrt></mrow><annotation encoding="application/x-tex">\text{RMSE}(\hat{f}, \text{Data}) = \sqrt{\frac{1}{n}\displaystyle\sum_{i = 1}^{n}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">RMSE</span></span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">Data</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.1568160000000005em;vertical-align:-1.277669em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8791470000000006em;"><span class="svg-align" style="top:-5.116816em;"><span class="pstrut" style="height:5.116816em;"></span><span class="mord" style="padding-left:1.056em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord"><span class="mord mathbf">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.3540079999999999em;"><span style="top:-3.6029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.8391470000000005em;"><span class="pstrut" style="height:5.116816em;"></span><span class="hide-tail" style="min-width:0.742em;height:3.196816em;"><svg width="400em" height="3.196816em" viewBox="0 0 400000 3196" preserveAspectRatio="xMinYMin slice"><path d="M702 80H40000040
+H742v3062l-4 4-4 4c-.667.7 -2 1.5-4 2.5s-4.167 1.833-6.5 2.5-5.5 1-9.5 1
+h-12l-28-84c-16.667-52-96.667 -294.333-240-727l-212 -643 -85 170
+c-4-3.333-8.333-7.667-13 -13l-13-13l77-155 77-156c66 199.333 139 419.667
+219 661 l218 661zM702 80H400000v40H742z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA context, the denominator for MSE may not be <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>.</p>
+<p>For a linear model , the estimate of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>f</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{f}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span></span>, is given by the fitted regression line.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>y</mi><mo>^</mo></mover><mo stretchy="false">(</mo><msub><mi mathvariant="bold">x</mi><mi mathvariant="bold">i</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo stretchy="false">(</mo><msub><mi mathvariant="bold">x</mi><mi mathvariant="bold">i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat{y}({\bf{x}_i}) = \hat{f}({\bf{x}_i})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord"><span class="mord"><span class="mord mathbf">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord"><span class="mord"><span class="mord mathbf">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>We can write an <code>R</code> function that will be useful for performing this calculation.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>rmse = function(actual, predicted) {
+  sqrt(mean((actual - predicted) ^ 2))
+}
+</code></pre><h3 class="mume-header" id="model-complexity">Model Complexity</h3>
+
+<p>Aside from how well a model predicts, we will also be very interested in the complexity (flexibility) of a model. For now, we will only consider nested linear models for simplicity. Then in that case, the more predictors that a model has, the more complex the model. For the sake of assigning a numerical value to the complexity of a linear model, we will use the number of predictors, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>.</p>
+<p>We write a simple <code>R</code> function to extract this information from a model.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>get_complexity = function(model) {
+  length(coef(model)) - 1
+}
+</code></pre><hr>
+<p><strong>Exercise 1:</strong></p>
+<ol>
+<li>Load the <code>Ames</code> data. Drop the variables <code>OverallCond</code> and <code>OverallQual</code>.</li>
+<li>Using <strong>forward selection</strong>---see <a href="https://msudataanalytics.github.io/SSC442/Lecture6/index.html">Lecture 6</a> for details---create a series of models up to complexity length 15. You may use all variables, including categorical variables.</li>
+<li>Create a chart plotting the model complexity as the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>-axis variable and RMSE as the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>-axis variable. Describe any patterns you see. Do you think you should use the full-size model? Why or why not? What criterion are you using to make this statement?</li>
+</ol>
+<hr>
+<h3 class="mume-header" id="test-train-split">Test-Train Split</h3>
+
+<p>There is an issue with fitting a model to all available data then using RMSE to determine how well the model predicts: it is essentially cheating. As a linear model becomes more complex, the RSS, thus RMSE, can never go up. It will only go down---or, in very specific cases where a new predictor is completely uncorrelated with the target, stay the same. This might seem to suggest that in order to predict well, we should use the largest possible model. However, in reality we have fit to a specific dataset, but as soon as we see new data, a large model may (in fact) predict poorly. This is called <strong>overfitting</strong>.</p>
+<p>The most common approach to overfitting is to take a dataset of interest and split it in two. One part of the datasets will be used to fit (train) a model, which we will call the <strong>training</strong> data. The remainder of the original data will be used to assess how well the model is predicting, which we will call the <strong>test</strong> data. Test data should <em>never</em> be used to train a model---its pupose is to evaluate the fitted model once you&apos;ve settled on something.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>Here we use the <code>sample()</code> function to obtain a random sample of the rows of the original data. We then use those row numbers (and remaining row numbers) to split the data accordingly. Notice we used the <code>set.seed()</code> function to allow use to reproduce the same random split each time we perform this analysis. Sometimes we don&apos;t want to do this; if we want to run lots of independent splits, then we do not need to set the initial seed.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>set.seed(9)
+num_obs = nrow(Ames)
+
+train_index = sample(num_obs, size = trunc(0.50 * num_obs))
+train_data = Advertising[train_index, ]
+test_data = Advertising[-train_index, ]
+</code></pre><p>We will look at two measures that assess how well a model is predicting: <strong>train RMSE</strong> and <strong>test RMSE</strong>.</p>
+<p><img src="https://render.githubusercontent.com/render/math?math=%5Ctext%7BRMSE%7D_%5Ctext%7BTrain%7D%20%3D%20%5Ctext%7BRMSE%7D(%5Chat%7Bf%7D%2C%20%5Ctext%7BTrain%20Data%7D)%20%3D%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn_%7B%5Ctext%7BTr%7D%7D%7D%5Csum_%7Bi%20%5Cin%20%5Ctext%7BTrain%7D%7D%5Cleft(y_i%20-%20%5Chat%7Bf%7D(%5Cbf%7Bx%7D_i)%5Cright)%5E2%7D" alt="\text{RMSE}\text{Train} = \text{RMSE}(\hat{f}, \text{Train Data}) = \sqrt{\frac{1}{n{\text{Tr}}}\sum_{i \in \text{Train}}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}"></p>
+<p>Here <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mrow><mi>T</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">n_{Tr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the number of observations in the train set. Train RMSE will still always go down (or stay the same) as the complexity of a linear model increases. That means train RMSE will not be useful for comparing models, but checking that it decreases is a useful sanity check.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>RMSE</mtext><mtext>Test</mtext></msub><mo>=</mo><mtext>RMSE</mtext><mo stretchy="false">(</mo><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo separator="true">,</mo><mtext>Test&#xA0;Data</mtext><mo stretchy="false">)</mo><mo>=</mo><msqrt><mrow><mfrac><mn>1</mn><msub><mi>n</mi><mtext>Te</mtext></msub></mfrac><munder><mo>&#x2211;</mo><mrow><mi>i</mi><mo>&#x2208;</mo><mtext>Test</mtext></mrow></munder><msup><mrow><mo fence="true">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>&#x2212;</mo><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mrow><msub><mi mathvariant="bold">x</mi><mi mathvariant="bold">i</mi></msub><mo stretchy="false">)</mo></mrow><mo fence="true">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\text{RMSE}_{\text{Test}} = \text{RMSE}(\hat{f}, \text{Test Data}) = \sqrt{\frac{1}{n_{\text{Te}}}\sum_{i \in \text{Test}} \left ( y_i - \hat{f}(\bf{x}_i) \right ) ^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">RMSE</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Test</span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">RMSE</span></span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">Test&#xA0;Data</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.04em;vertical-align:-1.3899739999999998em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6500260000000002em;"><span class="svg-align" style="top:-5em;"><span class="pstrut" style="height:5em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Te</span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8556639999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">&#x2208;</span><span class="mord text mtight"><span class="mord mtight">Test</span></span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.321706em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;"><span class="mord">^</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord"><span class="mord mathbf">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.3540079999999999em;"><span style="top:-3.6029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.6100260000000004em;"><span class="pstrut" style="height:5em;"></span><span class="hide-tail" style="min-width:1.02em;height:3.08em;"><svg width="400em" height="3.08em" viewBox="0 0 400000 3240" preserveAspectRatio="xMinYMin slice"><path d="M473,2793
+c339.3,-1799.3,509.3,-2700,510,-2702 l0 -0
+c3.3,-7.3,9.3,-11,18,-11 H400000v40H1017.7
+s-90.5,478,-276.2,1466c-185.7,988,-279.5,1483,-281.5,1485c-2,6,-10,9,-24,9
+c-8,0,-12,-0.7,-12,-2c0,-1.3,-5.3,-32,-16,-92c-50.7,-293.3,-119.7,-693.3,-207,-1200
+c0,-1.3,-5.3,8.7,-16,30c-10.7,21.3,-21.3,42.7,-32,64s-16,33,-16,33s-26,-26,-26,-26
+s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,104,
+606zM1001 80h400000v40H1017.7z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.3899739999999998em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>Here <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mrow><mi>T</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">n_{Te}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the number of observations in the test set. Test RMSE uses the model fit to the training data, but evaluated on the unused test data. This is a measure of how well the fitted model will predict <strong>in general</strong>, not simply how well it fits data used to train the model, as is the case with train RMSE. What happens to test RMSE as the size of the model increases? That is what we will investigate.</p>
+<p>We will start with the simplest possible linear model, that is, a model with no predictors.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>fit_0 = lm(Sales ~ 1, data = train_data)
+get_complexity(fit_0)
+
+# train RMSE
+sqrt(mean((train_data$Sales - predict(fit_0, train_data)) ^ 2))
+# test RMSE
+sqrt(mean((test_data$Sales - predict(fit_0, test_data)) ^ 2))
+</code></pre><p>The previous two operations obtain the train and test RMSE. Since these are operations we are about to use repeatedly, we should use the function that we happen to have already written.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># train RMSE
+rmse(actual = train_data$Sales, predicted = predict(fit_0, train_data))
+# test RMSE
+rmse(actual = test_data$Sales, predicted = predict(fit_0, test_data))
+</code></pre><p>This function can actually be improved for the inputs that we are using. We would like to obtain train and test RMSE for a fitted model, given a train or test dataset, and the appropriate response variable.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>get_rmse = function(model, data, response) {
+  rmse(actual = subset(data, select = response, drop = TRUE),
+       predicted = predict(model, data))
+}
+</code></pre><p>By using this function, our code becomes easier to read, and it is more obvious what task we are accomplishing.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>get_rmse(model = fit_0, data = train_data, response = &quot;Sales&quot;) # train RMSE
+get_rmse(model = fit_0, data = test_data, response = &quot;Sales&quot;) # test RMSE
+</code></pre><h2 class="mume-header" id="adding-flexibility-to-linear-models">Adding Flexibility to Linear Models</h2>
+
+<p>Each successive model we fit will be more and more flexible using both interactions and polynomial terms. We will see the training error decrease each time the model is made more flexible. We expect the test error to decrease a number of times, then eventually start going up, as a result of overfitting.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>fit_1 = lm(Sales ~ ., data = train_data)
+get_complexity(fit_1)
+
+get_rmse(model = fit_1, data = train_data, response = &quot;Sales&quot;) # train RMSE
+get_rmse(model = fit_1, data = test_data, response = &quot;Sales&quot;) # test RMSE
+</code></pre><pre data-role="codeBlock" data-info="{r}" class="language-"><code>fit_2 = lm(Sales ~ Radio * Newspaper * TV, data = train_data)
+get_complexity(fit_2)
+
+get_rmse(model = fit_2, data = train_data, response = &quot;Sales&quot;) # train RMSE
+get_rmse(model = fit_2, data = test_data, response = &quot;Sales&quot;) # test RMSE
+</code></pre><pre data-role="codeBlock" data-info="{r}" class="language-"><code>fit_3 = lm(Sales ~ Radio * Newspaper * TV + I(TV ^ 2), data = train_data)
+get_complexity(fit_3)
+
+get_rmse(model = fit_3, data = train_data, response = &quot;Sales&quot;) # train RMSE
+get_rmse(model = fit_3, data = test_data, response = &quot;Sales&quot;) # test RMSE
+</code></pre><pre data-role="codeBlock" data-info="{r}" class="language-"><code>fit_4 = lm(Sales ~ Radio * Newspaper * TV +
+           I(TV ^ 2) + I(Radio ^ 2) + I(Newspaper ^ 2), data = train_data)
+get_complexity(fit_4)
+
+get_rmse(model = fit_4, data = train_data, response = &quot;Sales&quot;) # train RMSE
+get_rmse(model = fit_4, data = test_data, response = &quot;Sales&quot;) # test RMSE
+</code></pre><pre data-role="codeBlock" data-info="{r}" class="language-"><code>fit_5 = lm(Sales ~ Radio * Newspaper * TV +
+           I(TV ^ 2) * I(Radio ^ 2) * I(Newspaper ^ 2), data = train_data)
+get_complexity(fit_5)
+
+get_rmse(model = fit_5, data = train_data, response = &quot;Sales&quot;) # train RMSE
+get_rmse(model = fit_5, data = test_data, response = &quot;Sales&quot;) # test RMSE
+</code></pre><h2 class="mume-header" id="choosing-a-model">Choosing a Model</h2>
+
+<p>To better understand the relationship between train RMSE, test RMSE, and model complexity, we summarize our results, as the above is somewhat cluttered.</p>
+<p>First, we recap the models that we have fit.</p>
+<pre data-role="codeBlock" data-info="{r, eval = FALSE}" class="language-"><code>fit_1 = lm(Sales ~ ., data = train_data)
+fit_2 = lm(Sales ~ Radio * Newspaper * TV, data = train_data)
+fit_3 = lm(Sales ~ Radio * Newspaper * TV + I(TV ^ 2), data = train_data)
+fit_4 = lm(Sales ~ Radio * Newspaper * TV +
+           I(TV ^ 2) + I(Radio ^ 2) + I(Newspaper ^ 2), data = train_data)
+fit_5 = lm(Sales ~ Radio * Newspaper * TV +
+           I(TV ^ 2) * I(Radio ^ 2) * I(Newspaper ^ 2), data = train_data)
+</code></pre><p>Next, we create a list of the models fit.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>model_list = list(fit_1, fit_2, fit_3, fit_4, fit_5)
+</code></pre><p>We then obtain train RMSE, test RMSE, and model complexity for each.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>train_rmse = sapply(model_list, get_rmse, data = train_data, response = &quot;Sales&quot;)
+test_rmse = sapply(model_list, get_rmse, data = test_data, response = &quot;Sales&quot;)
+model_complexity = sapply(model_list, get_complexity)
+</code></pre><pre data-role="codeBlock" data-info="{r, echo = FALSE, eval = FALSE}" class="language-"><code># the following is the same as the apply command above
+
+test_rmse = c(get_rmse(fit_1, test_data, &quot;Sales&quot;),
+              get_rmse(fit_2, test_data, &quot;Sales&quot;),
+              get_rmse(fit_3, test_data, &quot;Sales&quot;),
+              get_rmse(fit_4, test_data, &quot;Sales&quot;),
+              get_rmse(fit_5, test_data, &quot;Sales&quot;))
+</code></pre><p>We then plot the results. The train RMSE can be seen in blue, while the test RMSE is given in orange.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>plot(model_complexity, train_rmse, type = &quot;b&quot;,
+     ylim = c(min(c(train_rmse, test_rmse)) - 0.02,
+              max(c(train_rmse, test_rmse)) + 0.02),
+     col = &quot;dodgerblue&quot;,
+     xlab = &quot;Model Size&quot;,
+     ylab = &quot;RMSE&quot;)
+lines(model_complexity, test_rmse, type = &quot;b&quot;, col = &quot;darkorange&quot;)
+</code></pre><p>We also summarize the results as a table. <code>fit_1</code> is the least flexible, and <code>fit_5</code> is the most flexible. We see the Train RMSE decrease as flexibility increases. We see that the Test RMSE is smallest for <code>fit_3</code>, thus is the model we believe will perform the best on future data not used to train the model. Note this may not be the best model, but it is the best model of the models we have seen in this example.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Train RMSE</th>
+<th>Test RMSE</th>
+<th>Predictors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fit_1</code></td>
+<td><code>r train_rmse[1]</code></td>
+<td><code>r test_rmse[1]</code></td>
+<td><code>r model_complexity[1]</code></td>
+</tr>
+<tr>
+<td><code>fit_2</code></td>
+<td><code>r train_rmse[2]</code></td>
+<td><code>r test_rmse[2]</code></td>
+<td><code>r model_complexity[2]</code></td>
+</tr>
+<tr>
+<td><code>fit_3</code></td>
+<td><code>r train_rmse[3]</code></td>
+<td><code>r test_rmse[3]</code></td>
+<td><code>r model_complexity[3]</code></td>
+</tr>
+<tr>
+<td><code>fit_4</code></td>
+<td><code>r train_rmse[4]</code></td>
+<td><code>r test_rmse[4]</code></td>
+<td><code>r model_complexity[4]</code></td>
+</tr>
+<tr>
+<td><code>fit_5</code></td>
+<td><code>r train_rmse[5]</code></td>
+<td><code>r test_rmse[5]</code></td>
+<td><code>r model_complexity[5]</code></td>
+</tr>
+</tbody>
+</table>
+<p>To summarize:</p>
+<ul>
+<li><strong>Underfitting models:</strong> In general <em>High</em> Train RMSE, <em>High</em> Test RMSE. Seen in <code>fit_1</code> and <code>fit_2</code>.</li>
+<li><strong>Overfitting models:</strong> In general <em>Low</em> Train RMSE, <em>High</em> Test RMSE. Seen in <code>fit_4</code> and <code>fit_5</code>.</li>
+</ul>
+<p>Specifically, we say that a model is overfitting if there exists a less complex model with lower Test RMSE. Then a model is underfitting if there exists a more complex model with lower Test RMSE.</p>
+<p>A number of notes on these results:</p>
+<ul>
+<li>The labels of under and overfitting are <em>relative</em> to the best model we see, <code>fit_3</code>. Any model more complex with higher Test RMSE is overfitting. Any model less complex with higher Test RMSE is underfitting.</li>
+<li>The train RMSE is guaranteed to follow this non-increasing pattern. The same is not true of test RMSE. Here we see a nice U-shaped curve. There are theoretical reasons why we should expect this, but that is on average. Because of the randomness of one test-train split, we may not always see this result. Re-perform this analysis with a different seed value and the pattern may not hold. We will discuss why we expect this next chapter. We will discuss how we can help create this U-shape much later.</li>
+<li>Often we expect train RMSE to be lower than test RMSE. Again, due to the randomness of the split, you may get lucky and this will not be true.</li>
+</ul>
+<p>A final note on the analysis performed here; we paid no attention whatsoever to the &quot;assumptions&quot; of a linear model. We only sought a model that <strong>predicted</strong> well, and paid no attention to a model for <strong>explaination</strong>. Hypothesis testing did not play a role in deciding the model, only prediction accuracy. Collinearity? We don&apos;t care. Assumptions? Still don&apos;t care. Diagnostics? Never heard of them. (These statements are a little over the top, and not completely true, but just to drive home the point that we only care about prediction. Often we latch onto methods that we have seen before, even when they are not needed.)</p>
+<hr>
+<h2 class="mume-header" id="an-aside-indexing-in-r">An Aside: Indexing in <code>R</code></h2>
+
+<p>Indexing  is a very helpful way to examine data and to subdivide it into specific bits. To highlight this, we&apos;ll use some basic nonsense data and start with a simple reminder of other forms of indexing.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>boat.df &lt;- data.frame(
+boat.names = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;),
+boat.colors = c(&quot;black&quot;, &quot;green&quot;, &quot;pink&quot;, &quot;blue&quot;, &quot;blue&quot;,
+                &quot;green&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;black&quot;, &quot;black&quot;),
+boat.ages = c(143, 53, 356, 23, 647, 24, 532, 43, 66, 86),
+boat.prices = c(53, 87, 54, 66, 264, 32, 532, 58, 99, 132),
+boat.costs = c(52, 80, 20, 100, 189, 12, 520, 68, 80, 100)
+)
+</code></pre><p>Indexing is a simple tool but it can answer both simple and complex questions. For example, in the data above, we can answer the following questions using a single line of code:</p>
+<ol>
+<li>
+<p>What was the price of the first boat? <code>boat.prices[1]</code></p>
+</li>
+<li>
+<p>What were the ages of the first 5 boats? <code>boat.ages[1:5]</code></p>
+</li>
+<li>
+<p>What were the names of the black boats?<code>boat.names[boat.colors == &quot;black&quot;]</code></p>
+</li>
+<li>
+<p>What were the prices of either green or yellow boats? <code>boat.prices[boat.colors == &quot;green&quot; | boat.colors == &quot;yellow&quot;]</code></p>
+</li>
+<li>
+<p>Can we change the price of boat &quot;s&quot; to 100?<code>boat.prices[boat.names == &quot;s&quot;] &lt;- 100</code></p>
+</li>
+<li>
+<p>What was the median price of black boats less than 100 years old? <code>median(boat.prices[boat.colors == &quot;black&quot; &amp; boat.ages &lt; 100])</code></p>
+</li>
+<li>
+<p>How many pink boats were there? <code>sum(boat.colors == &quot;pink&quot;)</code></p>
+</li>
+<li>
+<p>What percent of boats were older than 100 years old?<code>mean(boat.ages &lt; 100)</code></p>
+</li>
+</ol>
+<p>By now you should be adept at applying simple functions like <code>mean()</code> and <code>table()</code> to vectors. However, in many analyses, you won&apos;t want to calculate statistics of an entire vector. Instead, you will want to access specific <em>subsets</em> of values of a vector based on some criteria. For example, you may want to access values in a specific location in the vector (i.e.; the first 10 elements) or based on some criteria within that vector (i.e.; all values greater than 0), or based on criterion from values in a <em>different</em> vector (e.g.; All values of <code>age</code> where <code>sex == Female</code>). To access specific values of a vector in <code>R</code>, we use <em>indexing</em>. This utilizes brackets <code>[]</code>.</p>
+<p>In general, whatever you put inside the brackets tells <code>R</code> which values of the vector object you want. There are two main ways that you can use indexing to access subsets of data in a vector: numerical and logical indexing.</p>
+<h3 class="mume-header" id="numerical-indexing">Numerical Indexing</h3>
+
+<p>With numerical indexing, you enter a vector of integers corresponding to the values in the vector you want to access in the form <code>a[index]</code>, where <code>a</code> is the vector, and <code>index</code> is a vector of index values. For example, let&apos;s use numerical indexing to get values from our boat vectors.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># What is the first boat name?
+boat.names[1]
+# What are the first five boat colors?
+boat.colors[1:5]
+# What is every second boat age?
+boat.ages[seq(1, 5, by = 2)]
+</code></pre><p>You can use any indexing vector as long as it contains integers. You can even access the same elements multiple times:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># What is the first boat age (3 times)
+boat.ages[c(1, 1, 1)]
+</code></pre><p>If it makes your code clearer, you can define an indexing object before doing your actual indexing. For example, let&apos;s define an object called <code>my.index</code> and use this object to index our data vector:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>my.index &lt;- 3:5
+boat.names[my.index]
+</code></pre><h2 class="mume-header" id="logical-indexing">Logical Indexing</h2>
+
+<p>The second way to index vectors is with <em>logical vectors</em>. A logical vector is a vector that <em>only</em> contains <code>TRUE</code> and <code>FALSE</code> values. In <code>R</code>, true values are designated with <code>TRUE</code>, and false values with <code>FALSE</code> (in other languages, zero and one are acceptable). When you index a vector with a logical vector, <code>R</code> will return values of the vector for which the indexing vector is <code>TRUE</code>.<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p>
+<p>The easiest way to create logical vectors is from <em>existing vectors</em> using comparison operators like <code>&lt;</code> (less than), <code>==</code> (equals to), and <code>!=</code> (not equal to).</p>
+<p><strong>Try it:</strong> Find a complete list of logical operators in <code>R</code>.</p>
+<p>You can also create logical vectors by comparing a vector to another vector of the same length. When you do this, R will compare values in the same position (e.g.; the first values will be compared, then the second values, etc.). For example, we can compare the <code>boat.cost</code> and <code>boat.price</code> vectors to see which boats sold for a higher price than their cost:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Which boats had a higher price than cost?
+boat.prices &gt; boat.costs
+# Which boats had a lower price than cost?
+boat.prices &lt; boat.costs
+</code></pre><p>Once you&apos;ve created a logical vector using a comparison operator, you can use it to index any vector with the same length. Here, I&apos;ll use logical vectors to get the prices of boats whose ages were greater than 100:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># What were the prices of boats older than 100?
+boat.prices[boat.ages &gt; 100]
+</code></pre><p>Here&apos;s how logical indexing works step-by-step:</p>
+<ol>
+<li>Which boats are older than 100 years? <code>boat.ages &gt; 100</code></li>
+<li>Write the logical index by hand (of course, you will never do this).</li>
+<li>Show me all of the boat prices where the logical vector is TRUE: <code>boat.prices[c(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE)]</code></li>
+</ol>
+<ul>
+<li>Doing it all in one step! You get the same answer: <code>boat.prices[boat.ages &gt; 100]</code></li>
+</ul>
+<h3 class="mume-header" id="and-or-in"><code>&amp;</code> (and), <code>|</code> (or), <code>%in%</code></h3>
+
+<p>In addition to using single comparison operators, you can combine multiple logical vectors using the OR (which looks like <code>|</code> and AND <code>&amp;</code> commands. The OR <code>|</code> operation will return TRUE if any of the logical vectors is TRUE, while the AND <code>&amp;</code> operation will only return TRUE if all of the values in the logical vectors is TRUE. This is especially powerful when you want to create a logical vector based on criteria from multiple vectors.</p>
+<p>For example, let&apos;s create a logical vector indicating which boats had a price greater than 200 OR less than 100, and then use that vector to see what the names of these boats were:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Which boats had prices greater than 200 OR less than 100?
+boat.prices &gt; 200 | boat.prices &lt; 100
+# What were the NAMES of these boats
+boat.names[boat.prices &gt; 200 | boat.prices &lt; 100]
+</code></pre><p>You can combine as many logical vectors as you want (as long as they all have the same length!):</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Boat names of boats with a color of black OR with a price &gt; 100
+boat.names[boat.colors == &quot;black&quot; | boat.prices &gt; 100]
+# Names of blue boats with a price greater than 200
+boat.names[boat.colors == &quot;blue&quot; &amp; boat.prices &gt; 200]
+</code></pre><p>You can combine as many logical vectors as you want to create increasingly complex selection criteria. For example, the following logical vector returns TRUE for cases where the boat colors are black OR brown, AND where the price was less than 100:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Which boats were eithe black or brown, AND had a price less than 100?
+(boat.colors == &quot;black&quot; | boat.colors == &quot;brown&quot;) &amp; boat.prices &lt; 100
+# What were the names of these boats?
+boat.names[(boat.colors == &quot;black&quot; | boat.colors == &quot;brown&quot;) &amp; boat.prices &lt; 100]
+</code></pre><p>When using multiple criteria, make sure to use parentheses when appropriate. If I didn&apos;t use parentheses above, I would get a different answer.</p>
+<p>The <code>%in%</code> operation helps you to easily create multiple OR arguments.Imagine you have a vector of categorical data that can take on many different values. For example, you could have a vector x indicating people&apos;s favorite letters.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>x &lt;- c(&quot;a&quot;, &quot;t&quot;, &quot;a&quot;, &quot;b&quot;, &quot;z&quot;)
+</code></pre><p>Now, let&apos;s say you want to create a logical vector indicating which values are either a or b or c or d. You could create this logical vector with multiple | (OR) commands:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>x == &quot;a&quot; | x == &quot;b&quot; | x == &quot;c&quot; | x == &quot;d&quot;
+</code></pre><p>However, this takes a long time to write. Thankfully, the <code>%in%</code> operation allows you to combine multiple OR comparisons much faster. To use the <code>%in%</code> function, just put it in between the original vector, and a new vector of possible values. The <code>%in%</code> function goes through every value in the vector x, and returns TRUE if it finds it in the vector of possible values -- otherwise it returns FALSE.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>x %in% c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;)
+</code></pre><p>As you can see, the result is identical to our previous result.</p>
+<h3 class="mume-header" id="counts-and-percentages-from-logical-vectors">Counts and percentages from logical vectors</h3>
+
+<p>Many (if not all) R functions will interpret TRUE values as 1 and FALSE values as 0. This allows us to easily answer questions like &quot;How many values in a data vector are greater than 0?&quot; or &quot;What percentage of values are equal to 5?&quot; by applying the <code>sum()</code> or <code>mean()</code> function to a logical vector.</p>
+<p>We&apos;ll start with a vector x of length 10, containing 3 positive numbers and 5 negative numbers.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>x &lt;- c(1, 2, 3, -5, -5, -5, -5, -5)
+</code></pre><p>We can create a logical vector to see which values are greater than 0:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>x &gt; 0
+</code></pre><p>Now, we&apos;ll use <code>sum()</code> and <code>mean()</code> on that logical vector to see how many of the values in x are positive, and what percent are positive. We should find that there are 5 TRUE values, and that 50% of the values (5 / 10) are TRUE.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>sum(x &gt; 0)
+mean(x &gt; 0)
+</code></pre><p>This is a <em>really</em> powerful tool. Pretty much <em>any</em> time you want to answer a question like &quot;How many of X are Y&quot; or &quot;What percent of X are Y&quot;, you use <code>sum()</code> or <code>mean()</code> function with a logical vector as an argument.</p>
+<h3 class="mume-header" id="additional-logical-functions">Additional Logical functions</h3>
+
+<p>R has lots of special functions that take vectors as arguments, and return logical vectors based on multiple criteria. For example, you can use the <code>is.na()</code> function to test which values of a vector are missing. Table @ref(tab:logicalfunctions) contains some that I frequently use:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Function</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>is.na(x)</code></td>
+<td style="text-align:left">Which values in x are NA?</td>
+<td style="text-align:left"><code>is.na(c(2, NA, 5))</code></td>
+<td><code>r is.na(c(2, NA, 5))</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>is.finite(x)</code></td>
+<td style="text-align:left">Which values in x are numbers?</td>
+<td style="text-align:left"><code>is.finite(c(NA, 89, 0))</code></td>
+<td><code>r is.finite(c(NA, 89, 0))</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>duplicated(x)</code></td>
+<td style="text-align:left">Which values in x are duplicated?</td>
+<td style="text-align:left"><code>duplicated(c(1, 4, 1, 2))</code></td>
+<td><code>r duplicated(c(1, 4, 1, 2))</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>which(x)</code></td>
+<td style="text-align:left">Which values in x are TRUE?</td>
+<td style="text-align:left"><code>which(c(TRUE, FALSE, TRUE))</code></td>
+<td><code>r which(c(TRUE, FALSE, TRUE))</code></td>
+</tr>
+</tbody>
+</table>
+<p>Table: (#tab:logicalfunctions) Functions to create and use logical vectors.</p>
+<p>Logical vectors aren&apos;t just good for indexing, you can also use them to figure out which values in a vector satisfy some criteria. To do this, use the function <code>which()</code>. If you apply the function <code>which()</code> to a logical vector, R will tell you which values of the index are TRUE. For example:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># A vector of sex information
+sex &lt;- c(&quot;m&quot;, &quot;m&quot;, &quot;f&quot;, &quot;m&quot;, &quot;f&quot;, &quot;f&quot;)
+# Which values of sex are m?
+which(sex == &quot;m&quot;)
+# Which values of sex are f?
+which(sex == &quot;f&quot;)
+</code></pre><h2 class="mume-header" id="changing-values-of-a-vector">Changing values of a vector</h2>
+
+<p>Now that you know how to index a vector, you can easily change specific values in a vector using the assignment (<code>&lt;-</code>) operation. To do this, just assign a vector of new values to the indexed values of the original vector:</p>
+<p>Let&apos;s create a vector <code>a</code> which contains 10 1s:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>a &lt;- rep(1, 10)
+</code></pre><p>Now, let&apos;s change the first 5 values in the vector to 9s by indexing the first five values, and assigning the value of 9:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>a[1:5] &lt;- 9
+a
+</code></pre><p>Now let&apos;s change the last 5 values to 0s. We&apos;ll index the values 6 through 10, and assign a value of 0.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>a[6:10] &lt;- 0
+a
+</code></pre><p>Of course, you can also change values of a vector using a logical indexing vector. For example, let&apos;s say you have a vector of numbers that should be from 1 to 10. If values are outside of this range, you want to set them to either the minimum (1) or maximum (10) value:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># x is a vector of numbers that should be from 1 to 10
+x &lt;- c(5, -5, 7, 4, 11, 5, -2)
+# Assign values less than 1 to 1
+x[x &lt; 1] &lt;- 1
+# Assign values greater than 10 to 10
+x[x &gt; 10] &lt;- 10
+# Print the result!
+x
+</code></pre><p>As you can see, our new values of x are now never less than 1 or greater than 10!<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h3 class="mume-header" id="example-fixing-missing-or-incorrect-data">Example: Fixing Missing or Incorrect Data</h3>
+
+<p>Assigning and indexing is a particularly helpful tool when, for example, you want to remove invalid values in a vector before performing an analysis. For example, let&apos;s say you asked 10 people how happy they were on a scale of 1 to 5 and received the following responses:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code>happy &lt;- c(1, 4, 2, 999, 2, 3, -2, 3, 2, 999)
+</code></pre><p>As you can see, we have some invalid values (999 and -2) in this vector. To remove them, we&apos;ll use logical indexing to change the invalid values (999 and -2) to NA. We&apos;ll create a logical vector indicating which values of <code>happy</code> are <em>invalid</em> using the <code>%in%</code> operation. Because we want to see which values are <em>invalid</em>, we&apos;ll add the <code>== FALSE</code> condition (If we don&apos;t, the index will tell us which values <em>are</em> valid).</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Which values of happy are NOT in the set 1:5?
+invalid &lt;- (happy %in% 1:5) == FALSE
+invalid
+</code></pre><p>Now that we have a logical index <code>invalid</code> telling us which values are invalid (that is, not in the set 1 through 5), we&apos;ll index <code>happy</code> with <code>invalid</code>, and assign the invalid values as NA:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Convert any invalid values in happy to NA
+happy[invalid] &lt;- NA
+happy
+</code></pre><p>We can also recode all the invalid values of <code>happy</code> in one line as follows:</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Convert all values of happy that are NOT integers from 1 to 5 to NA
+happy[(happy %in% 1:5) == FALSE] &lt;- NA
+</code></pre><p>As you can see, <code>happy</code> now has NAs for previously invalid values. Now we can take a <code>mean()</code> of the vector and see the mean of the valid responses.</p>
+<pre data-role="codeBlock" data-info="{r}" class="language-"><code># Include na.rm = TRUE to ignore NA values
+mean(happy, na.rm = TRUE)
+</code></pre><hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>If that was confusing, think about it this way: a logical vector, combined with the brackets <code>[ ]</code>, acts as a <em>filter</em> for the vector it is indexing. That is, it only lets values of the vector pass through the filter if the logical vector is <code>TRUE</code>. <code>FALSE</code> values in a logical vector are like mini-Gandalfs. If we index a vector <code>x</code> with a logical vector <code>y</code>, then mini-Gandalf stops all the values of <code>x</code> for which <code>y</code> was <code>FALSE</code>. <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a> <a href="#fnref1:1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><strong>A Note on Indexing:</strong> Technically, when you assign new values to a vector, you should always assign a vector of the same length as the number of values that you are updating. For example, given a vector a with 10 1s: <code>a &lt;- rep(1, 10)</code> To update the first 5 values with 5 9s, we should assign a new vector of 5 9s: <code>a[1:5] &lt;- c(9, 9, 9, 9, 9)</code> However, if we repeat this code but just assign a single 9, <code>R</code> will repeat the value as many times as necessary to fill the indexed value of the vector. That&apos;s why the following code still works: <code>a[1:5] &lt;- 9</code> In other languages this code <strong>wouldn&apos;t work</strong> because we&apos;re trying to replace 5 values with just 1. However, this is a case where <code>R</code> bends the rules of programming a bit. But don&apos;t do this. <a href="#fnref2" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
