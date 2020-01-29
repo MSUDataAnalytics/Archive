@@ -84,9 +84,8 @@ What follows is a very rough schedule of what we will cover this semester — of
 
 [**Lab 2:** Linear Regression and Simple Analyses](Labs/Lab2.html)
 
-  4.  Bias versus Variance 	`[ 2 ]`
-  5.  Training versus Testing	`[ 1 ]`
-  6.  The VC Dimension	`[ 1 ]`
+  4.  Bias vs. Variance & Training vs. Testing	`[ 1 ]`
+  6.  Extending Beyond the Testing Data: The VC Dimension	`[ 1 ]`
 
 ```
 Exam 1: Date TBD

@@ -72,8 +72,8 @@ set.seed(9)
 num_obs = nrow(Ames)
 
 train_index = sample(num_obs, size = trunc(0.50 * num_obs))
-train_data = Advertising[train_index, ]
-test_data = Advertising[-train_index, ]
+train_data = Ames[train_index, ]
+test_data = Ames[-train_index, ]
 ```
 
 We will look at two measures that assess how well a model is predicting: **train RMSE** and **test RMSE**.
@@ -93,22 +93,22 @@ Here $n_{Te}$ is the number of observations in the test set. Test RMSE uses the 
 We will start with the simplest possible linear model, that is, a model with no predictors.
 
 ```{r}
-fit_0 = lm(Sales ~ 1, data = train_data)
+fit_0 = lm(SalePrice ~ 1, data = train_data)
 get_complexity(fit_0)
 
 # train RMSE
-sqrt(mean((train_data$Sales - predict(fit_0, train_data)) ^ 2))
+sqrt(mean((train_data$SalePrice - predict(fit_0, train_data)) ^ 2))
 # test RMSE
-sqrt(mean((test_data$Sales - predict(fit_0, test_data)) ^ 2))
+sqrt(mean((test_data$SalePrice - predict(fit_0, test_data)) ^ 2))
 ```
 
 The previous two operations obtain the train and test RMSE. Since these are operations we are about to use repeatedly, we should use the function that we happen to have already written.
 
 ```{r}
 # train RMSE
-rmse(actual = train_data$Sales, predicted = predict(fit_0, train_data))
+rmse(actual = train_data$SalePrice, predicted = predict(fit_0, train_data))
 # test RMSE
-rmse(actual = test_data$Sales, predicted = predict(fit_0, test_data))
+rmse(actual = test_data$SalePrice, predicted = predict(fit_0, test_data))
 ```
 
 This function can actually be improved for the inputs that we are using. We would like to obtain train and test RMSE for a fitted model, given a train or test dataset, and the appropriate response variable.
@@ -123,98 +123,49 @@ get_rmse = function(model, data, response) {
 By using this function, our code becomes easier to read, and it is more obvious what task we are accomplishing.
 
 ```{r}
-get_rmse(model = fit_0, data = train_data, response = "Sales") # train RMSE
-get_rmse(model = fit_0, data = test_data, response = "Sales") # test RMSE
+get_rmse(model = fit_0, data = train_data, response = "SalePrice") # train RMSE
+get_rmse(model = fit_0, data = test_data, response = "SalePrice") # test RMSE
 ```
+**Try it:** Apply this basic function with different arguments. Do you understand how we've nested functions within functions?
+
+**Try it:** Define a total of five models using the first five models you fit in Exercise 1. Define these as `fit_1` through `fit_5`
 
 
-## Adding Flexibility to Linear Models
+### Adding Flexibility to Linear Models
 
-Each successive model we fit will be more and more flexible using both interactions and polynomial terms. We will see the training error decrease each time the model is made more flexible. We expect the test error to decrease a number of times, then eventually start going up, as a result of overfitting.
+Each successive model we fit will be more and more flexible using both interactions and polynomial terms. We will see the training error decrease each time the model is made more flexible. We expect the test error to decrease a number of times, then eventually start going up, as a result of overfitting. To better understand the relationship between train RMSE, test RMSE, and model complexity, we'll explore the results from Exercise 1.
 
-```{r}
-fit_1 = lm(Sales ~ ., data = train_data)
-get_complexity(fit_1)
-
-get_rmse(model = fit_1, data = train_data, response = "Sales") # train RMSE
-get_rmse(model = fit_1, data = test_data, response = "Sales") # test RMSE
-```
-
-```{r}
-fit_2 = lm(Sales ~ Radio * Newspaper * TV, data = train_data)
-get_complexity(fit_2)
-
-get_rmse(model = fit_2, data = train_data, response = "Sales") # train RMSE
-get_rmse(model = fit_2, data = test_data, response = "Sales") # test RMSE
-```
-
-```{r}
-fit_3 = lm(Sales ~ Radio * Newspaper * TV + I(TV ^ 2), data = train_data)
-get_complexity(fit_3)
-
-get_rmse(model = fit_3, data = train_data, response = "Sales") # train RMSE
-get_rmse(model = fit_3, data = test_data, response = "Sales") # test RMSE
-```
-
-```{r}
-fit_4 = lm(Sales ~ Radio * Newspaper * TV +
-           I(TV ^ 2) + I(Radio ^ 2) + I(Newspaper ^ 2), data = train_data)
-get_complexity(fit_4)
-
-get_rmse(model = fit_4, data = train_data, response = "Sales") # train RMSE
-get_rmse(model = fit_4, data = test_data, response = "Sales") # test RMSE
-```
-
-```{r}
-fit_5 = lm(Sales ~ Radio * Newspaper * TV +
-           I(TV ^ 2) * I(Radio ^ 2) * I(Newspaper ^ 2), data = train_data)
-get_complexity(fit_5)
-
-get_rmse(model = fit_5, data = train_data, response = "Sales") # train RMSE
-get_rmse(model = fit_5, data = test_data, response = "Sales") # test RMSE
-```
-
-## Choosing a Model
-
-To better understand the relationship between train RMSE, test RMSE, and model complexity, we summarize our results, as the above is somewhat cluttered.
-
-First, we recap the models that we have fit.
-
-```{r, eval = FALSE}
-fit_1 = lm(Sales ~ ., data = train_data)
-fit_2 = lm(Sales ~ Radio * Newspaper * TV, data = train_data)
-fit_3 = lm(Sales ~ Radio * Newspaper * TV + I(TV ^ 2), data = train_data)
-fit_4 = lm(Sales ~ Radio * Newspaper * TV +
-           I(TV ^ 2) + I(Radio ^ 2) + I(Newspaper ^ 2), data = train_data)
-fit_5 = lm(Sales ~ Radio * Newspaper * TV +
-           I(TV ^ 2) * I(Radio ^ 2) * I(Newspaper ^ 2), data = train_data)
-```
-
-Next, we create a list of the models fit.
+Hopefully, you tried the in-line excercise above. If so, we can create a list of the models fit.
 
 ```{r}
 model_list = list(fit_1, fit_2, fit_3, fit_4, fit_5)
 ```
 
-We then obtain train RMSE, test RMSE, and model complexity for each.
+We then obtain train RMSE, test RMSE, and model complexity for each. In doing so, we'll introduce a handy function from `R` called `sapply()`. You can likely intuit what it does by looking at the code below.
 
 ```{r}
-train_rmse = sapply(model_list, get_rmse, data = train_data, response = "Sales")
-test_rmse = sapply(model_list, get_rmse, data = test_data, response = "Sales")
+train_rmse = sapply(model_list, get_rmse, data = train_data, response = "SalePrice")
+test_rmse = sapply(model_list, get_rmse, data = test_data, response = "SalePrice")
 model_complexity = sapply(model_list, get_complexity)
 ```
 
-```{r, echo = FALSE, eval = FALSE}
-# the following is the same as the apply command above
+**Try it:** Run `?sapply()` to understand what are valid arguments to the function.
 
-test_rmse = c(get_rmse(fit_1, test_data, "Sales"),
-              get_rmse(fit_2, test_data, "Sales"),
-              get_rmse(fit_3, test_data, "Sales"),
-              get_rmse(fit_4, test_data, "Sales"),
-              get_rmse(fit_5, test_data, "Sales"))
+Once you've done this, you'll notice the following:
+
+```{r}
+# This is the same as the apply command above
+
+test_rmse = c(get_rmse(fit_1, test_data, "SalePrice"),
+              get_rmse(fit_2, test_data, "SalePrice"),
+              get_rmse(fit_3, test_data, "SalePrice"),
+              get_rmse(fit_4, test_data, "SalePrice"),
+              get_rmse(fit_5, test_data, "SalePrice"))
 ```
 
-We then plot the results. The train RMSE can be seen in blue, while the test RMSE is given in orange.
+We can plot the results. The train RMSE can be seen in blue, while the test RMSE is given in orange.[^3]
+
+[^3]: The train RMSE is guaranteed to follow this non-increasing pattern. The same is not true of test RMSE. We often see a nice U-shaped curve. There are theoretical reasons why we should expect this, but that is on average. Because of the randomness of one test-train split, we may not always see this result. Re-perform this analysis with a different seed value and the pattern may not hold. We will discuss why we expect this next chapter. We will discuss how we can help create this U-shape much later. Also, we might intuitively expect train RMSE to be lower than test RMSE. Again, due to the randomness of the split, you may get (un)lucky and this will not be true.
 
 ```{r}
 plot(model_complexity, train_rmse, type = "b",
@@ -226,28 +177,35 @@ plot(model_complexity, train_rmse, type = "b",
 lines(model_complexity, test_rmse, type = "b", col = "darkorange")
 ```
 
-We also summarize the results as a table. `fit_1` is the least flexible, and `fit_5` is the most flexible. We see the Train RMSE decrease as flexibility increases. We see that the Test RMSE is smallest for `fit_3`, thus is the model we believe will perform the best on future data not used to train the model. Note this may not be the best model, but it is the best model of the models we have seen in this example.
+We could also summarize the results as a table. `fit_1` is the least flexible, and `fit_5` is the most flexible. We see the Train RMSE decrease as flexibility increases.
 
 | Model   | Train RMSE        | Test RMSE        | Predictors              |
 |---------|-------------------|------------------|-------------------------|
-| `fit_1` | `r train_rmse[1]` | `r test_rmse[1]` | `r model_complexity[1]` |
-| `fit_2` | `r train_rmse[2]` | `r test_rmse[2]` | `r model_complexity[2]` |
-| `fit_3` | `r train_rmse[3]` | `r test_rmse[3]` | `r model_complexity[3]` |
-| `fit_4` | `r train_rmse[4]` | `r test_rmse[4]` | `r model_complexity[4]` |
-| `fit_5` | `r train_rmse[5]` | `r test_rmse[5]` | `r model_complexity[5]` |
+| `fit_1` | RMSE$_{\text{train}}$ for model 1 | RMSE$_{\text{test}}$ for model 1 | put predictors here|
+| ...| ... | .... | ... |
+| `fit_5` | RMSE$_{\text{train}}$ for model 5  | RMSE$_{\text{train}}$ for model 5  | $p$ predictors |
+
+**Try it:**  When is the Test RMSE is smallest amongst the five models? Note this may not be the **best** model, but it is the best model of the class of models you've attempted?
 
 To summarize:
 
-- **Underfitting models:** In general *High* Train RMSE, *High* Test RMSE. Seen in `fit_1` and `fit_2`.
-- **Overfitting models:** In general *Low* Train RMSE, *High* Test RMSE. Seen in `fit_4` and `fit_5`.
+- **Underfitting models:** In general *High* Train RMSE, *High* Test RMSE.
+- **Overfitting models:** In general *Low* Train RMSE, *High* Test RMSE.
 
-Specifically, we say that a model is overfitting if there exists a less complex model with lower Test RMSE. Then a model is underfitting if there exists a more complex model with lower Test RMSE.
+Specifically, we say that a model is overfitting if there exists a less complex model with lower Test RMSE.[^2] Then a model is underfitting if there exists a more complex model with lower Test RMSE.
 
-A number of notes on these results:
+[^2]: The labels of under and overfitting are *relative* to the best model we see. Any model more complex with higher Test RMSE is overfitting. Any model less complex with higher Test RMSE is underfitting.
 
-- The labels of under and overfitting are *relative* to the best model we see, `fit_3`. Any model more complex with higher Test RMSE is overfitting. Any model less complex with higher Test RMSE is underfitting.
-- The train RMSE is guaranteed to follow this non-increasing pattern. The same is not true of test RMSE. Here we see a nice U-shaped curve. There are theoretical reasons why we should expect this, but that is on average. Because of the randomness of one test-train split, we may not always see this result. Re-perform this analysis with a different seed value and the pattern may not hold. We will discuss why we expect this next chapter. We will discuss how we can help create this U-shape much later.
-- Often we expect train RMSE to be lower than test RMSE. Again, due to the randomness of the split, you may get lucky and this will not be true.
+---
+**Exercise 2:**
+
+1. Plot the Train and Test RMSE for the 15 models you fit in Exercise 1.
+2. **This question is the most time-consuming question.** Using any method you choose and any number of regressors, predict `SalePrice`. Calculate the Train and Test RMSE.
+3. In a PDF write-up, describe the resulting model. Discuss how you arrived at this model, what interactions you're using (if any) and how confident you are that your group's prediction will perform well, relative to other groups. 
+
+**Evaluation:** Exercise 2 will be evaluated according to lowest RMSE. The five groups with the lowest RMSE will receive top credit. Next five will receive second highest score; and so on.
+
+---
 
 A final note on the analysis performed here; we paid no attention whatsoever to the "assumptions" of a linear model. We only sought a model that **predicted** well, and paid no attention to a model for **explaination**. Hypothesis testing did not play a role in deciding the model, only prediction accuracy. Collinearity? We don't care. Assumptions? Still don't care. Diagnostics? Never heard of them. (These statements are a little over the top, and not completely true, but just to drive home the point that we only care about prediction. Often we latch onto methods that we have seen before, even when they are not needed.)
 
