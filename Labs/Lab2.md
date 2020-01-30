@@ -1,5 +1,7 @@
 # Lab 2: Linear Regression and Simple Analyses
 
+**Due Thursday, January 30**
+
 This lab will require you to load, clean, and analyze a new dataset. Specifically, this lab utilizes the “ames.csv” data [(found here)](/SSC442/Labs/data/ames.csv). This is a famous dataset about home sales from Ames, Iowa.
 
 ## Backstory and Set Up

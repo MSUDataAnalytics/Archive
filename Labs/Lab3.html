@@ -566,6 +566,7 @@ body {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="training-and-testing-linear-predictions">Training and Testing: (Linear) Predictions</h1>
 
+<p><strong>Due Thursday, February 13</strong></p>
 <p>This lab utilizes the &#x201C;ames.csv&#x201D; data <a href="../SSC442/Labs/data/ames.csv">(found here)</a>. As a reminder, this is a dataset concerning home sales from Ames, Iowa. The end of this lab features a (lengthy) discussion about indexing in <code>R</code>; this is optional reading but highly encouraged to improve your coding.</p>
 <h2 class="mume-header" id="linear-models">Linear Models</h2>
 
@@ -743,31 +744,16 @@ boat.prices = c(53, 87, 54, 66, 264, 32, 532, 58, 99, 132),
 boat.costs = c(52, 80, 20, 100, 189, 12, 520, 68, 80, 100)
 )
 </code></pre><p>Indexing is a simple tool but it can answer both simple and complex questions. For example, in the data above, we can answer the following questions using a single line of code:</p>
+<p><strong>Try it:</strong> See the exercises below for a simple guide to using logical indexing.</p>
 <ol>
-<li>
-<p>What was the price of the first boat? <code>boat.prices[1]</code></p>
-</li>
-<li>
-<p>What were the ages of the first 5 boats? <code>boat.ages[1:5]</code></p>
-</li>
-<li>
-<p>What were the names of the black boats?<code>boat.names[boat.colors == &quot;black&quot;]</code></p>
-</li>
-<li>
-<p>What were the prices of either green or yellow boats? <code>boat.prices[boat.colors == &quot;green&quot; | boat.colors == &quot;yellow&quot;]</code></p>
-</li>
-<li>
-<p>Can we change the price of boat &quot;s&quot; to 100?<code>boat.prices[boat.names == &quot;s&quot;] &lt;- 100</code></p>
-</li>
-<li>
-<p>What was the median price of black boats less than 100 years old? <code>median(boat.prices[boat.colors == &quot;black&quot; &amp; boat.ages &lt; 100])</code></p>
-</li>
-<li>
-<p>How many pink boats were there? <code>sum(boat.colors == &quot;pink&quot;)</code></p>
-</li>
-<li>
-<p>What percent of boats were older than 100 years old?<code>mean(boat.ages &lt; 100)</code></p>
-</li>
+<li>What was the price of the first boat? <code>boat.prices[1]</code></li>
+<li>What were the ages of the first 5 boats? <code>boat.ages[1:5]</code></li>
+<li>What were the names of the black boats?<code>boat.names[boat.colors == &quot;black&quot;]</code></li>
+<li>What were the prices of either green or yellow boats? <code>boat.prices[boat.colors == &quot;green&quot; | boat.colors == &quot;yellow&quot;]</code></li>
+<li>Can we change the price of boat &quot;s&quot; to 100?<code>boat.prices[boat.names == &quot;s&quot;] &lt;- 100</code></li>
+<li>What was the median price of black boats less than 100 years old? <code>median(boat.prices[boat.colors == &quot;black&quot; &amp; boat.ages &lt; 100])</code></li>
+<li>How many pink boats were there? <code>sum(boat.colors == &quot;pink&quot;)</code></li>
+<li>What percent of boats were older than 100 years old?<code>mean(boat.ages &lt; 100)</code></li>
 </ol>
 <p>By now you should be adept at applying simple functions like <code>mean()</code> and <code>table()</code> to vectors. However, in many analyses, you won&apos;t want to calculate statistics of an entire vector. Instead, you will want to access specific <em>subsets</em> of values of a vector based on some criteria. For example, you may want to access values in a specific location in the vector (i.e.; the first 10 elements) or based on some criteria within that vector (i.e.; all values greater than 0), or based on criterion from values in a <em>different</em> vector (e.g.; All values of <code>age</code> where <code>sex == Female</code>). To access specific values of a vector in <code>R</code>, we use <em>indexing</em>. This utilizes brackets <code>[]</code>.</p>
 <p>In general, whatever you put inside the brackets tells <code>R</code> which values of the vector object you want. There are two main ways that you can use indexing to access subsets of data in a vector: numerical and logical indexing.</p>
@@ -788,7 +774,7 @@ boat.ages[c(1, 1, 1)]
 boat.names[my.index]
 </code></pre><h2 class="mume-header" id="logical-indexing">Logical Indexing</h2>
 
-<p>The second way to index vectors is with <em>logical vectors</em>. A logical vector is a vector that <em>only</em> contains <code>TRUE</code> and <code>FALSE</code> values. In <code>R</code>, true values are designated with <code>TRUE</code>, and false values with <code>FALSE</code> (in other languages, zero and one are acceptable). When you index a vector with a logical vector, <code>R</code> will return values of the vector for which the indexing vector is <code>TRUE</code>.<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p>
+<p>The second way to index vectors is with <em>logical vectors</em>. A logical vector is a vector that <em>only</em> contains <code>TRUE</code> and <code>FALSE</code> values. In <code>R</code>, true values are designated with <code>TRUE</code>, and false values with <code>FALSE</code> (in other languages, zero and one are acceptable). When you index a vector with a logical vector, <code>R</code> will return values of the vector for which the indexing vector is <code>TRUE</code>.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
 <p>The easiest way to create logical vectors is from <em>existing vectors</em> using comparison operators like <code>&lt;</code> (less than), <code>==</code> (equals to), and <code>!=</code> (not equal to).</p>
 <p><strong>Try it:</strong> Find a complete list of logical operators in <code>R</code>.</p>
 <p>You can also create logical vectors by comparing a vector to another vector of the same length. When you do this, R will compare values in the same position (e.g.; the first values will be compared, then the second values, etc.). For example, we can compare the <code>boat.cost</code> and <code>boat.price</code> vectors to see which boats sold for a higher price than their cost:</p>
@@ -912,7 +898,7 @@ x[x &lt; 1] &lt;- 1
 x[x &gt; 10] &lt;- 10
 # Print the result!
 x
-</code></pre><p>As you can see, our new values of x are now never less than 1 or greater than 10!<sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup></p>
+</code></pre><p>As you can see, our new values of x are now never less than 1 or greater than 10!<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
 <h3 class="mume-header" id="example-fixing-missing-or-incorrect-data">Example: Fixing Missing or Incorrect Data</h3>
 
 <p>Assigning and indexing is a particularly helpful tool when, for example, you want to remove invalid values in a vector before performing an analysis. For example, let&apos;s say you asked 10 people how happy they were on a scale of 1 to 5 and received the following responses:</p>
@@ -934,11 +920,15 @@ mean(happy, na.rm = TRUE)
 </code></pre><hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>If that was confusing, think about it this way: a logical vector, combined with the brackets <code>[ ]</code>, acts as a <em>filter</em> for the vector it is indexing. That is, it only lets values of the vector pass through the filter if the logical vector is <code>TRUE</code>. <code>FALSE</code> values in a logical vector are like mini-Gandalfs. If we index a vector <code>x</code> with a logical vector <code>y</code>, then mini-Gandalf stops all the values of <code>x</code> for which <code>y</code> was <code>FALSE</code>. <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a> <a href="#fnref1:1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+<li id="fn1" class="footnote-item"><p>Note that sometimes the terms <em>evaluation set</em> and <em>test set</em> are used interchangeably. We will give somewhat specific definitions to these later. For now we will simply use a single test set for a training set. <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
 </li>
 <li id="fn2" class="footnote-item"><p>The train RMSE is guaranteed to follow this non-increasing pattern. The same is not true of test RMSE. We often see a nice U-shaped curve. There are theoretical reasons why we should expect this, but that is on average. Because of the randomness of one test-train split, we may not always see this result. Re-perform this analysis with a different seed value and the pattern may not hold. We will discuss why we expect this next chapter. We will discuss how we can help create this U-shape much later. Also, we might intuitively expect train RMSE to be lower than test RMSE. Again, due to the randomness of the split, you may get (un)lucky and this will not be true. <a href="#fnref2" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p><strong>A Note on Indexing:</strong> Technically, when you assign new values to a vector, you should always assign a vector of the same length as the number of values that you are updating. For example, given a vector a with 10 1s: <code>a &lt;- rep(1, 10)</code> To update the first 5 values with 5 9s, we should assign a new vector of 5 9s: <code>a[1:5] &lt;- c(9, 9, 9, 9, 9)</code> However, if we repeat this code but just assign a single 9, <code>R</code> will repeat the value as many times as necessary to fill the indexed value of the vector. That&apos;s why the following code still works: <code>a[1:5] &lt;- 9</code> In other languages this code <strong>wouldn&apos;t work</strong> because we&apos;re trying to replace 5 values with just 1. However, this is a case where <code>R</code> bends the rules of programming a bit. But don&apos;t do this. <a href="#fnref3" class="footnote-backref">&#x21A9;&#xFE0E;</a> <a href="#fnref3:1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+<li id="fn3" class="footnote-item"><p>The labels of under and overfitting are <em>relative</em> to the best model we see. Any model more complex with higher Test RMSE is overfitting. Any model less complex with higher Test RMSE is underfitting. <a href="#fnref3" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>If that was confusing, think about it this way: a logical vector, combined with the brackets <code>[ ]</code>, acts as a <em>filter</em> for the vector it is indexing. That is, it only lets values of the vector pass through the filter if the logical vector is <code>TRUE</code>. <code>FALSE</code> values in a logical vector are like mini-Gandalfs. If we index a vector <code>x</code> with a logical vector <code>y</code>, then mini-Gandalf stops all the values of <code>x</code> for which <code>y</code> was <code>FALSE</code>. <a href="#fnref4" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><strong>A Note on How R Handles Indexing:</strong> Technically, when you assign new values to a vector, you should always assign a vector of the same length as the number of values that you are updating. For example, given a vector a with 10 1s: <code>a &lt;- rep(1, 10)</code> To update the first 5 values with 5 9s, we should assign a new vector of 5 9s: <code>a[1:5] &lt;- c(9, 9, 9, 9, 9)</code> However, if we repeat this code but just assign a single 9, <code>R</code> will repeat the value as many times as necessary to fill the indexed value of the vector. That&apos;s why the following code still works: <code>a[1:5] &lt;- 9</code> In other languages this code <strong>wouldn&apos;t work</strong> because we&apos;re trying to replace 5 values with just 1. However, this is a case where <code>R</code> bends the rules of programming a bit. But don&apos;t do this. <a href="#fnref5" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
 </li>
 </ol>
 </section>

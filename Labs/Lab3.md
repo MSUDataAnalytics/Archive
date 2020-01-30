@@ -1,5 +1,7 @@
 # Training and Testing: (Linear) Predictions
 
+**Due Thursday, February 13**
+
 This lab utilizes the “ames.csv” data [(found here)](/SSC442/Labs/data/ames.csv). As a reminder, this is a dataset concerning home sales from Ames, Iowa. The end of this lab features a (lengthy) discussion about indexing in `R`; this is optional reading but highly encouraged to improve your coding.
 
 ## Linear Models
@@ -201,7 +203,7 @@ Specifically, we say that a model is overfitting if there exists a less complex 
 
 1. Plot the Train and Test RMSE for the 15 models you fit in Exercise 1.
 2. **This question is the most time-consuming question.** Using any method you choose and any number of regressors, predict `SalePrice`. Calculate the Train and Test RMSE.
-3. In a PDF write-up, describe the resulting model. Discuss how you arrived at this model, what interactions you're using (if any) and how confident you are that your group's prediction will perform well, relative to other groups. 
+3. In a PDF write-up, describe the resulting model. Discuss how you arrived at this model, what interactions you're using (if any) and how confident you are that your group's prediction will perform well, relative to other groups.
 
 **Evaluation:** Exercise 2 will be evaluated according to lowest RMSE. The five groups with the lowest RMSE will receive top credit. Next five will receive second highest score; and so on.
 
@@ -229,8 +231,8 @@ boat.costs = c(52, 80, 20, 100, 189, 12, 520, 68, 80, 100)
 
 Indexing is a simple tool but it can answer both simple and complex questions. For example, in the data above, we can answer the following questions using a single line of code:
 
+**Try it:** See the exercises below for a simple guide to using logical indexing.
 1. What was the price of the first boat? ```boat.prices[1]```
-
 2. What were the ages of the first 5 boats? ```boat.ages[1:5]```
 3. What were the names of the black boats?```boat.names[boat.colors == "black"]```
 4. What were the prices of either green or yellow boats? ```boat.prices[boat.colors == "green" | boat.colors == "yellow"]```
@@ -274,9 +276,9 @@ boat.names[my.index]
 
 ## Logical Indexing
 
-The second way to index vectors is with *logical vectors*. A logical vector is a vector that *only* contains `TRUE` and `FALSE` values. In `R`, true values are designated with `TRUE`, and false values with `FALSE` (in other languages, zero and one are acceptable). When you index a vector with a logical vector, `R` will return values of the vector for which the indexing vector is `TRUE`.[^1]
+The second way to index vectors is with *logical vectors*. A logical vector is a vector that *only* contains `TRUE` and `FALSE` values. In `R`, true values are designated with `TRUE`, and false values with `FALSE` (in other languages, zero and one are acceptable). When you index a vector with a logical vector, `R` will return values of the vector for which the indexing vector is `TRUE`.[^12]
 
-[^1]: If that was confusing, think about it this way: a logical vector, combined with the brackets `[ ]`, acts as a *filter* for the vector it is indexing. That is, it only lets values of the vector pass through the filter if the logical vector is `TRUE`. `FALSE` values in a logical vector are like mini-Gandalfs. If we index a vector `x` with a logical vector `y`, then mini-Gandalf stops all the values of `x` for which `y` was `FALSE`.
+[^12]: If that was confusing, think about it this way: a logical vector, combined with the brackets `[ ]`, acts as a *filter* for the vector it is indexing. That is, it only lets values of the vector pass through the filter if the logical vector is `TRUE`. `FALSE` values in a logical vector are like mini-Gandalfs. If we index a vector `x` with a logical vector `y`, then mini-Gandalf stops all the values of `x` for which `y` was `FALSE`.
 
 
 The easiest way to create logical vectors is from *existing vectors* using comparison operators like `<` (less than), `==` (equals to), and `!=` (not equal to).
@@ -463,9 +465,9 @@ x[x > 10] <- 10
 x
 ```
 
-As you can see, our new values of x are now never less than 1 or greater than 10![^2]
+As you can see, our new values of x are now never less than 1 or greater than 10![^11]
 
-[^2]:**A Note on Indexing:** Technically, when you assign new values to a vector, you should always assign a vector of the same length as the number of values that you are updating. For example, given a vector a with 10 1s: ```a <- rep(1, 10)``` To update the first 5 values with 5 9s, we should assign a new vector of 5 9s: ```a[1:5] <- c(9, 9, 9, 9, 9)``` However, if we repeat this code but just assign a single 9, `R` will repeat the value as many times as necessary to fill the indexed value of the vector. That's why the following code still works: ```a[1:5] <- 9``` In other languages this code **wouldn't work** because we're trying to replace 5 values with just 1. However, this is a case where `R` bends the rules of programming a bit. But don't do this.
+[^11]:**A Note on How R Handles Indexing:** Technically, when you assign new values to a vector, you should always assign a vector of the same length as the number of values that you are updating. For example, given a vector a with 10 1s: ```a <- rep(1, 10)``` To update the first 5 values with 5 9s, we should assign a new vector of 5 9s: ```a[1:5] <- c(9, 9, 9, 9, 9)``` However, if we repeat this code but just assign a single 9, `R` will repeat the value as many times as necessary to fill the indexed value of the vector. That's why the following code still works: ```a[1:5] <- 9``` In other languages this code **wouldn't work** because we're trying to replace 5 values with just 1. However, this is a case where `R` bends the rules of programming a bit. But don't do this.
 
 ### Example: Fixing Missing or Incorrect Data
 
