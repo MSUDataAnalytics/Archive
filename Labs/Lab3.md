@@ -2,7 +2,7 @@
 
 **Due Thursday, February 13**
 
-This lab utilizes the “ames.csv” data [(found here)](/SSC442/Labs/data/ames.csv). As a reminder, this is a dataset concerning home sales from Ames, Iowa. The end of this lab features a (lengthy) discussion about indexing in `R`; this is optional reading but highly encouraged to improve your coding.
+This lab utilizes the “ames.csv” data [(found here)](/Labs/data/ames.csv). As a reminder, this is a dataset concerning home sales from Ames, Iowa. The end of this lab features a (lengthy) discussion about indexing in `R`; this is optional reading but highly encouraged to improve your coding.
 
 ## Linear Models
 
