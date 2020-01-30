@@ -83,6 +83,7 @@ What follows is a very rough schedule of what we will cover this semester — of
 **Reading:** ISL Chapter 3
 
 [**Lab 2:** Linear Regression and Simple Analyses](Labs/Lab2.html)
+
 [**Lab 3:** Training and Testing: Linear Predictions](Labs/Lab3.html)
 
   4.  Bias vs. Variance & Training vs. Testing	`[ 1 ]`
