@@ -204,6 +204,8 @@ Specifically, we say that a model is overfitting if there exists a less complex 
 1. Plot the Train and Test RMSE for the 15 models you fit in Exercise 1.
 2. **This question is the most time-consuming question.** Using any method you choose and any number of regressors, predict `SalePrice`. Calculate the Train and Test RMSE.
 3. In a PDF write-up, describe the resulting model. Discuss how you arrived at this model, what interactions you're using (if any) and how confident you are that your group's prediction will perform well, relative to other groups.
+4. **Difficult; extra credit:** Visualize your final model in a sensible way and provide a two-paragraph interpretation.
+
 
 **Evaluation:** Exercise 2 will be evaluated according to lowest RMSE. The five groups with the lowest RMSE will receive top credit. Next five will receive second highest score; and so on.
 

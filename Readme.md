@@ -78,11 +78,12 @@ What follows is a very rough schedule of what we will cover this semester — of
 
 [**Lab 1:** Intro to Visualization in R](Labs/Lab1.html)
 
-  3.  Linear Regression and Prediction	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture4/index.html)[`[ P2 ]`](https://msudataanalytics.github.io/SSC442/Lecture5/index.html) [`[ P3 ]`](https://msudataanalytics.github.io/SSC442/Lecture6/index.html)
+  3.  Linear Regression and Prediction	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture4/index.html)[`[ P2 ]`](https://msudataanalytics.github.io/SSC442/Lecture5/index.html) [`[ P3 ]`](https://msudataanalytics.github.io/SSC442/Lecture6/index.html)[`[ P4 ]`](https://msudataanalytics.github.io/SSC442/Lecture7/index.html)
 
 **Reading:** ISL Chapter 3
 
 [**Lab 2:** Linear Regression and Simple Analyses](Labs/Lab2.html)
+[**Lab 3:** Training and Testing: Linear Predictions](Labs/Lab3.html)
 
   4.  Bias vs. Variance & Training vs. Testing	`[ 1 ]`
   6.  Extending Beyond the Testing Data: The VC Dimension	`[ 1 ]`
