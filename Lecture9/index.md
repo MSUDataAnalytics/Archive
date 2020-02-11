@@ -1,9 +1,9 @@
 <!-- slide -->
 
-# Nonparametric Regression
+# Connecting the Dots
 
 > I see the future better than your computers
-> Apple software got the next 10 years scared I'm Fred Krueger
+> Apple software got the next 10 years scared -- I'm Fred Krueger
 > --- **Kendrick Lamar**
 
 

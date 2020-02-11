@@ -87,7 +87,7 @@ What follows is a very rough schedule of what we will cover this semester — of
 [**Lab 3:** Training and Testing: Linear Predictions](Labs/Lab3.html)
 
   4.  Bias vs. Variance & Training vs. Testing	[`[ 1 ]`](https://msudataanalytics.github.io/SSC442/Lecture8/index.html)
-  5.  Illustration of Central Concepts with Nearest Neighbors	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture8/index.html)
+  5.  Illustration of Central Concepts with Nearest Neighbors	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture9/index.html)
 
 ```
 Exam 1: Tuesday, 18 February; due Thursday, 20 February
