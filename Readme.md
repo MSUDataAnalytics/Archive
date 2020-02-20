@@ -1,5 +1,7 @@
 # Social Science Data Analytics Applications
 
+[Link to Exam 1](assets/Prelim1.pdf)
+
 [Shortcut to Course Outline and Links to Lectures](#tentative-schedule-of-material)
 
 [FAQ](assets/FAQ.md)
@@ -91,8 +93,11 @@ What follows is a very rough schedule of what we will cover this semester — of
   6.  Illustration of Central Concepts with Decision Trees [`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture10/index.html)
 
 ```
-Exam 1: Tuesday, 18 February; due Thursday, 20 February
+Exam 1: Thursday, 20 February; due Tuesday, 25 February
 ```
+
+[Link to Exam 1](assets/Prelim1.pdf)
+
 ---
 
 ### Parametric Models in Statistical Learning
