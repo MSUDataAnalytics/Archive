@@ -98,8 +98,9 @@ Exam 1: Tuesday, 18 February; due Thursday, 20 February
 ### Parametric Models in Statistical Learning
 
 #### Models of Classification
-1. Linear Discriminant Analysis	`[ 1 ]`
-2. Logistic Regression 	`[ 1 ]`
+1. Intro to Classification [`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture11/index.html)
+2. Linear Discriminant Analysis	`[ 1 ]`
+3. Logistic Regression 	`[ 1 ]`
 
 #### Linear Model Selection
 1. Shrinkage Models 	`[ 1 ]`
