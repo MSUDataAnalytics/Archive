@@ -1,4 +1,4 @@
-# Group Projects
+# Group Project Outlines
 
 **Due Thursday, March 12**
 
@@ -8,7 +8,9 @@ Each group must write (at least) one page describing their plans for the project
 2. A loose outline of your project.
 3. Five questions you hope to answer. These may be questions you are interested in or merely questions that you think the data is well-suited to address.
 
-Finally, you must discuss your findings with me after your return from Spring Break. Thursday, March 12 will be dedicated to group discussions about projects. Please be prepared. 
+Finally, you must discuss your findings with me after your return from Spring Break. Thursday, March 12 will be dedicated to group discussions about projects. Please be prepared.
+
+You may turn in your writeup by depositing it into your group Github repository. 
 
 
 ---
