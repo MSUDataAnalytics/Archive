@@ -1,6 +1,6 @@
 # Social Science Data Analytics Applications
 
-[Link to Exam 1](assets/Prelim1.pdf)
+[Link to Instructions for Group Project Writeup](assets/writeup.md)
 
 [Shortcut to Course Outline and Links to Lectures](#tentative-schedule-of-material)
 
@@ -96,16 +96,18 @@ What follows is a very rough schedule of what we will cover this semester — of
 Exam 1: Thursday, 20 February; due Tuesday, 25 February
 ```
 
-[Link to Exam 1](assets/Prelim1.pdf)
-
 ---
 
 ### Parametric Models in Statistical Learning
 
 #### Models of Classification
 1. Intro to Classification [`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture11/index.html)
-2. Linear Discriminant Analysis	`[ 1 ]`
-3. Logistic Regression 	`[ 1 ]`
+
+[**Class Activity**: Classification](/assets/classification.md)
+
+2. Logistic Regression 	`[ 1 ]`
+3. Linear Discriminant Analysis	`[ 1 ]`
+
 
 #### Linear Model Selection
 1. Shrinkage Models 	`[ 1 ]`
