@@ -6,7 +6,7 @@
 >
 > - **Sun Tzu** (speaking about a decidedly different type of logistics)
 
-After reading this chapter you will be able to:
+After these lectures you will be able to:
 
 - Understand how generalized linear models are a generalization of ordinary linear models.
 - Use logistic regression to model a binary response.
