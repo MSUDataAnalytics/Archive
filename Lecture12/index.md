@@ -228,15 +228,11 @@ $$
 
 We should note that, if there exists some $\beta^*$ such that
 
-$$
-{\bf x_i}^{\top} \boldsymbol{{\beta}^*} > 0 \implies y_i = 1
-$$
+$${\bf x_i}^{\top} \beta^* > 0 \implies y_i = 1 $$
 
 and
 
-$$
-{\bf x_i}^{\top} \boldsymbol{{\beta}^*} < 0 \implies y_i = 0
-$$
+$$ {\bf x_i}^{\top} \beta^* < 0 \implies y_i = 0 $$
 
 for all observations, then the MLE is not unique. Such data is said to be separable.[^2]
 
