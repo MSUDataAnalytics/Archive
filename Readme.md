@@ -102,7 +102,10 @@ Exam 1: Thursday, 20 February; due Tuesday, 25 February
 
 #### Models of Classification
 1. Intro to Classification [`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture11/index.html)
-2. Logistic Regression 	[`[ 1 ]`](https://msudataanalytics.github.io/SSC442/Lecture12/index.html)
+2. Logistic Regression 	[`[ P1 ]`](https://msudataanalytics.github.io/SSC442/Lecture12/index.html)
+
+[**Lab 4:** Logistic Regression and Cross-Validation](Labs/Lab4.html)
+
 3. Linear Discriminant Analysis	`[ 1 ]`
 
 

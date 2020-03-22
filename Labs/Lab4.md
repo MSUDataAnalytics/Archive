@@ -1,10 +1,12 @@
 # Lab 4: Classification and Logistic Regression
 
+**Due:** Midnight the night before April Fools' Day (nope, not a joke.)
+
 In this lab, you will explore how to use logistic regression in to make binary predictions. Along the way, we will explore making predictions that use **cross validation**, a central idea in statistical learning that helps us get an idea of how well our model performs.
 
 This lab is broken into two sections. The first section is instructive and walks the reader through some new techniques. The second section requires the reader to apply the techniques to the bank data we previously explored (see Lab 1, exercise 2).
 
-The data you will need can be found [here](/data/bank.csv).
+The data you will need can be found [here](/data/bank.csv) and
 
 ---
 
@@ -247,6 +249,6 @@ $$
 
 3. Discuss the interpretation of the coefficients in your model. That is, you must write at least one sentence for each of the coefficients which describes how it is related to the response. You may use transformations of variables if you like. FAKE EXAMPLE: `age` has a positive coefficient, which means that older individuals are more likely to have `y = yes`.
 
-4. Create a confusion matrix of your preferred model, evaluated against your *test* data. 
+4. Create a confusion matrix of your preferred model, evaluated against your *test* data.
 
 ---
