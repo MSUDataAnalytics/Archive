@@ -6,15 +6,9 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = "center", cache = TRUE, autodep =
 
 ***
 
-In this chapter, we continue our discussion of classification methods. We introduce three new methods, each a **generative** method. This in comparison to logistic regression, which is a **discriminative** method.
+In this section, we continue our discussion of classification methods. We introduce three new methods, each a **generative** method. This in comparison to logistic regression, which is a **discriminative** method.
 
 Generative methods model the joint probability, $p(\boldsymbol{x}, y)$, often by assuming some distribution for the conditional distribution of $\boldsymbol{X}$ given $Y$, $f(\boldsymbol{x} \mid y)$. Bayes theorem is then applied to classify according to $p(y \mid \boldsymbol{x})$. Discriminative methods such as logistic regression directly model this conditional, $p(y \mid \boldsymbol{x})$. A detailed discussion and analysis can be found in [Ng and Jordan, 2002](https://papers.nips.cc/paper/2020-on-discriminative-vs-generative-classifiers-a-comparison-of-logistic-regression-and-naive-bayes.pdf).
-
-***
-
-## Reading
-
-- **Required:** [ISL Chapter 4, Sections 4](https://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
 
 ***
 
@@ -59,29 +53,29 @@ iris_tst = iris[-iris_idx, ]
 Note that we have only performed a test-train split, so we are not validating any of these models. Also note that using 50% of the data for training is an arbitrary choice here.
 
 ```{r, fig.height = 8, fig.width = 8}
-caret::featurePlot(x = iris_trn[, c("Sepal.Length", "Sepal.Width", 
-                                    "Petal.Length", "Petal.Width")], 
+caret::featurePlot(x = iris_trn[, c("Sepal.Length", "Sepal.Width",
+                                    "Petal.Length", "Petal.Width")],
                    y = iris_trn$Species,
-                   plot = "density", 
-                   scales = list(x = list(relation = "free"), 
-                                 y = list(relation = "free")), 
-                   adjust = 1.5, 
-                   pch = "|", 
-                   layout = c(2, 2), 
+                   plot = "density",
+                   scales = list(x = list(relation = "free"),
+                                 y = list(relation = "free")),
+                   adjust = 1.5,
+                   pch = "|",
+                   layout = c(2, 2),
                    auto.key = list(columns = 3))
 ```
 
 ```{r, fig.height=8, fig.width=8}
-caret::featurePlot(x = iris_trn[, c("Sepal.Length", "Sepal.Width", 
-                                    "Petal.Length", "Petal.Width")], 
+caret::featurePlot(x = iris_trn[, c("Sepal.Length", "Sepal.Width",
+                                    "Petal.Length", "Petal.Width")],
                    y = iris_trn$Species,
                    plot = "ellipse",
                    auto.key = list(columns = 3))
 ```
 
 ```{r, fig.height=4, fig.width=7}
-caret::featurePlot(x = iris_trn[, c("Sepal.Length", "Sepal.Width", 
-                                    "Petal.Length", "Petal.Width")], 
+caret::featurePlot(x = iris_trn[, c("Sepal.Length", "Sepal.Width",
+                                    "Petal.Length", "Petal.Width")],
                    y = iris_trn$Species,
                    plot = "box",
                    scales = list(y = list(relation = "free"),
@@ -186,7 +180,7 @@ $$
 f_k(\boldsymbol x) = \frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma_k|^{1/2}}\exp\left[-\frac{1}{2}(\boldsymbol x - \boldsymbol\mu_k)^{\prime}\boldsymbol\Sigma_{k}^{-1}(\boldsymbol x - \boldsymbol\mu_k)\right]
 $$
 
-Notice that now $\boldsymbol\Sigma_k$ **does** depend on $k$, that is, we are allowing a different $\boldsymbol\Sigma_k$ for each class. We only use information from class $k$ to estimate $\Sigma_k$. 
+Notice that now $\boldsymbol\Sigma_k$ **does** depend on $k$, that is, we are allowing a different $\boldsymbol\Sigma_k$ for each class. We only use information from class $k$ to estimate $\Sigma_k$.
 
 ```{r}
 iris_qda = qda(Species ~ ., data = iris_trn)
@@ -280,7 +274,7 @@ calc_misclass(predicted = iris_nb_tst_pred, actual = iris_tst$Species)
 table(predicted = iris_nb_tst_pred, actual = iris_tst$Species)
 ```
 
-Like LDA, naive Bayes is having trouble with virginica. 
+Like LDA, naive Bayes is having trouble with virginica.
 
 ```{r, echo = FALSE}
 classifiers = c("LDA", "LDA, Flat Prior", "QDA", "Naive Bayes")
@@ -351,4 +345,3 @@ lda(Species ~ Sepal.Length + Sepal.Width, data = iris_trn_mod)
 ```
 
 LDA (and QDA) however creates dummy variables, here with `Large` as the reference level, then continues to model them as normally distributed. Not great, but better then not using a categorical variable.
-
