@@ -6,7 +6,7 @@ In this lab, you will explore how to use logistic regression in to make binary p
 
 This lab is broken into two sections. The first section is instructive and walks the reader through some new techniques. The second section requires the reader to apply the techniques to the bank data we previously explored (see Lab 1, exercise 2).
 
-The data you will need can be found [here](/data/bank.csv) and
+The data you will need can be found [here](data/bank.csv) and
 
 ---
 
