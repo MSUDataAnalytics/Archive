@@ -139,8 +139,8 @@ abline(0, 1, col = "darkorange", lwd = 2)
 ```{r}
 (forest_tst_rmse = calc_rmse(boston_forest_tst_pred, boston_tst$medv))
 boston_forest_trn_pred = predict(boston_forest, newdata = boston_trn)
-forest_trn_rmse = calc_rmse(boston_forest_trn_pred, boston_trn$medv)
-forest_oob_rmse = calc_rmse(boston_forest$predicted, boston_trn$medv)
+(forest_trn_rmse = calc_rmse(boston_forest_trn_pred, boston_trn$medv))
+(forest_oob_rmse = calc_rmse(boston_forest$predicted, boston_trn$medv))
 ```
 
 Here we note three RMSEs. The training RMSE (which is optimistic), the OOB RMSE (which is a reasonable estimate of the test error) and the test RMSE. Also note that variables importance was calculated.
@@ -537,10 +537,3 @@ plot(plot_grid$X1, plot_grid$X2, col = gbm_col,
 - [XGBoost `R` Tutorial](http://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html)
 
 
-## `rmarkdown`
-
-The `rmarkdown` file for this chapter can be found [**here**](27-ensemble.Rmd). The file was created using `R` version `r paste0(version$major, "." ,version$minor)`. The following packages (and their dependencies) were loaded when knitting this file:
-
-```{r, echo = FALSE}
-names(sessionInfo()$otherPkgs)
-```
