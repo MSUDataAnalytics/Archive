@@ -1,539 +1,369 @@
-# Ensemble Methods
+# Unsupervised Learning
 
-```{r ensemble_opts, include = FALSE}
-knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, fig.align = "center")
-```
+Totally lacking in written bits. 
 
-In this chapter, we'll consider ensembles of trees.
+## Methods
 
-## Regression
+### Principal Component Analysis
 
-We first consider the regression case, using the `Boston` data from the `MASS` package. We will use RMSE as our metric, so we write a function which will help us along the way.
+To perform PCA in `R` we will use `prcomp()`. See `?prcomp()` for details.
+
+### $k$-Means Clustering
+
+To perform $k$-means in `R` we will use `kmeans()`. See `?kmeans()` for details.
+
+### Hierarchical Clustering
+
+To perform hierarchical clustering in `R` we will use `hclust()`. See `?hclust()` for details.
+
+
+## Examples
+
+### US Arrests
 
 ```{r}
-calc_rmse = function(actual, predicted) {
-  sqrt(mean((actual - predicted) ^ 2))
-}
-```
-
-We also load all of the packages that we will need.
-
-```{r, message = FALSE, warning = FALSE}
-library(rpart)
-library(rpart.plot)
-library(randomForest)
-library(gbm)
-library(caret)
-library(MASS)
 library(ISLR)
+data(USArrests)
+apply(USArrests, 2, mean)
+apply(USArrests, 2, sd)
 ```
 
-We first test-train split the data and fit a single tree using `rpart`.
+"Before" performing PCA, we will scale the data. (This will actually happen inside the `prcomp()` function.)
 
 ```{r}
-set.seed(18)
-boston_idx = sample(1:nrow(Boston), nrow(Boston) / 2)
-boston_trn = Boston[boston_idx,]
-boston_tst = Boston[-boston_idx,]
+USArrests_pca = prcomp(USArrests, scale = TRUE)
 ```
 
-### Tree Model
+A large amount of information is stored in the output of `prcomp()`, some of which can neatly be displayed with `summary()`.
 
 ```{r}
-boston_tree = rpart(medv ~ ., data = boston_trn)
-```
-
-```{r}
-boston_tree_tst_pred = predict(boston_tree, newdata = boston_tst)
-plot(boston_tree_tst_pred, boston_tst$medv, 
-     xlab = "Predicted", ylab = "Actual", 
-     main = "Predicted vs Actual: Single Tree, Test Data",
-     col = "dodgerblue", pch = 20)
-grid()
-abline(0, 1, col = "darkorange", lwd = 2)
+names(USArrests_pca)
+summary(USArrests_pca)
 ```
 
 ```{r}
-(tree_tst_rmse = calc_rmse(boston_tree_tst_pred, boston_tst$medv))
+USArrests_pca$center
+USArrests_pca$scale
+USArrests_pca$rotation
 ```
 
-### Linear Model
-
-Last time, we also fit an additive linear model, which we found to work better than the tree. The test RMSE is lower, and the predicted vs actual plot looks much better.
+We see that `$center` and `$scale` give the mean and standard deviations for the original variables. `$rotation` gives the loading vectors that are used to rotate the original data to obtain the principal components.
 
 ```{r}
-boston_lm = lm(medv ~ ., data = boston_trn)
+dim(USArrests_pca$x)
+dim(USArrests)
+head(USArrests_pca$x)
 ```
+
+The dimension of the principal components is the same as the original data. The principal components are stored in `$x`.
 
 ```{r}
-boston_lm_tst_pred = predict(boston_lm, newdata = boston_tst)
-plot(boston_lm_tst_pred, boston_tst$medv,
-     xlab = "Predicted", ylab = "Actual",
-     main = "Predicted vs Actual: Linear Model, Test Data",
-     col = "dodgerblue", pch = 20)
-grid()
-abline(0, 1, col = "darkorange", lwd = 2)
-```
-
-```{r}
-(lm_tst_rmse = calc_rmse(boston_lm_tst_pred, boston_tst$medv))
-```
-
-### Bagging
-
-We now fit a bagged model, using the `randomForest` package. Bagging is actually a special case of a random forest where `mtry` is equal to $p$, the number of predictors.
-
-```{r, message = FALSE, warning = FALSE}
-boston_bag = randomForest(medv ~ ., data = boston_trn, mtry = 13, 
-                          importance = TRUE, ntrees = 500)
-boston_bag
+scale(as.matrix(USArrests))[1, ] %*% USArrests_pca$rotation[, 1]
+scale(as.matrix(USArrests))[1, ] %*% USArrests_pca$rotation[, 2]
+scale(as.matrix(USArrests))[1, ] %*% USArrests_pca$rotation[, 3]
+scale(as.matrix(USArrests))[1, ] %*% USArrests_pca$rotation[, 4]
 ```
 
 ```{r}
-boston_bag_tst_pred = predict(boston_bag, newdata = boston_tst)
-plot(boston_bag_tst_pred,boston_tst$medv,
-     xlab = "Predicted", ylab = "Actual",
-     main = "Predicted vs Actual: Bagged Model, Test Data",
-     col = "dodgerblue", pch = 20)
-grid()
-abline(0, 1, col = "darkorange", lwd = 2)
+head(scale(as.matrix(USArrests)) %*% USArrests_pca$rotation[,1])
+head(USArrests_pca$x[, 1])
 ```
 
 ```{r}
-(bag_tst_rmse = calc_rmse(boston_bag_tst_pred, boston_tst$medv))
+sum(USArrests_pca$rotation[, 1] ^ 2)
+USArrests_pca$rotation[, 1] %*% USArrests_pca$rotation[, 2]
+USArrests_pca$rotation[, 1] %*% USArrests_pca$rotation[, 3]
+USArrests_pca$x[, 1] %*% USArrests_pca$x[, 2]
+USArrests_pca$x[, 1] %*% USArrests_pca$x[, 3]
 ```
 
-Here we see two interesting results. First, the predicted versus actual plot no longer has a small number of predicted values. Second, our test error has dropped dramatically. Also note that the "Mean of squared residuals" which is output by `randomForest` is the **Out of Bag** estimate of the error.
+The above verifies some of the "math" of PCA. We see how the loadings obtain the principal components from the original data. We check that the loading vectors are normalized. We also check for orthogonality of both the loading vectors and the principal components. (Note the above inner products aren't exactly 0, but that is simply a numerical issue.)
+
+```{r, fig.height=8, fig.width=8}
+biplot(USArrests_pca, scale = 0, cex = 0.5)
+```
+
+A `biplot` can be used to visualize both the principal component scores and the principal component loadings. (Note the two scales for each axis.)
 
 ```{r}
-plot(boston_bag, col = "dodgerblue", lwd = 2, main = "Bagged Trees: Error vs Number of Trees")
-grid()
+USArrests_pca$sdev
+USArrests_pca$sdev ^ 2 / sum(USArrests_pca$sdev ^ 2)
 ```
 
-
-### Random Forest
-
-We now try a random forest. For regression, the suggestion is to use `mtry` equal to $p/3$.
+Frequently we will be interested in the proportion of variance explained by a principal component.
 
 ```{r}
-boston_forest = randomForest(medv ~ ., data = boston_trn, mtry = 4, 
-                             importance = TRUE, ntrees = 500)
-boston_forest
-```
-
-```{r}
-importance(boston_forest, type = 1)
-varImpPlot(boston_forest, type = 1)
-```
-
-```{r}
-boston_forest_tst_pred = predict(boston_forest, newdata = boston_tst)
-plot(boston_forest_tst_pred, boston_tst$medv,
-     xlab = "Predicted", ylab = "Actual",
-     main = "Predicted vs Actual: Random Forest, Test Data",
-     col = "dodgerblue", pch = 20)
-grid()
-abline(0, 1, col = "darkorange", lwd = 2)
-```
-
-```{r}
-(forest_tst_rmse = calc_rmse(boston_forest_tst_pred, boston_tst$medv))
-boston_forest_trn_pred = predict(boston_forest, newdata = boston_trn)
-(forest_trn_rmse = calc_rmse(boston_forest_trn_pred, boston_trn$medv))
-(forest_oob_rmse = calc_rmse(boston_forest$predicted, boston_trn$medv))
-```
-
-Here we note three RMSEs. The training RMSE (which is optimistic), the OOB RMSE (which is a reasonable estimate of the test error) and the test RMSE. Also note that variables importance was calculated.
-
-```{r, echo = FALSE}
-(forst_errors = data.frame(
-  Data = c("Training", "OOB", "Test"),
-  Error = c(forest_trn_rmse, forest_oob_rmse, forest_tst_rmse)
-  )
-)
-```
-
-
-### Boosting
-
-Lastly, we try a boosted model, which by default will produce a nice **variable importance** plot as well as plots of the marginal effects of the predictors. We use the `gbm` package.
-
-```{r, fig.height = 6, fig.width = 8, message = FALSE, warning = FALSE}
-booston_boost = gbm(medv ~ ., data = boston_trn, distribution = "gaussian", 
-                    n.trees = 5000, interaction.depth = 4, shrinkage = 0.01)
-booston_boost
-```
-
-```{r, fig.height = 8, fig.width = 8, message = FALSE, warning = FALSE}
-tibble::as_tibble(summary(booston_boost))
-```
-
-```{r, fig.height = 5, fig.width = 12, message = FALSE, warning = FALSE}
-par(mfrow = c(1, 3))
-plot(booston_boost, i = "rm", col = "dodgerblue", lwd = 2)
-plot(booston_boost, i = "lstat", col = "dodgerblue", lwd = 2)
-plot(booston_boost, i = "dis", col = "dodgerblue", lwd = 2)
-```
-
-```{r}
-boston_boost_tst_pred = predict(booston_boost, newdata = boston_tst, n.trees = 5000)
-(boost_tst_rmse = calc_rmse(boston_boost_tst_pred, boston_tst$medv))
-```
-
-```{r}
-plot(boston_boost_tst_pred, boston_tst$medv,
-     xlab = "Predicted", ylab = "Actual", 
-     main = "Predicted vs Actual: Boosted Model, Test Data",
-     col = "dodgerblue", pch = 20)
-grid()
-abline(0, 1, col = "darkorange", lwd = 2)
-```
-
-### Results
-
-```{r}
-(boston_rmse = data.frame(
-  Model = c("Single Tree", "Linear Model", "Bagging",  "Random Forest",  "Boosting"),
-  TestError = c(tree_tst_rmse, lm_tst_rmse, bag_tst_rmse, forest_tst_rmse, boost_tst_rmse)
-  )
-)
-```
-
-While a single tree does not beat linear regression, each of the ensemble methods perform much better!
-
-
-## Classification
-
-We now return to the `Carseats` dataset and the classification setting. We see that an additive logistic regression performs much better than a single tree, but we expect ensemble methods to bring trees closer to the logistic regression. Can they do better?
-
-We now use prediction accuracy as our metric:
-
-```{r}
-calc_acc = function(actual, predicted) {
-  mean(actual == predicted)
+get_PVE = function(pca_out) {
+  pca_out$sdev ^ 2 / sum(pca_out$sdev ^ 2)
 }
 ```
 
-```{r}
-data(Carseats)
-Carseats$Sales = as.factor(ifelse(Carseats$Sales <= 8, "Low", "High"))
-```
+So frequently, we would be smart to write a function to do so.
 
 ```{r}
-set.seed(2)
-seat_idx = sample(1:nrow(Carseats), 200)
-seat_trn = Carseats[seat_idx,]
-seat_tst = Carseats[-seat_idx,]
-```
+pve = get_PVE(USArrests_pca)
 
-
-### Tree Model
-
-```{r}
-seat_tree = rpart(Sales ~ ., data = seat_trn)
-```
-
-```{r}
-rpart.plot(seat_tree)
-```
-
-```{r}
-seat_tree_tst_pred = predict(seat_tree, seat_tst, type = "class")
-table(predicted = seat_tree_tst_pred, actual = seat_tst$Sales)
-(tree_tst_acc = calc_acc(predicted = seat_tree_tst_pred, actual = seat_tst$Sales))
-```
-
-
-### Logistic Regression
-
-```{r}
-seat_glm = glm(Sales ~ ., data = seat_trn, family = "binomial")
-```
-
-```{r}
-seat_glm_tst_pred = ifelse(predict(seat_glm, seat_tst, "response") > 0.5, 
-                           "Low", "High")
-table(predicted = seat_glm_tst_pred, actual = seat_tst$Sales)
-(glm_tst_acc = calc_acc(predicted = seat_glm_tst_pred, actual = seat_tst$Sales))
-```
-
-
-### Bagging
-
-```{r, message = FALSE, warning = FALSE}
-seat_bag = randomForest(Sales ~ ., data = seat_trn, mtry = 10, 
-                        importance = TRUE, ntrees = 500)
-seat_bag
-```
-
-```{r}
-seat_bag_tst_pred = predict(seat_bag, newdata = seat_tst)
-table(predicted = seat_bag_tst_pred, actual = seat_tst$Sales)
-(bag_tst_acc = calc_acc(predicted = seat_bag_tst_pred, actual = seat_tst$Sales))
-```
-
-
-### Random Forest
-
-For classification, the suggested `mtry` for a random forest is $\sqrt{p}.$
-
-```{r}
-seat_forest = randomForest(Sales ~ ., data = seat_trn, mtry = 3, importance = TRUE, ntrees = 500)
-seat_forest
-```
-
-```{r}
-seat_forest_tst_perd = predict(seat_forest, newdata = seat_tst)
-table(predicted = seat_forest_tst_perd, actual = seat_tst$Sales)
-(forest_tst_acc = calc_acc(predicted = seat_forest_tst_perd, actual = seat_tst$Sales))
-```
-
-
-### Boosting
-
-To perform boosting, we modify the response to be `0` and `1` to work with `gbm`. Later we will use `caret` to fit `gbm` models, which will avoid this annoyance.
-
-```{r}
-seat_trn_mod = seat_trn
-seat_trn_mod$Sales = as.numeric(ifelse(seat_trn_mod$Sales == "Low", "0", "1"))
-```
-
-```{r}
-seat_boost = gbm(Sales ~ ., data = seat_trn_mod, distribution = "bernoulli", 
-                 n.trees = 5000, interaction.depth = 4, shrinkage = 0.01)
-seat_boost
-```
-
-```{r}
-seat_boost_tst_pred = ifelse(predict(seat_boost, seat_tst, n.trees = 5000, "response") > 0.5, 
-                             "High", "Low")
-table(predicted = seat_boost_tst_pred, actual = seat_tst$Sales)
-(boost_tst_acc = calc_acc(predicted = seat_boost_tst_pred, actual = seat_tst$Sales))
-```
-
-
-### Results
-
-```{r}
-(seat_acc = data.frame(
-  Model = c("Single Tree", "Logistic Regression", "Bagging",  "Random Forest",  "Boosting"),
-  TestAccuracy = c(tree_tst_acc, glm_tst_acc, bag_tst_acc, forest_tst_acc, boost_tst_acc)
-  )
+pve
+plot(
+  pve,
+  xlab = "Principal Component",
+  ylab = "Proportion of Variance Explained",
+  ylim = c(0, 1),
+  type = 'b'
 )
 ```
 
-Here we see each of the ensemble methods performing better than a single tree, however, they still fall behind logistic regression. Sometimes a simple linear model will beat more complicated models! This is why you should always try a logistic regression for classification.
-
-
-## Tuning
-
-So far we fit bagging, boosting and random forest models, but did not tune any of them, we simply used certain, somewhat arbitrary, parameters. Now we will see how to modify the tuning parameters to make these models better.
-
-- Bagging: Actually just a subset of Random Forest with `mtry` = $p$.
-- Random Forest: `mtry`
-- Boosting: `n.trees`, `interaction.depth`, `shrinkage`, `n.minobsinnode`
-
-We will use the `caret` package to accomplish this. Technically `ntrees` is a tuning parameter for both bagging and random forest, but `caret` will use 500 by default and there is no easy way to tune it. This will not make a big difference since for both we simply need "enough" and 500 seems to do the trick.
-
-While `mtry` is a tuning parameter, there are suggested values for classification and regression:
-
-- Regression: `mtry` = $p/3.$
-- Classification: `mtry` = $\sqrt{p}.$
-
-Also note that with these tree-based ensemble methods there are two resampling solutions for tuning the model:
-
-- Out of Bag 
-- Cross-Validation
-
-Using Out of Bag samples is advantageous with these methods as compared to Cross-Validation since it removes the need to refit the model and is thus much more computationally efficient. Unfortunately OOB methods cannot be used with `gbm` models. See the [`caret` documentation](http://topepo.github.io/caret/training.html) for details.
-
-
-### Random Forest and Bagging
-
-Here we setup training control for both OOB and cross-validation methods. Note we specify `verbose = FALSE` which suppresses output related to progress. You may wish to set this to `TRUE` when first tuning a model since it will give you an idea of how long the tuning process will take. (Which can sometimes be a long time.)
+We can then plot the proportion of variance explained for each PC. As expected, we see the PVE decrease.
 
 ```{r}
-oob = trainControl(method = "oob")
-cv_5 = trainControl(method = "cv", number = 5)
+cumsum(pve)
+plot(
+  cumsum(pve),
+  xlab = "Principal Component",
+  ylab = "Cumulative Proportion of Variance Explained",
+  ylim = c(0, 1),
+  type = 'b'
+)
 ```
 
-To tune a Random Forest in `caret` we will use `method = "rf"` which uses the `randomForest` function in the background. Here we elect to use the OOB training control that we created. We could also use cross-validation, however it will likely select a similar model, but require much more time.
-
-We setup a grid of `mtry` values which include all possible values since there are $10$ predictors in the dataset. An `mtry` of $10$ is actually bagging.
-
-```{r}
-dim(seat_trn)
-rf_grid =  expand.grid(mtry = 1:10)
-```
-
-```{r}
-set.seed(825)
-seat_rf_tune = train(Sales ~ ., data = seat_trn,
-                     method = "rf",
-                     trControl = oob,
-                     verbose = FALSE,
-                     tuneGrid = rf_grid)
-seat_rf_tune
-```
-
-```{r}
-calc_acc(predict(seat_rf_tune, seat_tst), seat_tst$Sales)
-```
-
-The results returned are based on the OOB samples. (Coincidentally, the test accuracy is the same as the best accuracy found using OOB samples.) Note that when using OOB, for some reason the default plot is not what you would expect and is not at all useful. (Which is why it is omitted here.)
-
-```{r}
-seat_rf_tune$bestTune
-```
-
-Based on these results, we would select the random forest model with an `mtry` of `r as.numeric(seat_rf_tune$bestTune)`. Note that based on the OOB estimates, the bagging model is expected to perform worse than this selected model, however, based on our results above, that is not what we find to be true in our test set.
-
-Also note that `method = "ranger"` would also fit a random forest model. [Ranger](http://arxiv.org/pdf/1508.04409.pdf) is a newer `R` package for random forests that has been shown to be much faster, especially when there are a larger number of predictors.
-
-
-### Boosting
-
-We now tune a boosted tree model. We will use the cross-validation tune control setup above. We will fit the model using `gbm` with `caret`.
-
-To setup the tuning grid, we must specify four parameters to tune:
-
-- `interaction.depth`: How many splits to use with each tree.
-- `n.trees`: The number of trees to use.
-- `shrinkage`: The shrinkage parameters, which controls how fast the method learns.
-- `n.minobsinnode`: The minimum number of observations in a node of the tree. (`caret` requires us to specify this. This is actually a tuning parameter of the trees, not boosting, and we would normally just accept the default.)
-
-Finally, `expand.grid` comes in handy, as we can specify a vector of values for each parameter, then we get back a matrix of all possible combinations.
-
-```{r}
-gbm_grid =  expand.grid(interaction.depth = 1:5,
-                        n.trees = (1:6) * 500,
-                        shrinkage = c(0.001, 0.01, 0.1),
-                        n.minobsinnode = 10)
-```
-
-We now train the model using all possible combinations of the tuning parameters we just specified.
+Often we are interested in the cumulative proportion. A common use of PCA outside of visualization is dimension reduction for modeling. If $p$ is large, PCA is performed, and the principal components that account for a large proportion of variation, say 95%, are used for further analysis. In certain situations that can reduce the dimensionality of data significantly. This can be done almost automatically using `caret`:
 
 ```{r, message = FALSE, warning = FALSE}
-seat_gbm_tune = train(Sales ~ ., data = seat_trn,
-                      method = "gbm",
-                      trControl = cv_5,
-                      verbose = FALSE,
-                      tuneGrid = gbm_grid)
-```
-
-The additional `verbose = FALSE` in the `train` call suppresses additional output from each `gbm` call.
-
-By default, calling `plot` here will produce a nice graphic summarizing the results. 
-
-```{r}
-plot(seat_gbm_tune)
-```
-
-```{r}
-calc_acc(predict(seat_gbm_tune, seat_tst), seat_tst$Sales)
-```
-
-We see our tuned model does no better on the test set than the arbitrary boosted model we had fit above, with the slightly different parameters seen below. We could perhaps try a larger tuning grid, but at this point it seems unlikely that we could find a much better model. There seems to be no way to get a tree method to out-perform logistic regression in this dataset.
-
-```{r}
-seat_gbm_tune$bestTune
-```
-
-
-## Tree versus Ensemble Boundaries
-
-```{r}
+library(caret)
 library(mlbench)
+data(Sonar)
+set.seed(18)
+using_pca = train(Class ~ ., data = Sonar, method = "knn", 
+                  trControl = trainControl(method = "cv", number = 5), 
+                  preProcess = "pca",
+                  tuneGrid = expand.grid(k = c(1, 3, 5, 7, 9)))
+regular_scaling = train(Class ~ ., data = Sonar, method = "knn", 
+                        trControl = trainControl(method = "cv", number = 5), 
+                        preProcess = c("center", "scale"), 
+                        tuneGrid = expand.grid(k = c(1, 3, 5, 7, 9)))
+max(using_pca$results$Accuracy)
+max(regular_scaling$results$Accuracy)
+
+using_pca$preProcess
+```
+
+It won't always outperform simply using the original predictors, but here using 30 of 60 principal components shows a slight advantage over using all 60 predictors. In other situation, it may result in a large perform gain.
+
+### Simulated Data
+
+```{r}
+library(MASS)
 set.seed(42)
-sim_trn = mlbench.circle(n = 1000, d = 2)
-sim_trn = data.frame(sim_trn$x, class = as.factor(sim_trn$classes))
-sim_tst = mlbench.circle(n = 1000, d = 2)
-sim_tst = data.frame(sim_tst$x, class = as.factor(sim_tst$classes))
+n = 180
+p = 10
+clust_data = rbind(
+  mvrnorm(n = n / 3, sample(c(1, 2, 3, 4), p, replace = TRUE), diag(p)),
+  mvrnorm(n = n / 3, sample(c(1, 2, 3, 4), p, replace = TRUE), diag(p)),
+  mvrnorm(n = n / 3, sample(c(1, 2, 3, 4), p, replace = TRUE), diag(p))
+)
 ```
 
-```{r, fig.height = 5, fig.width = 5}
-sim_trn_col = ifelse(sim_trn$class == 1, "darkorange", "dodgerblue")
-plot(sim_trn$X1, sim_trn$X2, col = sim_trn_col,
-     xlab = "X1", ylab = "X2", main = "Simulated Training Data", pch = 20)
-grid()
-```
+Above we simulate data for clustering. Note that, we did this in a way that will result in three clusters.
 
 ```{r}
-cv_5 = trainControl(method = "cv", number = 5)
-oob  = trainControl(method = "oob")
+true_clusters = c(rep(3, n / 3), rep(1, n / 3), rep(2, n / 3))
 ```
+
+We label the true clusters 1, 2, and 3 in a way that will "match" output from $k$-means. (Which is somewhat arbitrary.)
 
 ```{r}
-sim_tree_cv = train(class ~ .,
-                    data = sim_trn,
-                    trControl = cv_5,
-                    method = "rpart")
+kmean_out = kmeans(clust_data, centers = 3, nstart = 10)
+names(kmean_out)
 ```
 
-```{r, message = FALSE, warning = FALSE}
-library(rpart.plot)
-rpart.plot(sim_tree_cv$finalModel)
-```
+Notice that we used `nstart = 10` which will give us a more stable solution by attempting 10 random starting positions for the means. Also notice we chose to use `centers = 3`. (The $k$ in $k$-mean). How did we know to do this? We'll find out on the homework. (It will involve looking at `tot.withinss`)
 
 ```{r}
-rf_grid = expand.grid(mtry = c(1, 2))
-sim_rf_oob = train(class ~ .,
-                   data = sim_trn,
-                   trControl = oob,
-                   tuneGrid = rf_grid)
+kmean_out
+kmeans_clusters = kmean_out$cluster
+
+table(true_clusters, kmeans_clusters)
 ```
 
-```{r}
-gbm_grid =  expand.grid(interaction.depth = 1:5,
-                        n.trees = (1:6) * 500,
-                        shrinkage = c(0.001, 0.01, 0.1),
-                        n.minobsinnode = 10)
+We check how well the clustering is working.
 
-sim_gbm_cv = train(class ~ ., 
-                   data = sim_trn,
-                   method = "gbm",
-                   trControl = cv_5,
-                   verbose = FALSE,
-                   tuneGrid = gbm_grid)
+```{r}
+dim(clust_data)
 ```
 
+This data is "high dimensional" so it is difficult to visualize. (Anything more than 2 is hard to visualize.)
+
 ```{r}
-plot_grid = expand.grid(
-  X1 = seq(min(sim_tst$X1) - 1, max(sim_tst$X1) + 1, by = 0.01),
-  X2 = seq(min(sim_tst$X2) - 1, max(sim_tst$X2) + 1, by = 0.01)
+plot(
+  clust_data[, 1],
+  clust_data[, 2],
+  pch = 20,
+  xlab = "First Variable",
+  ylab = "Second Variable"
+)
+```
+
+Plotting the first and second variables simply results in a blob.
+
+```{r}
+plot(
+  clust_data[, 1],
+  clust_data[, 2],
+  col = true_clusters,
+  pch = 20,
+  xlab = "First Variable",
+  ylab = "Second Variable"
+)
+```
+
+Even when using their true clusters for coloring, this plot isn't very helpful.
+
+```{r}
+clust_data_pca = prcomp(clust_data, scale = TRUE)
+
+plot(
+  clust_data_pca$x[, 1],
+  clust_data_pca$x[, 2],
+  pch = 0,
+  xlab = "First Principal Component",
+  ylab = "Second Principal Component"
+)
+```
+
+If we instead plot the first two principal components, we see, even without coloring, one blob that is clearly separate from the rest.
+
+```{r}
+plot(
+  clust_data_pca$x[, 1],
+  clust_data_pca$x[, 2],
+  col = true_clusters,
+  pch = 0,
+  xlab = "First Principal Component",
+  ylab = "Second Principal Component",
+  cex = 2
+)
+points(clust_data_pca$x[, 1], clust_data_pca$x[, 2], col = kmeans_clusters, pch = 20, cex = 1.5)
+```
+
+Now adding the true colors (boxes) and the $k$-means results (circles), we obtain a nice visualization.
+
+```{r}
+clust_data_pve = get_PVE(clust_data_pca)
+
+plot(
+  cumsum(clust_data_pve),
+  xlab = "Principal Component",
+  ylab = "Cumulative Proportion of Variance Explained",
+  ylim = c(0, 1),
+  type = 'b'
+)
+```
+
+The above visualization works well because the first two PCs explain a large proportion of the variance.
+
+```{r}
+#install.packages('sparcl')
+library(sparcl)
+```
+
+To create colored dendrograms we will use `ColorDendrogram()` in the `sparcl` package.
+
+```{r}
+clust_data_hc = hclust(dist(scale(clust_data)), method = "complete")
+clust_data_cut = cutree(clust_data_hc , 3)
+ColorDendrogram(clust_data_hc, y = clust_data_cut,
+                labels = names(clust_data_cut),
+                main = "Simulated Data, Complete Linkage",
+                branchlength = 1.5)
+```
+
+Here we apply hierarchical clustering to the **scaled** data. The `dist()` function is used to calculate pairwise distances between the (scaled in this case) observations. We use complete linkage. We then use the `cutree()` function to cluster the data into `3` clusters. The `ColorDendrogram()` function is then used to plot the dendrogram. Note that the `branchlength` argument is somewhat arbitrary (the length of the colored bar) and will need to be modified for each dendrogram.
+
+```{r}
+table(true_clusters, clust_data_cut)
+```
+
+We see in this case hierarchical clustering doesn't "work" as well as $k$-means.
+
+```{r}
+clust_data_hc = hclust(dist(scale(clust_data)), method = "single")
+clust_data_cut = cutree(clust_data_hc , 3)
+ColorDendrogram(clust_data_hc, y = clust_data_cut,
+                labels = names(clust_data_cut),
+                main = "Simulated Data, Single Linkage",
+                branchlength = 0.5)
+
+table(true_clusters, clust_data_cut)
+
+
+clust_data_hc = hclust(dist(scale(clust_data)), method = "average")
+clust_data_cut = cutree(clust_data_hc , 3)
+ColorDendrogram(clust_data_hc, y = clust_data_cut,
+                labels = names(clust_data_cut),
+                main = "Simulated Data, Average Linkage",
+                branchlength = 1)
+
+table(true_clusters, clust_data_cut)
+```
+
+We also try single and average linkage. Single linkage seems to perform poorly here, while average linkage seems to be working well.
+
+
+### Iris Data
+
+
+```{r}
+str(iris)
+iris_pca = prcomp(iris[,-5], scale = TRUE)
+iris_pca$rotation
+
+lab_to_col = function (labels){
+  cols = rainbow (length(unique(labels)))
+  cols[as.numeric (as.factor(labels))]
+}
+
+plot(iris_pca$x[,1], iris_pca$x[,2], col = lab_to_col(iris$Species), pch = 20)
+plot(iris_pca$x[,3], iris_pca$x[,4], col = lab_to_col(iris$Species), pch = 20)
+
+
+iris_pve = get_PVE(iris_pca)
+
+plot(
+  cumsum(iris_pve),
+  xlab = "Principal Component",
+  ylab = "Cumulative Proportion of Variance Explained",
+  ylim = c(0, 1),
+  type = 'b'
 )
 
-tree_pred = predict(sim_tree_cv, plot_grid)
-rf_pred   = predict(sim_rf_oob, plot_grid)
-gbm_pred  = predict(sim_gbm_cv, plot_grid)
 
-tree_col = ifelse(tree_pred == 1, "darkorange", "dodgerblue")
-rf_col   = ifelse(rf_pred == 1, "darkorange", "dodgerblue")
-gbm_col  = ifelse(gbm_pred == 1, "darkorange", "dodgerblue")
+iris_kmeans = kmeans(iris[,-5], centers = 3, nstart = 10)
+table(iris_kmeans$clust, iris[,5])
+
+
+
+iris_hc = hclust(dist(scale(iris[,-5])), method = "complete")
+iris_cut = cutree(iris_hc , 3)
+ColorDendrogram(iris_hc, y = iris_cut,
+                labels = names(iris_cut),
+                main = "Iris, Complete Linkage",
+                branchlength = 1.5)
+
+table(iris_cut, iris[,5])
+table(iris_cut, iris_kmeans$clust)
+
+
+iris_hc = hclust(dist(scale(iris[,-5])), method = "single")
+iris_cut = cutree(iris_hc , 3)
+ColorDendrogram(iris_hc, y = iris_cut,
+                labels = names(iris_cut),
+                main = "Iris, Single Linkage",
+                branchlength = 0.3)
+
+iris_hc = hclust(dist(scale(iris[,-5])), method = "average")
+iris_cut = cutree(iris_hc , 3)
+ColorDendrogram(iris_hc, y = iris_cut,
+                labels = names(iris_cut),
+                main = "Iris, Average Linkage",
+                branchlength = 1)
 ```
-
-```{r, fig.height = 5, fig.width = 13}
-par(mfrow = c(1, 3))
-plot(plot_grid$X1, plot_grid$X2, col = tree_col,
-     xlab = "X1", ylab = "X2", pch = 20, main = "Single Tree",
-     xlim = c(-1, 1), ylim = c(-1, 1))
-plot(plot_grid$X1, plot_grid$X2, col = rf_col,
-     xlab = "X1", ylab = "X2", pch = 20, main = "Random Forest",
-     xlim = c(-1, 1), ylim = c(-1, 1))
-plot(plot_grid$X1, plot_grid$X2, col = gbm_col,
-     xlab = "X1", ylab = "X2", pch = 20, main = "Boosted Trees",
-     xlim = c(-1, 1), ylim = c(-1, 1))
-```
-
-
-## External Links
-
-- [Classification and Regression by `randomForest`](http://www.bios.unc.edu/~dzeng/BIOS740/randomforest.pdf) - Introduction to the `randomForest` package in `R` news.
-- [`ranger`: A Fast Implementation of Random Forests](https://github.com/imbs-hl/ranger) - Alternative package for fitting random forests with potentially better speed.
-- [On `ranger`'s respect.unordered.factors Argument](http://www.win-vector.com/blog/2016/05/on-ranger-respect-unordered-factors/) - A note on handling of categorical variables with random forests.
-- [Extremely Randomized Trees](https://pdfs.semanticscholar.org/336a/165c17c9c56160d332b9f4a2b403fccbdbfb.pdf)
-- [`extraTrees` Method for Classificationand Regression](https://cran.r-project.org/web/packages/extraTrees/vignettes/extraTrees.pdf)
-- [XGBoost](http://xgboost.readthedocs.io/en/latest/) - Scalable and Flexible Gradient Boosting
-- [XGBoost `R` Tutorial](http://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html)
-
-
