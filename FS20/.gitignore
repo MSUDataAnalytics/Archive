@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+public/*
+private/*
+resources/_gen/*
+*.zip
+temp_figs/*
+R/*.rds
+R/hp1_pos.csv
+
+static/slides/*.pdf
+static/example/10-example_files/figure-html/widgets/*
